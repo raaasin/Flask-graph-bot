@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Bot</title>
+    <style>
+        body {
+            background-color: #211f1f;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .total {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 80vh; /* Set the height of the total container to 80% of viewport height */
+            width: 80vw;
+        }
+
+        .chat-container {
+            width: 100%;
+            height: 100%; /* Set the height of the chat container to 70% of its parent container */
+            background-color: #211f1f;
+            border-radius: 10px;
+            overflow-y: auto; /* Add a scrollbar when content overflows */
+            padding: 20px;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            word-wrap: break-word;
+            display: flex;
+        }
+
+        .message-text {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .user-message {
+            align-self: flex-start;
+        }
+
+        .bot-message {
+            align-self: flex-end;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .input-container {
+            width: 100%;
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .input-box {
+            flex: 1;
+            margin-right: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-color: oldlace;
+            border-radius: 10px;
+            border-width: 1px;
+            outline: none;
+            background-color: #211f1f;
+            color:  oldlace;
+        }
+
+        .send-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #211f1f;
+            color:  oldlace;
+            border-color: oldlace;
+            border-radius: 10px;
+            border-width: 1px;
+            cursor: pointer;
+        }
+
+        .send-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="total">
+        <div class="chat-container" id="chat-container">
+            <!-- Chat messages will appear here -->
+        </div>
+        <div class="input-container">
+            <input type="text" id="userMessage" class="input-box" placeholder="Message Graph Bot..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()" class="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userMessage = document.getElementById('userMessage').value;
+            document.getElementById('userMessage').value = '';
+
+            appendMessage(userMessage, 'user-message');
+
+            // Send message to server
+            fetch('/send_message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'user_message=' + encodeURIComponent(userMessage)
+            })
+            .then(response => response.text())
+            .then(data => {
+                appendMessage(data, 'bot-message');
+            });
+        }
+
+        function appendMessage(message, messageType) {
+            var chatContainer = document.getElementById('chat-container');
+            var messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.classList.add(messageType);
+
+            var messageContent = document.createElement('div');
+            messageContent.classList.add('message-text');
+            messageContent.innerText = message;
+
+            var icon = document.createElement('img');
+            icon.classList.add('icon');
+
+            if (messageType === 'user-message') {
+                icon.src = '/static/images/human_icon.png';
+                icon.alt = 'Human Icon';
+                messageDiv.appendChild(icon);
+
+                var name = document.createElement('div');
+                name.innerText = 'You:';
+                messageDiv.appendChild(name);
+            } else {
+                icon.src = '/static/images/bot_icon.png';
+                icon.alt = 'Bot Icon';
+                messageDiv.appendChild(icon);
+
+                var name = document.createElement('div');
+                name.innerText = 'Bot:';
+                messageDiv.appendChild(name);
+            }
+
+            messageDiv.appendChild(messageContent);
+
+            chatContainer.appendChild(messageDiv);
+
+            // Scroll to the bottom of the chat container
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function handleKeyPress(event) {
+            if (event.keyCode === 13) {
+                sendMessage();
+            }
+        }
+    </script>
+</body>
+</html>
