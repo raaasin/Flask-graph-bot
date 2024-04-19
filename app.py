@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
-
+#logic
 @app.route('/send_message', methods=['POST'])
 def send_message():
     user_message = request.form['user_message']
