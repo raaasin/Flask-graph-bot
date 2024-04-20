@@ -91,24 +91,30 @@
             cursor: pointer;
         }
 
+        .send-button.disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
         .send-button:hover {
             background-color: #121e2a;
         }
-        .modify-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #211f1f;
-    color: oldlace;
-    border: 1px solid oldlace;
-    border-radius: 10px;
-    text-decoration: none; /* Remove default underline */
-    cursor: pointer;
-}
 
-.modify-button:hover {
-    background-color: #121e2a;
-}
+        .modify-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #211f1f;
+            color: oldlace;
+            border: 1px solid oldlace;
+            border-radius: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modify-button:hover {
+            background-color: #121e2a;
+        }
     </style>
 </head>
 <body>
@@ -117,15 +123,17 @@
             <!-- Chat messages will appear here -->
         </div>
         <div class="input-container">
-            <input type="text" id="userMessage" class="input-box" placeholder="Message Graph Bot..." onkeypress="handleKeyPress(event)">
-            <button onclick="sendMessage()" class="send-button">Send</button>
-            <a href="/" class="modify-button" >Modify Dataset</a>
+            <input type="text" id="userMessage" class="input-box" placeholder="Message Graph Bot..." oninput="validateInput()">
+            <button onclick="sendMessage()" class="send-button disabled" id="sendButton" disabled>Send</button>
+            <a href="/" class="modify-button">Modify Dataset</a>
         </div>
     </div>
 
     <script>
         function sendMessage() {
-            var userMessage = document.getElementById('userMessage').value;
+            var userMessage = document.getElementById('userMessage').value.trim();
+            if (userMessage === '') return; // Do not send if message is empty
+
             document.getElementById('userMessage').value = '';
 
             appendMessage(userMessage, 'user-message');
@@ -183,9 +191,16 @@
             chatContainer.scrollTop = chatContainer.scrollHeight;
         }
 
-        function handleKeyPress(event) {
-            if (event.keyCode === 13) {
-                sendMessage();
+        function validateInput() {
+            var userMessage = document.getElementById('userMessage').value.trim();
+            var sendButton = document.getElementById('sendButton');
+
+            if (userMessage.length > 0) {
+                sendButton.classList.remove('disabled');
+                sendButton.removeAttribute('disabled');
+            } else {
+                sendButton.classList.add('disabled');
+                sendButton.setAttribute('disabled', 'disabled');
             }
         }
     </script>
