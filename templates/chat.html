@@ -92,8 +92,23 @@
         }
 
         .send-button:hover {
-            background-color: #0056b3;
+            background-color: #121e2a;
         }
+        .modify-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #211f1f;
+    color: oldlace;
+    border: 1px solid oldlace;
+    border-radius: 10px;
+    text-decoration: none; /* Remove default underline */
+    cursor: pointer;
+}
+
+.modify-button:hover {
+    background-color: #121e2a;
+}
     </style>
 </head>
 <body>
@@ -104,6 +119,7 @@
         <div class="input-container">
             <input type="text" id="userMessage" class="input-box" placeholder="Message Graph Bot..." onkeypress="handleKeyPress(event)">
             <button onclick="sendMessage()" class="send-button">Send</button>
+            <a href="/" class="modify-button" >Modify Dataset</a>
         </div>
     </div>
 
