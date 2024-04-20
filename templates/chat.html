@@ -123,7 +123,7 @@
             <!-- Chat messages will appear here -->
         </div>
         <div class="input-container">
-            <input type="text" id="userMessage" class="input-box" placeholder="Message Graph Bot..." oninput="validateInput()">
+            <input type="text" id="userMessage" class="input-box" placeholder="Message Graph Bot..." oninput="validateInput()" onkeypress="handleKeyPress(event)">
             <button onclick="sendMessage()" class="send-button disabled" id="sendButton" disabled>Send</button>
             <a href="/" class="modify-button">Modify Dataset</a>
         </div>
@@ -189,6 +189,13 @@
 
             // Scroll to the bottom of the chat container
             chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission
+                sendMessage();
+            }
         }
 
         function validateInput() {
