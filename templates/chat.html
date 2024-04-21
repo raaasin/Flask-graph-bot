@@ -125,6 +125,7 @@
         <div class="input-container">
             <input type="text" id="userMessage" class="input-box" placeholder="Message Graph Bot..." oninput="validateInput()" onkeypress="handleKeyPress(event)">
             <button onclick="sendMessage()" class="send-button disabled" id="sendButton" style="margin-right: 10px;" disabled>⬆️</button>
+            <button onclick="recordAudio()" class="send-button" id="recordButton" style="margin-right: 10px;">🎙️</button>
             <a href="/" class="modify-button">✒️</a>
         </div>
     </div>
@@ -211,5 +212,71 @@
             }
         }
     </script>
+
+<script>
+    let isRecording = false;
+    let recordedAudio = null;
+
+    async function recordAudio() {
+        const recordButton = document.getElementById('recordButton');
+
+        if (!isRecording) {
+            isRecording = true;
+            recordButton.textContent = '🔴 Recording...';
+            recordButton.disabled = true;
+            await new Promise(resolve => setTimeout(resolve, 3000));
+
+            const recordedAudioUrl = 'https://example.com/recorded-audio.mp3';
+
+            
+            await transcribeAudio(recordedAudioUrl);
+
+            isRecording = false;
+            recordButton.textContent = '🎙️ Record Audio';
+            recordButton.disabled = false;
+        } else {
+            // Stop recording (if needed)
+            // Code to stop recording audio...
+            
+            isRecording = false;
+            recordButton.textContent = '🎙️ Record Audio';
+            recordButton.disabled = false;
+        }
+    }
+
+    async function transcribeAudio(audioUrl) {
+        // Request parameters
+        const data = {
+            audio_url: audioUrl
+        };
+
+        try {
+            // Replace 'Your-API-Key' with your actual AssemblyAI API key
+            const response = await fetch('https://api.assemblyai.com/v2/transcript', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': '4822f34dd0bb40e9a1be096507478a73' // Replace with your actual API key
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to transcribe audio');
+            }
+
+            const result = await response.json();
+            const transcript = result.text;
+
+            // Update user message input field with the transcribed text
+            const userMessageInput = document.getElementById('userMessage');
+            userMessageInput.value = transcript;
+            validateInput(); // Validate input to enable/disable send button
+        } catch (error) {
+            console.error('Error transcribing audio:', error);
+        }
+    }
+</script>
+
 </body>
 </html>
