@@ -5,7 +5,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-agent = Agent(pd.read_csv("uploads/GroceryDataset.csv"))
+agent = Agent(pd.read_csv("uploads/data.csv"))
 response=agent.chat(
     "what's the average price of Bakery & Desserts")
 print(response)

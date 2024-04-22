@@ -1,6 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
-
+import pandas as pd
+import warnings
+from pandasai import Agent
+warnings.filterwarnings("ignore")
+from pandasai.helpers import path
 app = Flask(__name__)
 
 # Define the folder to store uploaded files
@@ -31,7 +35,8 @@ def upload_file_and_start_chat():
 
     if file and allowed_file(file.filename):
         # Save the file to the uploads folder
-        filename = file.filename
+        filename = "data.csv"
+        
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return redirect(url_for('chat'))
     else:
@@ -44,10 +49,22 @@ def chat():
 # This route is used to send messages during the chat
 @app.route('/send_message', methods=['POST'])
 def send_message():
+    try:
+        user_defined_path = path.find_project_root()
+    except ValueError:
+        user_defined_path = os.getcwd()
+    user_defined_path = os.path.join(user_defined_path, "static", "images")
     user_message = request.form['user_message']
-    # Here, you would implement your logic to process the user message and generate a response
-    # For demonstration purposes, let's just return the user message itself
-    return user_message
+    print(user_message)
+    agent = Agent(pd.read_csv("uploads/data.csv"),config={
+        "save_charts_path": user_defined_path,
+        "save_charts": True,
+        "verbose": True,
+    })
+    response=agent.chat(str(user_message))
+    print(response)
+    return response
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Run the Flask app with production settings
+    app.run(host='0.0.0.0', port=5000)

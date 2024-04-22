@@ -1,319 +1,43 @@
-2024-04-22 10:15:52 [INFO] Question: Which are the top 5 countries by sales?
-2024-04-22 10:15:52 [INFO] Running PandasAI with bamboo_llm LLM...
-2024-04-22 10:15:52 [INFO] Prompt ID: 6fa3980a-557c-4d98-b85c-7d88ce09dcb2
-2024-04-22 10:15:52 [INFO] Executing Pipeline: GenerateChatPipeline
-2024-04-22 10:15:52 [INFO] Executing Step 0: ValidatePipelineInput
-2024-04-22 10:15:52 [INFO] Executing Step 1: CacheLookup
-2024-04-22 10:15:52 [INFO] Executing Step 2: PromptGeneration
-2024-04-22 10:15:54 [INFO] Using prompt: <dataframe>
-dfs[0]:10x2
-country,sales
-United States,3200
-Germany,4500
-Italy,7000
-</dataframe>
-
-
-
-
-Update this initial code:
-```python
-# TODO: import the required dependencies
-import pandas as pd
-
-# Write code here
-
-# Declare result var: 
-type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
-
-```
-
-
-
-
-
-
-
-### QUERY
- Which are the top 5 countries by sales?
-
-Variable `dfs: list[pd.DataFrame]` is already declared.
-
-At the end, declare "result" variable as a dictionary of type and value.
-
-If you are asked to plot a chart, use "matplotlib" for charts, save as png.
-
-
-Generate python code and return full updated code:
-2024-04-22 10:15:54 [INFO] Executing Step 3: CodeGenerator
-2024-04-22 10:15:56 [INFO] Prompt used:
-            None
-            
-2024-04-22 10:15:56 [INFO] Code generated:
-            ```
-            # TODO: import the required dependencies
-import pandas as pd
-
-# Write code here
-df = dfs[0]
-top_countries = df.sort_values(by='sales', ascending=False).head(5)['country'].tolist()
-
-# Declare result var
-result = {
-    "type": "string",
-    "value": f"The top 5 countries by sales are: {', '.join(top_countries)}"
-}
-            ```
-            
-2024-04-22 10:15:56 [INFO] Executing Step 4: CachePopulation
-2024-04-22 10:15:56 [INFO] Executing Step 5: CodeCleaning
-2024-04-22 10:15:56 [INFO] 
-Code running:
-```
-df = dfs[0]
-top_countries = df.sort_values(by='sales', ascending=False).head(5)['country'].tolist()
-result = {'type': 'string', 'value': f"The top 5 countries by sales are: {', '.join(top_countries)}"}
-        ```
-2024-04-22 10:15:56 [INFO] Executing Step 6: CodeExecution
-2024-04-22 10:15:56 [INFO] Executing Step 7: ResultValidation
-2024-04-22 10:15:56 [INFO] Answer: {'type': 'string', 'value': 'The top 5 countries by sales are: China, United States, Japan, Germany, United Kingdom'}
-2024-04-22 10:15:56 [INFO] Executing Step 8: ResultParsing
-2024-04-22 10:27:01 [INFO] Question: Which are the top 5 countries by sales?
-2024-04-22 10:27:01 [INFO] Running PandasAI with bamboo_llm LLM...
-2024-04-22 10:27:01 [INFO] Prompt ID: 2e97c991-72d2-4f17-8c63-35cd8dd18ed0
-2024-04-22 10:27:01 [INFO] Executing Pipeline: GenerateChatPipeline
-2024-04-22 10:27:01 [INFO] Executing Step 0: ValidatePipelineInput
-2024-04-22 10:27:01 [INFO] Executing Step 1: CacheLookup
-2024-04-22 10:27:01 [INFO] Using cached response
-2024-04-22 10:27:01 [INFO] Executing Step 2: PromptGeneration
-2024-04-22 10:27:01 [INFO] Executing Step 2: Skipping...
-2024-04-22 10:27:01 [INFO] Executing Step 3: CodeGenerator
-2024-04-22 10:27:01 [INFO] Executing Step 3: Skipping...
-2024-04-22 10:27:01 [INFO] Executing Step 4: CachePopulation
-2024-04-22 10:27:01 [INFO] Executing Step 4: Skipping...
-2024-04-22 10:27:01 [INFO] Executing Step 5: CodeCleaning
-2024-04-22 10:27:01 [INFO] 
-Code running:
-```
-df = dfs[0]
-top_countries = df.sort_values(by='sales', ascending=False).head(5)['country'].tolist()
-result = {'type': 'string', 'value': f"The top 5 countries by sales are: {', '.join(top_countries)}"}
-        ```
-2024-04-22 10:27:01 [INFO] Executing Step 6: CodeExecution
-2024-04-22 10:27:01 [INFO] Executing Step 7: ResultValidation
-2024-04-22 10:27:01 [INFO] Answer: {'type': 'string', 'value': 'The top 5 countries by sales are: China, United States, Japan, Germany, United Kingdom'}
-2024-04-22 10:27:01 [INFO] Executing Step 8: ResultParsing
-2024-04-22 10:27:17 [INFO] Question: Which are the top 5 countries by sales?
-2024-04-22 10:27:17 [INFO] Running PandasAI with bamboo_llm LLM...
-2024-04-22 10:27:17 [INFO] Prompt ID: 4c8ca7ca-0330-40ff-9c5b-e787f643ed0d
-2024-04-22 10:27:17 [INFO] Executing Pipeline: GenerateChatPipeline
-2024-04-22 10:27:17 [INFO] Executing Step 0: ValidatePipelineInput
-2024-04-22 10:27:17 [INFO] Executing Step 1: CacheLookup
-2024-04-22 10:27:17 [INFO] Using cached response
-2024-04-22 10:27:17 [INFO] Executing Step 2: PromptGeneration
-2024-04-22 10:27:17 [INFO] Executing Step 2: Skipping...
-2024-04-22 10:27:17 [INFO] Executing Step 3: CodeGenerator
-2024-04-22 10:27:17 [INFO] Executing Step 3: Skipping...
-2024-04-22 10:27:17 [INFO] Executing Step 4: CachePopulation
-2024-04-22 10:27:17 [INFO] Executing Step 4: Skipping...
-2024-04-22 10:27:17 [INFO] Executing Step 5: CodeCleaning
-2024-04-22 10:27:17 [INFO] 
-Code running:
-```
-df = dfs[0]
-top_countries = df.sort_values(by='sales', ascending=False).head(5)['country'].tolist()
-result = {'type': 'string', 'value': f"The top 5 countries by sales are: {', '.join(top_countries)}"}
-        ```
-2024-04-22 10:27:17 [INFO] Executing Step 6: CodeExecution
-2024-04-22 10:27:17 [INFO] Executing Step 7: ResultValidation
-2024-04-22 10:27:17 [INFO] Answer: {'type': 'string', 'value': 'The top 5 countries by sales are: China, United States, Japan, Germany, United Kingdom'}
-2024-04-22 10:27:17 [INFO] Executing Step 8: ResultParsing
-2024-04-22 10:27:35 [INFO] Question: Which are the top 5 countries by sales?
-2024-04-22 10:27:35 [INFO] Running PandasAI with bamboo_llm LLM...
-2024-04-22 10:27:35 [INFO] Prompt ID: 86b477e1-f25a-4cba-9985-0bac7274a853
-2024-04-22 10:27:35 [INFO] Executing Pipeline: GenerateChatPipeline
-2024-04-22 10:27:35 [INFO] Executing Step 0: ValidatePipelineInput
-2024-04-22 10:27:35 [INFO] Executing Step 1: CacheLookup
-2024-04-22 10:27:35 [INFO] Using cached response
-2024-04-22 10:27:35 [INFO] Executing Step 2: PromptGeneration
-2024-04-22 10:27:35 [INFO] Executing Step 2: Skipping...
-2024-04-22 10:27:35 [INFO] Executing Step 3: CodeGenerator
-2024-04-22 10:27:35 [INFO] Executing Step 3: Skipping...
-2024-04-22 10:27:35 [INFO] Executing Step 4: CachePopulation
-2024-04-22 10:27:35 [INFO] Executing Step 4: Skipping...
-2024-04-22 10:27:35 [INFO] Executing Step 5: CodeCleaning
-2024-04-22 10:27:35 [INFO] 
-Code running:
-```
-df = dfs[0]
-top_countries = df.sort_values(by='sales', ascending=False).head(5)['country'].tolist()
-result = {'type': 'string', 'value': f"The top 5 countries by sales are: {', '.join(top_countries)}"}
-        ```
-2024-04-22 10:27:35 [INFO] Executing Step 6: CodeExecution
-2024-04-22 10:27:35 [INFO] Executing Step 7: ResultValidation
-2024-04-22 10:27:35 [INFO] Answer: {'type': 'string', 'value': 'The top 5 countries by sales are: China, United States, Japan, Germany, United Kingdom'}
-2024-04-22 10:27:35 [INFO] Executing Step 8: ResultParsing
-2024-04-22 10:29:51 [INFO] Question: Which are the top 5 countries by sales?
-2024-04-22 10:29:51 [INFO] Running PandasAI with bamboo_llm LLM...
-2024-04-22 10:29:51 [INFO] Prompt ID: 83c9a24c-775e-419d-a66a-af954a5057bb
-2024-04-22 10:29:51 [INFO] Executing Pipeline: GenerateChatPipeline
-2024-04-22 10:29:51 [INFO] Executing Step 0: ValidatePipelineInput
-2024-04-22 10:29:51 [INFO] Executing Step 1: CacheLookup
-2024-04-22 10:29:51 [INFO] Using cached response
-2024-04-22 10:29:51 [INFO] Executing Step 2: PromptGeneration
-2024-04-22 10:29:51 [INFO] Executing Step 2: Skipping...
-2024-04-22 10:29:51 [INFO] Executing Step 3: CodeGenerator
-2024-04-22 10:29:51 [INFO] Executing Step 3: Skipping...
-2024-04-22 10:29:51 [INFO] Executing Step 4: CachePopulation
-2024-04-22 10:29:51 [INFO] Executing Step 4: Skipping...
-2024-04-22 10:29:51 [INFO] Executing Step 5: CodeCleaning
-2024-04-22 10:29:51 [INFO] 
-Code running:
-```
-df = dfs[0]
-top_countries = df.sort_values(by='sales', ascending=False).head(5)['country'].tolist()
-result = {'type': 'string', 'value': f"The top 5 countries by sales are: {', '.join(top_countries)}"}
-        ```
-2024-04-22 10:29:51 [INFO] Executing Step 6: CodeExecution
-2024-04-22 10:29:51 [INFO] Executing Step 7: ResultValidation
-2024-04-22 10:29:51 [INFO] Answer: {'type': 'string', 'value': 'The top 5 countries by sales are: China, United States, Japan, Germany, United Kingdom'}
-2024-04-22 10:29:51 [INFO] Executing Step 8: ResultParsing
-2024-04-22 10:30:50 [INFO] Question: Plot the histogram of countries showing for each the gdp, using different colors for each bar
-2024-04-22 10:30:51 [INFO] Running PandasAI with bamboo_llm LLM...
-2024-04-22 10:30:51 [INFO] Prompt ID: 83914ee3-b2d6-49e2-b316-ae7169841055
-2024-04-22 10:30:51 [INFO] Executing Pipeline: GenerateChatPipeline
-2024-04-22 10:30:51 [INFO] Executing Step 0: ValidatePipelineInput
-2024-04-22 10:30:51 [INFO] Executing Step 1: CacheLookup
-2024-04-22 10:30:51 [INFO] Executing Step 2: PromptGeneration
-2024-04-22 10:30:52 [INFO] Using prompt: <dataframe>
-dfs[0]:10x2
-country,sales
-Australia,2300
-Spain,2900
-France,4100
-</dataframe>
-
-
-
-
-Update this initial code:
-```python
-# TODO: import the required dependencies
-import pandas as pd
-
-# Write code here
-
-# Declare result var: 
-type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
-
-```
-
-
-
-
-
-
-
-### QUERY
- Plot the histogram of countries showing for each the gdp, using different colors for each bar
-
-Variable `dfs: list[pd.DataFrame]` is already declared.
-
-At the end, declare "result" variable as a dictionary of type and value.
-
-If you are asked to plot a chart, use "matplotlib" for charts, save as png.
-
-
-Generate python code and return full updated code:
-2024-04-22 10:30:52 [INFO] Executing Step 3: CodeGenerator
-2024-04-22 10:30:57 [INFO] Prompt used:
-            None
-            
-2024-04-22 10:30:57 [INFO] Code generated:
-            ```
-            # TODO: import the required dependencies
-import pandas as pd
-import matplotlib.pyplot as plt
-
-# Data
-data = {
-    'country': ['Spain', 'France', 'Australia'],
-    'gdp': [2900, 4100, 2300]
-}
-
-# Create DataFrame
-df = pd.DataFrame(data)
-
-# Plotting histogram
-plt.figure(figsize=(10, 6))
-colors = ['blue', 'green', 'orange']  # Define different colors for each bar
-
-plt.bar(df['country'], df['gdp'], color=colors)
-plt.xlabel('Countries')
-plt.ylabel('GDP')
-plt.title('GDP of Countries')
-
-# Save the plot as a png file
-plt.savefig('gdp_histogram.png')
-
-# Display the plot
-plt.show()
-
-# Assigning result variable
-result = {"type": "plot", "value": "gdp_histogram.png"}
-            ```
-            
-2024-04-22 10:30:57 [INFO] Executing Step 4: CachePopulation
-2024-04-22 10:30:57 [INFO] Executing Step 5: CodeCleaning
-2024-04-22 10:30:57 [INFO] Saving charts to C:\Users\dell\Documents\Projects\Current\Graph_RAG_Flask\exports\charts\temp_chart.png
-2024-04-22 10:30:57 [INFO] 
-Code running:
-```
-data = {'country': ['Spain', 'France', 'Australia'], 'gdp': [2900, 4100, 2300]}
-df = pd.DataFrame(data)
-plt.figure(figsize=(10, 6))
-colors = ['blue', 'green', 'orange']
-plt.bar(df['country'], df['gdp'], color=colors)
-plt.xlabel('Countries')
-plt.ylabel('GDP')
-plt.title('GDP of Countries')
-plt.savefig('C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png')
-plt.show()
-result = {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png'}
-        ```
-2024-04-22 10:30:57 [INFO] Executing Step 6: CodeExecution
-2024-04-22 10:31:14 [INFO] Executing Step 7: ResultValidation
-2024-04-22 10:31:14 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png'}
-2024-04-22 10:31:14 [INFO] Executing Step 8: ResultParsing
-2024-04-22 10:33:04 [INFO] Question: what's the average price?
-2024-04-22 10:33:04 [INFO] Running PandasAI with bamboo_llm LLM...
-2024-04-22 10:33:04 [INFO] Prompt ID: a3a4c6f3-329f-4b85-99e2-8b93eefadee1
-2024-04-22 10:33:04 [INFO] Executing Pipeline: GenerateChatPipeline
-2024-04-22 10:33:04 [INFO] Executing Step 0: ValidatePipelineInput
-2024-04-22 10:33:04 [INFO] Executing Step 1: CacheLookup
-2024-04-22 10:33:04 [INFO] Executing Step 2: PromptGeneration
-2024-04-22 10:33:06 [INFO] Using prompt: <dataframe>
+2024-04-22 11:54:35 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-22 11:54:35 [INFO] 127.0.0.1 - - [22/Apr/2024 11:54:35] "[36mGET /static/images/human_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 11:54:35 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 11:54:35 [INFO] Prompt ID: a75c3490-acb3-48fb-8a6e-4432fa9a5e96
+2024-04-22 11:54:35 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 11:54:35 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 11:54:35 [INFO] Executing Step 1: CacheLookup
+2024-04-22 11:54:35 [INFO] Using cached response
+2024-04-22 11:54:35 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 11:54:35 [INFO] Executing Step 2: Skipping...
+2024-04-22 11:54:35 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 11:54:35 [INFO] Executing Step 3: Skipping...
+2024-04-22 11:54:35 [INFO] Executing Step 4: CachePopulation
+2024-04-22 11:54:35 [INFO] Executing Step 4: Skipping...
+2024-04-22 11:54:35 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 11:54:35 [ERROR] Pipeline failed on step 5: local variable 'code_to_run' referenced before assignment
+2024-04-22 11:54:36 [INFO] 127.0.0.1 - - [22/Apr/2024 11:54:36] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 11:54:36 [INFO] 127.0.0.1 - - [22/Apr/2024 11:54:36] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 11:55:04 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-22 11:55:04 [INFO] 127.0.0.1 - - [22/Apr/2024 11:55:04] "[36mGET /static/images/human_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 11:55:04 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 11:55:04 [INFO] Prompt ID: b0198bbe-05c3-4d4b-a48f-140454fb831c
+2024-04-22 11:55:04 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 11:55:04 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 11:55:04 [INFO] Executing Step 1: CacheLookup
+2024-04-22 11:55:04 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 11:55:06 [INFO] Using prompt: <dataframe>
 dfs[0]:1757x8
 Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
-Beverages & Water,,After $12 OFF,Rated 4.2 out of 5 stars based on 677 reviews.,"San Pellegrino Italian Sparkling Drink, Melograno & Arancia, 11.15 fl oz, 24-count",$,Beef jerky   Original   80 Calories   Made with Premium Beef   96% Fat Free,"Item may be available in your local warehouse for a lower, non-delivered price.   120K-Cup® pods
-Breakfast Blend Coffee
-Organic
-Fair Trade Certified
-Light roast
-100% Arabica Coffee
-Kosher   CAUTION: POD IS HOT. ALLOW TO COOL AFTER USE.   PEEL – Starting at the puncture, peel lid and dispose.
-EMPTY – Compost or dispose of grounds. (Filter can remain.)   Dispose of empty cup responsibly.   *Keurig, K-Cup, and the K logo are trademarks of Keurig Green Mountain, Inc., used with permission. For use with Keurig® K-Cup® Brewers."
-Poultry,$439.99 ,After $2.60 OFF,,"Knott's Bite Size Cookies, Strawberry Shortbread, 2 oz, 36-count",,Variety Pack   1   Box with 72 Rolls   Flavored with Other Natural Flavors   Gelatin and Gluten Free,
-Laundry Detergent & Supplies,$74.99 ,After $80 OFF,Rated 3.9 out of 5 stars based on 606 reviews.,"Ghirardelli, Triple Chocolate Premium Brownie Mix, 6-Count",$,,"José's® Gourmet Coffee - Locally Roasted. Family Owned.   Sharing our expertise in great coffee from across the world-- it’s at the heart of everything we do and our passion for surpassing your highest expectations is why we do it.
-José's® Gourmet Coffee makes every morning a delightful experience with its unique and unexpected variety of flavors. We know that every great cup starts by sourcing and then roasting only the finest beans available. That’s where our high-quality standards begin and have lasted for generations.   Our Commitment to Sustainability
-We are committed to improve the livelihood of our coffee growing partners by supporting sustainable farming, community infrastructure development, education and healthcare programs.   Treat yourself to the delicious and indulgent taste of our Hazelnut Cream coffee! Made with only 100% Arabica beans, this flavored coffee delivers a rich nutty aroma and sweet creamy taste that is sure to delight your senses and satisfy your sweet tooth. With the well-balanced body and lingering finish, you won’t be able to resist a second cup. Nutty aroma, sweet creamy taste, well-balanced body, lingering finish   2-pack (2 lbs.each)
-100% Arabica Coffee
-Medium Roast Coffee
-Whole Bean Coffee
-Natural & Artificially Flavored
-Kosher
-Net Weight 32oz\2lb (907g), per bag
-Roasted & Packed in the USA"
+Meat & Seafood,$49.99 ,This item is not returnable.,Rated 4.4 out of 5 stars based on 1648 reviews.,"Windex Original Glass Cleaner, 32 fl oz & 169 fl oz Refill",$,"Certified Organic
+In partnership with Theo Chocolate
+Deep flavors, well balanced, slight sweetness, with a clean finish
+Coffee Blend consisting of Central and South American Coffees
+Tasting notes of Dark Chocolate, Baking Spice and Dark Berries","We decaffeinate our organic beans using the ""Swiss Water Process,"" wherein nature's elements of water, temperature, and time are favored over chemicals and solvents, preserving the most flavor possible. Learn more about our gentle, small-batch decaffeination process at: www.swisswater.comShade-grown 100% Arabica beans, certified USDA organic by the Texas Department of Agriculture. Cultivated by a cooperative of Maya Indian farmers in the Highlands of Chiapas, Mexico.Features:2 lb. bag2-packTotal net weight: 4.4 lbs.Swiss Water Process Decaffeinated Decaffeinated Dark Roast Coffee Certified Organic 100% Arabica, shade grown beansFrom the highlands of Chiapas, Mexico"
+Kirkland Signature Grocery,,Limit 5 Per Member,,Mary Macleod's Gluten Free Shortbread Cookies Mixed Assortment 8-Pack ,$,,"Share the celebration with a 12-count box of Ferrero Rocher! This Ferrero Rocher milk chocolate gift box offers a unique taste experience of contrasting layers: a whole crunchy hazelnut in the heart and a delicious, creamy hazelnut filling surrounded with milk chocolate, crispy wafers and gently roasted hazelnut pieces. And thanks to its signature golden wrapper, Ferrero Rocher is even more unique and special. The iconic original. Celebrate the moment with Ferrero Rocher. Since the 1940s, Ferrero has delighted consumers with premium, one-of-a-kind chocolate treats. What began as a local pasticceria in Italy’s Piemonte region is now one of the world’s most popular confectioners, satisfying cravings in over 100 countries worldwide. Thanks to a commitment to quality, freshness and a unique taste experience, Ferrero continues to delight chocolate lovers all over the world.   GOURMET CHOCOLATE GIFT BOX: Share the indulgent taste of Ferrero Rocher with this 12-count box of individually wrapped candy for gifting
+MILK CHOCOLATE HAZELNUT: A tempting combination made with a whole crunchy hazelnut dipped in delicious creamy chocolate hazelnut filling and covered with milk chocolate, crispy wafers and gently roasted hazelnut pieces
+CELEBRATE THE MOMENT: Share special moments with your family and friends, or take a moment just for you. Ferrero chocolates make indulgent treats that are great for unwinding after a long day
+PREMIUM CHOCOLATE: Expertly crafted from premium gourmet chocolate, these timeless classics deliver decadent taste one exquisite bite at a time
+THE FERRERO EXPERIENCE: Our commitment to quality, freshness and a unique taste experience inspires us to create only the finest products that help bring people together"
+Coffee,$28.79 ,After $50 OFF,Rated 4.6 out of 5 stars based on 119 reviews.,"Go Raw Sprouted Organic Pumpkin Seeds with Sea Salt, 22 oz",,200 Flex-Tech Bags   13-gallon   Drawstring   White   10% PCR,
 </dataframe>
 
 
@@ -338,7 +62,7 @@ type (possible values "string", "number", "dataframe", "plot"). Examples: { "typ
 
 
 ### QUERY
- what's the average price?
+ What is the average price of Bakery & Desserts
 
 Variable `dfs: list[pd.DataFrame]` is already declared.
 
@@ -348,44 +72,144 @@ If you are asked to plot a chart, use "matplotlib" for charts, save as png.
 
 
 Generate python code and return full updated code:
-2024-04-22 10:33:06 [INFO] Executing Step 3: CodeGenerator
-2024-04-22 10:33:09 [INFO] Prompt used:
+2024-04-22 11:55:06 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 11:55:12 [INFO] Prompt used:
             None
             
-2024-04-22 10:33:09 [INFO] Code generated:
+2024-04-22 11:55:12 [INFO] Code generated:
             ```
             # TODO: import the required dependencies
 import pandas as pd
 
 # Write code here
-prices = []
 for df in dfs:
-    prices.extend(df['Price'].str.replace('$', '').str.replace(',', '').astype(float).dropna().tolist())
-
-average_price = sum(prices) / len(prices)
-
-# Declare result var:
-result = { "type": "string", "value": f"The average price is ${average_price:.2f}" }
+    if "Sub Category" in df.columns and "Price" in df.columns:
+        bakery_desserts_df = df[df["Sub Category"].str.contains("Bakery & Desserts", case=False, na=False)]
+        if not bakery_desserts_df.empty:
+            average_price = bakery_desserts_df["Price"].str.replace("$", "").str.replace(",", "").astype(float).mean()
+            result = {"type": "string", "value": f"The average price of Bakery & Desserts is ${average_price:.2f}"}
+            break
+if "result" not in locals():
+    result = {"type": "string", "value": "No information found for Bakery & Desserts in the provided dataframes."}
             ```
             
-2024-04-22 10:33:09 [INFO] Executing Step 4: CachePopulation
-2024-04-22 10:33:09 [INFO] Executing Step 5: CodeCleaning
-2024-04-22 10:33:09 [INFO] 
+2024-04-22 11:55:12 [INFO] Executing Step 4: CachePopulation
+2024-04-22 11:55:12 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 11:55:12 [INFO] 
 Code running:
 ```
-prices = []
 for df in dfs:
-    prices.extend(df['Price'].str.replace('$', '').str.replace(',', '').astype(float).dropna().tolist())
-average_price = sum(prices) / len(prices)
-result = {'type': 'string', 'value': f'The average price is ${average_price:.2f}'}
+    if 'Sub Category' in df.columns and 'Price' in df.columns:
+        bakery_desserts_df = df[df['Sub Category'].str.contains('Bakery & Desserts', case=False, na=False)]
+        if not bakery_desserts_df.empty:
+            average_price = bakery_desserts_df['Price'].str.replace('$', '').str.replace(',', '').astype(float).mean()
+            result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}'}
+            break
+if 'result' not in locals():
+    result = {'type': 'string', 'value': 'No information found for Bakery & Desserts in the provided dataframes.'}
         ```
-2024-04-22 10:33:09 [INFO] Executing Step 6: CodeExecution
-2024-04-22 10:33:09 [ERROR] Failed with error: Traceback (most recent call last):
+2024-04-22 11:55:12 [INFO] Executing Step 6: CodeExecution
+2024-04-22 11:55:12 [INFO] Executing Step 7: ResultValidation
+2024-04-22 11:55:12 [INFO] Answer: {'type': 'string', 'value': 'The average price of Bakery & Desserts is $83.41'}
+2024-04-22 11:55:12 [INFO] Executing Step 8: ResultParsing
+2024-04-22 11:55:12 [INFO] 127.0.0.1 - - [22/Apr/2024 11:55:12] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 11:55:12 [INFO] 127.0.0.1 - - [22/Apr/2024 11:55:12] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 11:55:54 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-22 11:55:54 [INFO] 127.0.0.1 - - [22/Apr/2024 11:55:54] "[36mGET /static/images/human_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 11:55:54 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 11:55:54 [INFO] Prompt ID: 3275521f-4646-4b10-a9fc-cd3775760d1c
+2024-04-22 11:55:54 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 11:55:54 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 11:55:54 [INFO] Executing Step 1: CacheLookup
+2024-04-22 11:55:54 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 11:55:56 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Cleaning Supplies,$12.79 ,Limit 5 Per Member,Rated 4.6 out of 5 stars based on 63 reviews.,"Kellogg's Rice Krispies Treats, 0.78 oz, 60-count",$,Free Shipping. No min order required for this item   POWER BOOST™ Ingredients   Guaranteed For 12 Years In Storage   #1 Trusted Battery Brand   Long Lasting Performance,
+Paper & Plastic Products,,After $2 OFF,Rated 4.7 out of 5 stars based on 850 reviews.,"Life Savers Breath Mints Hard Candy, Wint-O-Green, 53.95 oz Bag",$,,"Indulge in a sweet snack any time of day and feel free to share these classic licorice twists with others. This enormous 5.5-pound container is the ideal treat for birthday parties, the office, and at home whenever you have guests. While this licorice candy does contain sugar you can still feel good about snacking because it is fat free, low in sodium, and Kosher & Halal certified. The container features a resealable lid so that each and every piece of sweet & chewy candy stays as soft and fresh as the first day you opened it. Then, when it's all gone, you can repurpose or recycle the entire container. Approximately 83 servings per container and only 100 calories per serving.   Original Licorice Twists
+Approximately 249 pieces
+5.5 lb jar"
+Floral,$12.69 ,After $7 OFF,,"Popcornopolis Ultimate Classic Assorted Tall Cones, Variety, 24-count",,"4.4 lb 2 count
+Honey Citron & Ginger Tea
+No Artificial Preservatives
+No Artificial Flavors or Colors","Item may be available in your local warehouse for a lower, non-delivered price.Specially formulated to include critical amounts of Prebiotic and Probiotic fiber sources to assist the sensitive digestion needs of Small Breed Dogs. The kibble size is reduced to appeal to small dogs, formulated with balanced levels of Omega-3 Fatty acid for supple skin and shiny coat. Features: Fresh Chicken #1 ingredient Prebiotic & Probiotic for sensitive digestionKibble size for small dogs (Adult dogs under 40lbs.)Omega-3 Fatty acidHolistic ingredient formulationIngredients: Chicken, chicken meal, whole grain brown rice, cracked pearled barley, chicken fat (preserved with mixed tocopherols), egg product, dried beet pulp, peas, fish meal, flaxseed, natural flavor, dried yeast, millet, dried chicory root, potassium chloride, salt, choline chloride, carrots, dried kelp, apples, cranberries, rosemary extract, parsley flake, taurine, yucca schidigera extract, dried Lactobacillus plantarum fermentation product, dried Bacillus subtilis fermentation product, dried Lactobacillus acidophilus fermentation product, dried Enterococcus faecium fermentation product, dried Bifidobacterium animalis fermentation product, vitamin E supplement, iron proteinate, zinc proteinate, copper proteinate, ferrous sulfate, zinc sulfate, copper sulfate, potassium iodide, thiamine mononitrate, manganese proteinate, manganous oxide, ascorbic acid, vitamin A supplement, L-Carnitine, biotin, niacin, calcium pantothenate, manganese sulfate, sodium selenite, pyridoxine hydrochloride (vitamin B6), vitamin B12 supplement, riboflavin, vitamin D supplement, folic acid.*This food is made in a facility that uses ingredients that may not be included in this recipe, so trace amounts of other ingredients, including potential allergens, may be presentGuaranteed AnalysisCrude Protein 27.0% MinimumCrude Fat 16.0% MinimumCrude Fiber 4.0% MaximumMoisture 10.0% MaximumZinc 200 mg/kg MinimumSelenium 0.35 mg/kg MinimumVitamin E 150 IU/kg MinimumTaurine* 0.1% MinimumL-Carnitine* 30 mg/kg Minimum Omega-6 Fatty Acids* 2.5% MinimumOmega-3 Fatty Acids* 0.4% MinimumTotal Microorganisms* Not Less Than 1,000,000 CFU/lb(Lactobacillus plantarum, Bacillus subtilis, Lactobacillus acidophilus, Enterococcus faecium, Bifidobacterium animalis)***Not recognized as an essential nutrient by the AAFCO Dog Food Nutrient Profiles.**Contains a source of live, naturally occurring microorganisms.Calorie Content3,754 kcal/kg (362 kcal/cup) Calculated Metabolizable Energy"
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ What is the average price of Bakery & Desserts
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-04-22 11:55:56 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 11:56:00 [INFO] Prompt used:
+            None
+            
+2024-04-22 11:56:00 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Filter out the Bakery & Desserts category from the dataframes
+bakery_desserts_prices = []
+for df in dfs:
+    if "Bakery & Desserts" in df["Sub Category"].values:
+        bakery_desserts_prices.extend(df["Price"].str.replace("$", "").str.strip().astype(float).tolist())
+
+# Calculate the average price of Bakery & Desserts
+average_price = sum(bakery_desserts_prices) / len(bakery_desserts_prices)
+
+# Declare result var
+result = {"type": "string", "value": f"The average price of Bakery & Desserts is ${average_price:.2f}."}
+            ```
+            
+2024-04-22 11:56:00 [INFO] Executing Step 4: CachePopulation
+2024-04-22 11:56:00 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 11:56:00 [INFO] 
+Code running:
+```
+bakery_desserts_prices = []
+for df in dfs:
+    if 'Bakery & Desserts' in df['Sub Category'].values:
+        bakery_desserts_prices.extend(df['Price'].str.replace('$', '').str.strip().astype(float).tolist())
+average_price = sum(bakery_desserts_prices) / len(bakery_desserts_prices)
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+        ```
+2024-04-22 11:56:00 [INFO] Executing Step 6: CodeExecution
+2024-04-22 11:56:00 [INFO]  * Detected change in 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pandasai\\pipelines\\chat\\code_execution.py', reloading
+2024-04-22 11:56:00 [INFO]  * Detected change in 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pandas\\core\\generic.py', reloading
+2024-04-22 11:56:00 [ERROR] Failed with error: Traceback (most recent call last):
   File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
     result = self.execute_code(code_to_run, code_context)
   File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
     exec(code, environment)
-  File "<string>", line 3, in <module>
+  File "<string>", line 4, in <module>
   File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
     new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
   File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
@@ -402,44 +226,38 @@ result = {'type': 'string', 'value': f'The average price is ${average_price:.2f}
     return arr.astype(dtype, copy=True)
 ValueError: could not convert string to float: '32.99through-83.99'
 
-2024-04-22 10:33:09 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
-2024-04-22 10:33:09 [INFO] Executing Pipeline: ErrorCorrectionPipeline
-2024-04-22 10:33:09 [INFO] Executing Step 0: ErrorPromptGeneration
-2024-04-22 10:33:09 [INFO] Using prompt: <dataframe>
+2024-04-22 11:56:00 [INFO]  * Detected change in 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pandas\\core\\internals\\managers.py', reloading
+2024-04-22 11:56:00 [INFO]  * Detected change in 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pandas\\core\\internals\\blocks.py', reloading
+2024-04-22 11:56:00 [INFO]  * Detected change in 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pandas\\core\\dtypes\\astype.py', reloading
+2024-04-22 11:56:00 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-04-22 11:56:00 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-04-22 11:56:00 [INFO]  * Detected change in 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pandasai\\pipelines\\chat\\error_correction_pipeline\\error_correction_pipeline.py', reloading
+2024-04-22 11:56:00 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-04-22 11:56:00 [INFO] Using prompt: <dataframe>
 dfs[0]:1757x8
 Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
-Beverages & Water,,After $12 OFF,Rated 4.2 out of 5 stars based on 677 reviews.,"San Pellegrino Italian Sparkling Drink, Melograno & Arancia, 11.15 fl oz, 24-count",$,Beef jerky   Original   80 Calories   Made with Premium Beef   96% Fat Free,"Item may be available in your local warehouse for a lower, non-delivered price.   120K-Cup® pods
-Breakfast Blend Coffee
-Organic
-Fair Trade Certified
-Light roast
-100% Arabica Coffee
-Kosher   CAUTION: POD IS HOT. ALLOW TO COOL AFTER USE.   PEEL – Starting at the puncture, peel lid and dispose.
-EMPTY – Compost or dispose of grounds. (Filter can remain.)   Dispose of empty cup responsibly.   *Keurig, K-Cup, and the K logo are trademarks of Keurig Green Mountain, Inc., used with permission. For use with Keurig® K-Cup® Brewers."
-Poultry,$439.99 ,After $2.60 OFF,,"Knott's Bite Size Cookies, Strawberry Shortbread, 2 oz, 36-count",,Variety Pack   1   Box with 72 Rolls   Flavored with Other Natural Flavors   Gelatin and Gluten Free,
-Laundry Detergent & Supplies,$74.99 ,After $80 OFF,Rated 3.9 out of 5 stars based on 606 reviews.,"Ghirardelli, Triple Chocolate Premium Brownie Mix, 6-Count",$,,"José's® Gourmet Coffee - Locally Roasted. Family Owned.   Sharing our expertise in great coffee from across the world-- it’s at the heart of everything we do and our passion for surpassing your highest expectations is why we do it.
-José's® Gourmet Coffee makes every morning a delightful experience with its unique and unexpected variety of flavors. We know that every great cup starts by sourcing and then roasting only the finest beans available. That’s where our high-quality standards begin and have lasted for generations.   Our Commitment to Sustainability
-We are committed to improve the livelihood of our coffee growing partners by supporting sustainable farming, community infrastructure development, education and healthcare programs.   Treat yourself to the delicious and indulgent taste of our Hazelnut Cream coffee! Made with only 100% Arabica beans, this flavored coffee delivers a rich nutty aroma and sweet creamy taste that is sure to delight your senses and satisfy your sweet tooth. With the well-balanced body and lingering finish, you won’t be able to resist a second cup. Nutty aroma, sweet creamy taste, well-balanced body, lingering finish   2-pack (2 lbs.each)
-100% Arabica Coffee
-Medium Roast Coffee
-Whole Bean Coffee
-Natural & Artificially Flavored
-Kosher
-Net Weight 32oz\2lb (907g), per bag
-Roasted & Packed in the USA"
+Cleaning Supplies,$12.79 ,Limit 5 Per Member,Rated 4.6 out of 5 stars based on 63 reviews.,"Kellogg's Rice Krispies Treats, 0.78 oz, 60-count",$,Free Shipping. No min order required for this item   POWER BOOST™ Ingredients   Guaranteed For 12 Years In Storage   #1 Trusted Battery Brand   Long Lasting Performance,
+Paper & Plastic Products,,After $2 OFF,Rated 4.7 out of 5 stars based on 850 reviews.,"Life Savers Breath Mints Hard Candy, Wint-O-Green, 53.95 oz Bag",$,,"Indulge in a sweet snack any time of day and feel free to share these classic licorice twists with others. This enormous 5.5-pound container is the ideal treat for birthday parties, the office, and at home whenever you have guests. While this licorice candy does contain sugar you can still feel good about snacking because it is fat free, low in sodium, and Kosher & Halal certified. The container features a resealable lid so that each and every piece of sweet & chewy candy stays as soft and fresh as the first day you opened it. Then, when it's all gone, you can repurpose or recycle the entire container. Approximately 83 servings per container and only 100 calories per serving.   Original Licorice Twists
+Approximately 249 pieces
+5.5 lb jar"
+Floral,$12.69 ,After $7 OFF,,"Popcornopolis Ultimate Classic Assorted Tall Cones, Variety, 24-count",,"4.4 lb 2 count
+Honey Citron & Ginger Tea
+No Artificial Preservatives
+No Artificial Flavors or Colors","Item may be available in your local warehouse for a lower, non-delivered price.Specially formulated to include critical amounts of Prebiotic and Probiotic fiber sources to assist the sensitive digestion needs of Small Breed Dogs. The kibble size is reduced to appeal to small dogs, formulated with balanced levels of Omega-3 Fatty acid for supple skin and shiny coat. Features: Fresh Chicken #1 ingredient Prebiotic & Probiotic for sensitive digestionKibble size for small dogs (Adult dogs under 40lbs.)Omega-3 Fatty acidHolistic ingredient formulationIngredients: Chicken, chicken meal, whole grain brown rice, cracked pearled barley, chicken fat (preserved with mixed tocopherols), egg product, dried beet pulp, peas, fish meal, flaxseed, natural flavor, dried yeast, millet, dried chicory root, potassium chloride, salt, choline chloride, carrots, dried kelp, apples, cranberries, rosemary extract, parsley flake, taurine, yucca schidigera extract, dried Lactobacillus plantarum fermentation product, dried Bacillus subtilis fermentation product, dried Lactobacillus acidophilus fermentation product, dried Enterococcus faecium fermentation product, dried Bifidobacterium animalis fermentation product, vitamin E supplement, iron proteinate, zinc proteinate, copper proteinate, ferrous sulfate, zinc sulfate, copper sulfate, potassium iodide, thiamine mononitrate, manganese proteinate, manganous oxide, ascorbic acid, vitamin A supplement, L-Carnitine, biotin, niacin, calcium pantothenate, manganese sulfate, sodium selenite, pyridoxine hydrochloride (vitamin B6), vitamin B12 supplement, riboflavin, vitamin D supplement, folic acid.*This food is made in a facility that uses ingredients that may not be included in this recipe, so trace amounts of other ingredients, including potential allergens, may be presentGuaranteed AnalysisCrude Protein 27.0% MinimumCrude Fat 16.0% MinimumCrude Fiber 4.0% MaximumMoisture 10.0% MaximumZinc 200 mg/kg MinimumSelenium 0.35 mg/kg MinimumVitamin E 150 IU/kg MinimumTaurine* 0.1% MinimumL-Carnitine* 30 mg/kg Minimum Omega-6 Fatty Acids* 2.5% MinimumOmega-3 Fatty Acids* 0.4% MinimumTotal Microorganisms* Not Less Than 1,000,000 CFU/lb(Lactobacillus plantarum, Bacillus subtilis, Lactobacillus acidophilus, Enterococcus faecium, Bifidobacterium animalis)***Not recognized as an essential nutrient by the AAFCO Dog Food Nutrient Profiles.**Contains a source of live, naturally occurring microorganisms.Calorie Content3,754 kcal/kg (362 kcal/cup) Calculated Metabolizable Energy"
 </dataframe>
 
 
 The user asked the following question:
 ### QUERY
- what's the average price?
+ What is the average price of Bakery & Desserts
 
 You generated this python code:
-prices = []
+bakery_desserts_prices = []
 for df in dfs:
-    prices.extend(df['Price'].str.replace('$', '').str.replace(',', '').astype(float).dropna().tolist())
-average_price = sum(prices) / len(prices)
-result = {'type': 'string', 'value': f'The average price is ${average_price:.2f}'}
+    if 'Bakery & Desserts' in df['Sub Category'].values:
+        bakery_desserts_prices.extend(df['Price'].str.replace('$', '').str.strip().astype(float).tolist())
+average_price = sum(bakery_desserts_prices) / len(bakery_desserts_prices)
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
 
 It fails with the following error:
 Traceback (most recent call last):
@@ -447,7 +265,7 @@ Traceback (most recent call last):
     result = self.execute_code(code_to_run, code_context)
   File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
     exec(code, environment)
-  File "<string>", line 3, in <module>
+  File "<string>", line 4, in <module>
   File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
     new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
   File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
@@ -466,45 +284,386 @@ ValueError: could not convert string to float: '32.99through-83.99'
 
 
 Fix the python code above and return the new python code:
-2024-04-22 10:33:09 [INFO] Executing Step 1: CodeGenerator
-2024-04-22 10:33:12 [INFO] Prompt used:
-            None
-            
-2024-04-22 10:33:12 [INFO] Code generated:
-            ```
-            prices = []
-for df in dfs:
-    prices.extend(df['Price'].str.replace('$', '').str.split('through').str[0].str.replace(',', '').astype(float).dropna().tolist())
-average_price = sum(prices) / len(prices)
-result = {'type': 'string', 'value': f'The average price is ${average_price:.2f}'}
-            ```
-            
-2024-04-22 10:33:12 [INFO] Executing Step 2: CodeCleaning
-2024-04-22 10:33:12 [INFO] 
+2024-04-22 11:56:00 [INFO]  * Detected change in 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pandasai\\pipelines\\chat\\error_correction_pipeline\\error_prompt_generation.py', reloading
+2024-04-22 11:56:00 [INFO] Executing Step 1: CodeGenerator
+2024-04-22 11:56:11 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-22 11:56:11 [INFO] 127.0.0.1 - - [22/Apr/2024 11:56:11] "[36mGET /static/images/human_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 11:56:11 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 11:56:11 [INFO] Prompt ID: 0dc05ba1-0fb2-43de-baec-f0ac89335462
+2024-04-22 11:56:11 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 11:56:11 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 11:56:11 [INFO] Executing Step 1: CacheLookup
+2024-04-22 11:56:11 [INFO] Using cached response
+2024-04-22 11:56:11 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 11:56:11 [INFO] Executing Step 2: Skipping...
+2024-04-22 11:56:11 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 11:56:11 [INFO] Executing Step 3: Skipping...
+2024-04-22 11:56:11 [INFO] Executing Step 4: CachePopulation
+2024-04-22 11:56:11 [INFO] Executing Step 4: Skipping...
+2024-04-22 11:56:11 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 11:56:11 [INFO] 
 Code running:
 ```
-prices = []
+bakery_desserts_prices = []
 for df in dfs:
-    prices.extend(df['Price'].str.replace('$', '').str.split('through').str[0].str.replace(',', '').astype(float).dropna().tolist())
-average_price = sum(prices) / len(prices)
-result = {'type': 'string', 'value': f'The average price is ${average_price:.2f}'}
+    if 'Bakery & Desserts' in df['Sub Category'].values:
+        bakery_desserts_prices.extend(df['Price'].str.replace('$', '').str.strip().astype(float).tolist())
+average_price = sum(bakery_desserts_prices) / len(bakery_desserts_prices)
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
         ```
-2024-04-22 10:33:12 [INFO] Executing Step 7: ResultValidation
-2024-04-22 10:33:12 [INFO] Answer: {'type': 'string', 'value': 'The average price is $60.79'}
-2024-04-22 10:33:12 [INFO] Executing Step 8: ResultParsing
-2024-04-22 10:34:01 [INFO] Question: what's the average of the price column?
-2024-04-22 10:34:01 [INFO] Running PandasAI with bamboo_llm LLM...
-2024-04-22 10:34:01 [INFO] Prompt ID: c2aa509a-53f8-463c-b02e-58e1d597639d
-2024-04-22 10:34:01 [INFO] Executing Pipeline: GenerateChatPipeline
-2024-04-22 10:34:01 [INFO] Executing Step 0: ValidatePipelineInput
-2024-04-22 10:34:01 [INFO] Executing Step 1: CacheLookup
-2024-04-22 10:34:01 [INFO] Executing Step 2: PromptGeneration
-2024-04-22 10:34:03 [INFO] Using prompt: <dataframe>
+2024-04-22 11:56:11 [INFO] Executing Step 6: CodeExecution
+2024-04-22 11:56:11 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 4, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '32.99through-83.99'
+
+2024-04-22 11:56:11 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-04-22 11:56:11 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-04-22 11:56:11 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-04-22 11:56:11 [INFO] Using prompt: <dataframe>
 dfs[0]:1757x8
 Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
-Paper & Plastic Products,,After $2.60 OFF,,"Rastelli USDA Choice Boneless Black Angus Prime Rib Roast, 1 Total Pack, 7 Lbs. Total",$,Sugar Free Mints   Peppermint with other Natural Flavors   9-count   .37 oz Containers   Total Net Weight: 3.33 oz,Protein Energy BarPeanut Butter Creme1.4 oz12-count
-Poultry,$4.79 ,No Discount,Rated 4.6 out of 5 stars based on 58 reviews.,"Welch’s, 100% Grape Juice Blend, Concord Grape, 96 fl oz, 2-Count",,"Kosher Dairy   With Whole Grain, Real Cinnamon and Sugar   2-count   Net Weight 3lb",ClearCapacity: 10 gallon Thickness: 0.34 mil Dimensions: 23” x 25”Made in USA
-Snacks,$23.99 ,After $2 OFF,Rated 4 out of 5 stars based on 816 reviews.,Sanders Dark Chocolate Peppermint Sea Salt Caramel 2-pack (36 oz),$,,
+Pantry & Dry Goods,,Limit 5 Per Member,Rated 4.7 out of 5 stars based on 149 reviews.,"Rastelli Choice Black Angus Tomahawk Steaks, (4/38 Oz. Each Steak), 4 Total Count, 9.5 Lbs. Total",$,USDA Organic   Kosher   Certified Gluten-Free   Non GMO Project Verified   Certified Vegan,
+Household,$17.99 ,Limit 1 Per Member,,"Mila Variety Pack - Xiao Long Bao Soup Dumplings - 50 Dumplings Per Bag, 3 Bags Total",,Dried Mango   Plant Based   Fat Free   Good Source of Vitamin C   Non GMO,"24 individually wrapped 1.5 Ounce Bags of our Roasted & Salted In-Shell Wonderful Pistachios.   Wonderful Pistachios are a smart, healthy choice for folks around the world. Located in California’s fertile San Joaquin Valley, Wonderful Pistachios & Almonds owns, cultivates and harvests more than 75,000 acres of pistachio and almond orchards, and delivers pounds of nuts globally each year. The warm days and cool nights work in harmony with the region’s natural soils to create the perfect growing climate. We then carefully tend and harvest each pistachio using the latest in sustainable practices.   SIZE: Pack of 24 individual 1.5 Ounce Bags
+FLAVOR: Roasted & Salted In-Shell Wonderful Pistachios
+CALIFORNIA GROWN: Wonderful Pistachios owns, cultivates and harvests more than 75,000 acres of pistachio and almond California orchards, where we carefully tend and harvest using the latest sustainable practices.
+THE ORIGINAL PLANT-BASED PROTEIN ™
+*Scientific evidence suggests but does not prove that eating 1.5 ounces per day of most nuts, such as pistachios, as part of a diet low in saturated fat and cholesterol may reduce the risk of heart disease. See nutrition information for fat content."
+Floral,$95.79 ,.,Rated 4.8 out of 5 stars based on 2658 reviews.,"Tapatio Mixed Nuts, Salsa Picante, 2.5 oz, 24-count",$,,"Enjoy smooth milk chocolate with a creamy milky filling and discover the irresistible taste of Kinder Chocolate in this 21.2-ounce bulk pack of mini chocolate bars. Individually wrapped and perfectly portioned, Kinder Chocolate minis are great for sharing the delicious creamy taste of Kinder with the ones you love. At Kinder, little things really can mean a lot. That's why every bar is made without artificial colors and preservatives.
+For over 70 years, Ferrero has created products loved by generations. We've grown from a bakery in Alba, Italy, into a confectionery company loved around the world. We're committed to helping people celebrate life's special moments with high-quality products.   The chocolate treat with a creamy filling
+These bars are made without artificial colors or preservatives
+These smooth and creamy mini bars are perfect for sharing
+These Kinder Chocolate bars make a great anytime treat for all
+Little things really can mean a lot"
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ What is the average price of Bakery & Desserts
+
+You generated this python code:
+bakery_desserts_prices = []
+for df in dfs:
+    if 'Bakery & Desserts' in df['Sub Category'].values:
+        bakery_desserts_prices.extend(df['Price'].str.replace('$', '').str.strip().astype(float).tolist())
+average_price = sum(bakery_desserts_prices) / len(bakery_desserts_prices)
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 4, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '32.99through-83.99'
+
+
+Fix the python code above and return the new python code:
+2024-04-22 11:56:11 [INFO] Executing Step 1: CodeGenerator
+2024-04-22 11:56:15 [INFO] Prompt used:
+            None
+            
+2024-04-22 11:56:15 [INFO] Code generated:
+            ```
+            bakery_desserts_prices = []
+for df in dfs:
+    if 'Bakery & Desserts' in df['Sub Category'].values:
+        prices = df['Price'].str.replace('$', '').str.extract(r'(\d+\.\d+)')
+        bakery_desserts_prices.extend(prices.astype(float).values.flatten())
+average_price = sum(bakery_desserts_prices) / len(bakery_desserts_prices)
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+            ```
+            
+2024-04-22 11:56:15 [INFO] Executing Step 2: CodeCleaning
+2024-04-22 11:56:15 [INFO] 
+Code running:
+```
+bakery_desserts_prices = []
+for df in dfs:
+    if 'Bakery & Desserts' in df['Sub Category'].values:
+        prices = df['Price'].str.replace('$', '').str.extract('(\\d+\\.\\d+)')
+        bakery_desserts_prices.extend(prices.astype(float).values.flatten())
+average_price = sum(bakery_desserts_prices) / len(bakery_desserts_prices)
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+        ```
+2024-04-22 11:56:15 [INFO] Executing Step 7: ResultValidation
+2024-04-22 11:56:15 [INFO] Answer: {'type': 'string', 'value': 'The average price of Bakery & Desserts is $nan.'}
+2024-04-22 11:56:15 [INFO] Executing Step 8: ResultParsing
+2024-04-22 11:56:16 [INFO] 127.0.0.1 - - [22/Apr/2024 11:56:16] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 11:56:16 [INFO] 127.0.0.1 - - [22/Apr/2024 11:56:16] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 11:56:24 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-22 11:56:24 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 11:56:24 [INFO] Prompt ID: 335e4c26-754b-4e54-8400-d11eabd77bad
+2024-04-22 11:56:24 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 11:56:24 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 11:56:24 [INFO] Executing Step 1: CacheLookup
+2024-04-22 11:56:24 [INFO] Using cached response
+2024-04-22 11:56:24 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 11:56:24 [INFO] Executing Step 2: Skipping...
+2024-04-22 11:56:24 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 11:56:24 [INFO] Executing Step 3: Skipping...
+2024-04-22 11:56:24 [INFO] Executing Step 4: CachePopulation
+2024-04-22 11:56:24 [INFO] Executing Step 4: Skipping...
+2024-04-22 11:56:24 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 11:56:24 [INFO] 
+Code running:
+```
+bakery_desserts_prices = []
+for df in dfs:
+    if 'Bakery & Desserts' in df['Sub Category'].values:
+        bakery_desserts_prices.extend(df['Price'].str.replace('$', '').str.strip().astype(float).tolist())
+average_price = sum(bakery_desserts_prices) / len(bakery_desserts_prices)
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+        ```
+2024-04-22 11:56:24 [INFO] Executing Step 6: CodeExecution
+2024-04-22 11:56:24 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 4, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '32.99through-83.99'
+
+2024-04-22 11:56:24 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-04-22 11:56:24 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-04-22 11:56:24 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-04-22 11:56:24 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Laundry Detergent & Supplies,$26.69 ,After $9.30 OFF,Rated 4.5 out of 5 stars based on 452 reviews.,"Mila Variety Pack - Xiao Long Bao Soup Dumplings - 50 Dumplings Per Bag, 3 Bags Total",$,USDA Organic Apples   No Sugar Added   Kosher   Gluten-Free   Net Weight 76.08 oz.,
+Gift Baskets,,After $3.80 OFF,,"Cascade Platinum Plus Dishwasher Detergent Pacs, Fresh, 81-count",$,"No Preservatives, Artificial Flavors or Colors   96 oz. Total Net Weight   Gluten free   Kosher","Nothing says true love like a classic red rose. Show someone how much they mean to you with this Timeless Romance Floral Arrangement. Farm fresh red roses and greens have been thoughtfully arranged in a classic glass vase. This arrangement is sure to impress! HOW TO ORDER:Every attempt will be made to deliver your floral order on your preferred arrival date, however, your order may arrive one day before or after your selected date.Pick your arrival date from the calendar during checkout. Arrival dates are based on the farm’s availability.Due to the perishable nature of this item, orders do NOT ship Friday through Monday. Orders only arrive Tuesday through Friday. You can choose your arrival date from the calendar during checkout. Delivery exclusions apply, see calendar at checkout.NEED HELP?We are here to help! You can reach us directly at the contact information below. For cancellations or rescheduling, please contact us within 48 hours of placing order. For overnight deliveries, orders cannot be cancelled.Email: costco@vistaflor.comPhone: 888-620-8895 (8:00AM – 8:00PM EST M-F, 8:00AM – 5:00PM EST SAT)SUGGESTIONSTell them how you feel! Gift messaging available during the checkout process. If you want gift messages on multiple orders, individual orders need to be placed.Are your flowers for an event? Many of our flowers ship in bud form. We suggest ordering your flowers to arrive 2-3 days before your event to allow them bloom.Did your flowers arrive looking thirsty? No worries! Just follow the included care and handling instructions to properly hydrate your flowers. After a fresh drink of water, your flowers will blossom and look more full. Flowers pictured on the site are taken after three days in water."
+Breakfast,$10.49 ,Limit 1 Per Member,Rated 4 out of 5 stars based on 29 reviews.,"Sharpie Fine Point Permanent Marker, 25-count",,,"These all-natural Maple Leaf Farms duck legs are rich and tender and are a versatile menu option to deliver restaurant quality duck at home. They can be seasoned to taste (as simple as sprinkling on salt, pepper, and garlic powder) and baked for 90 minutes. Great served as an entrée or shred the meat off the bone and add to salads, soups, pasta dishes, duck tacos and more.   The ducks are humanely raised according to Maple Leaf Farm’s Trident Stewardship Duck Wellbeing guidelines on a grain-based diet without the use of growth hormones. Made from White Pekin duck.   All Maple Leaf Farms ducks are raised in the USA with care on family-owned farms where they are free to roam in climate-controlled barns.   - Raw
+- Humanely raised, no growth hormones
+- No artificial ingredients, minimally processed
+- Simple to prepare – bakes in 90 minutes
+- Gluten free
+- 16 duck legs (8.5 oz per leg)
+- USDA Grade A
+- Total 8.5 lbs case
+- Frozen product shipped with dry ice"
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ What is the average price of Bakery & Desserts
+
+You generated this python code:
+bakery_desserts_prices = []
+for df in dfs:
+    if 'Bakery & Desserts' in df['Sub Category'].values:
+        bakery_desserts_prices.extend(df['Price'].str.replace('$', '').str.strip().astype(float).tolist())
+average_price = sum(bakery_desserts_prices) / len(bakery_desserts_prices)
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 4, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '32.99through-83.99'
+
+
+Fix the python code above and return the new python code:
+2024-04-22 11:56:24 [INFO] Executing Step 1: CodeGenerator
+2024-04-22 11:56:28 [INFO] Prompt used:
+            None
+            
+2024-04-22 11:56:28 [INFO] Code generated:
+            ```
+            # Fixing the error by handling the price range values
+bakery_desserts_prices = []
+for df in dfs:
+    if 'Bakery & Desserts' in df['Sub Category'].values:
+        prices = df['Price'].str.replace('$', '').str.split('through|-').apply(lambda x: float(x[0].strip()))
+        bakery_desserts_prices.extend(prices.tolist())
+average_price = sum(bakery_desserts_prices) / len(bakery_desserts_prices)
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+            ```
+            
+2024-04-22 11:56:28 [INFO] Executing Step 2: CodeCleaning
+2024-04-22 11:56:28 [INFO] 
+Code running:
+```
+bakery_desserts_prices = []
+for df in dfs:
+    if 'Bakery & Desserts' in df['Sub Category'].values:
+        prices = df['Price'].str.replace('$', '').str.split('through|-').apply(lambda x: float(x[0].strip()))
+        bakery_desserts_prices.extend(prices.tolist())
+average_price = sum(bakery_desserts_prices) / len(bakery_desserts_prices)
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+        ```
+2024-04-22 11:56:28 [INFO]  * Detected change in 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pandas\\core\\series.py', reloading
+2024-04-22 11:56:28 [INFO]  * Detected change in 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pandas\\core\\apply.py', reloading
+2024-04-22 11:56:28 [INFO]  * Detected change in 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pandas\\core\\base.py', reloading
+2024-04-22 11:56:28 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 4, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\series.py", line 4924, in apply
+    ).apply()
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\apply.py", line 1427, in apply
+    return self.apply_standard()
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\apply.py", line 1507, in apply_standard
+    mapped = obj._map_values(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\base.py", line 921, in _map_values
+    return algorithms.map_array(arr, mapper, na_action=na_action, convert=convert)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\algorithms.py", line 1743, in map_array
+    return lib.map_infer(values, mapper, convert=convert)
+  File "lib.pyx", line 2972, in pandas._libs.lib.map_infer
+  File "<string>", line 4, in <lambda>
+ValueError: could not convert string to float: '1,999.99'
+
+2024-04-22 11:56:28 [INFO]  * Detected change in 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pandas\\core\\algorithms.py', reloading
+2024-04-22 11:56:28 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-04-22 11:56:28 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-04-22 11:56:28 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-04-22 11:56:28 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Laundry Detergent & Supplies,$26.69 ,After $9.30 OFF,Rated 4.5 out of 5 stars based on 452 reviews.,"Mila Variety Pack - Xiao Long Bao Soup Dumplings - 50 Dumplings Per Bag, 3 Bags Total",$,USDA Organic Apples   No Sugar Added   Kosher   Gluten-Free   Net Weight 76.08 oz.,
+Gift Baskets,,After $3.80 OFF,,"Cascade Platinum Plus Dishwasher Detergent Pacs, Fresh, 81-count",$,"No Preservatives, Artificial Flavors or Colors   96 oz. Total Net Weight   Gluten free   Kosher","Nothing says true love like a classic red rose. Show someone how much they mean to you with this Timeless Romance Floral Arrangement. Farm fresh red roses and greens have been thoughtfully arranged in a classic glass vase. This arrangement is sure to impress! HOW TO ORDER:Every attempt will be made to deliver your floral order on your preferred arrival date, however, your order may arrive one day before or after your selected date.Pick your arrival date from the calendar during checkout. Arrival dates are based on the farm’s availability.Due to the perishable nature of this item, orders do NOT ship Friday through Monday. Orders only arrive Tuesday through Friday. You can choose your arrival date from the calendar during checkout. Delivery exclusions apply, see calendar at checkout.NEED HELP?We are here to help! You can reach us directly at the contact information below. For cancellations or rescheduling, please contact us within 48 hours of placing order. For overnight deliveries, orders cannot be cancelled.Email: costco@vistaflor.comPhone: 888-620-8895 (8:00AM – 8:00PM EST M-F, 8:00AM – 5:00PM EST SAT)SUGGESTIONSTell them how you feel! Gift messaging available during the checkout process. If you want gift messages on multiple orders, individual orders need to be placed.Are your flowers for an event? Many of our flowers ship in bud form. We suggest ordering your flowers to arrive 2-3 days before your event to allow them bloom.Did your flowers arrive looking thirsty? No worries! Just follow the included care and handling instructions to properly hydrate your flowers. After a fresh drink of water, your flowers will blossom and look more full. Flowers pictured on the site are taken after three days in water."
+Breakfast,$10.49 ,Limit 1 Per Member,Rated 4 out of 5 stars based on 29 reviews.,"Sharpie Fine Point Permanent Marker, 25-count",,,"These all-natural Maple Leaf Farms duck legs are rich and tender and are a versatile menu option to deliver restaurant quality duck at home. They can be seasoned to taste (as simple as sprinkling on salt, pepper, and garlic powder) and baked for 90 minutes. Great served as an entrée or shred the meat off the bone and add to salads, soups, pasta dishes, duck tacos and more.   The ducks are humanely raised according to Maple Leaf Farm’s Trident Stewardship Duck Wellbeing guidelines on a grain-based diet without the use of growth hormones. Made from White Pekin duck.   All Maple Leaf Farms ducks are raised in the USA with care on family-owned farms where they are free to roam in climate-controlled barns.   - Raw
+- Humanely raised, no growth hormones
+- No artificial ingredients, minimally processed
+- Simple to prepare – bakes in 90 minutes
+- Gluten free
+- 16 duck legs (8.5 oz per leg)
+- USDA Grade A
+- Total 8.5 lbs case
+- Frozen product shipped with dry ice"
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ What is the average price of Bakery & Desserts
+
+You generated this python code:
+bakery_desserts_prices = []
+for df in dfs:
+    if 'Bakery & Desserts' in df['Sub Category'].values:
+        prices = df['Price'].str.replace('$', '').str.split('through|-').apply(lambda x: float(x[0].strip()))
+        bakery_desserts_prices.extend(prices.tolist())
+average_price = sum(bakery_desserts_prices) / len(bakery_desserts_prices)
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 4, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\series.py", line 4924, in apply
+    ).apply()
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\apply.py", line 1427, in apply
+    return self.apply_standard()
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\apply.py", line 1507, in apply_standard
+    mapped = obj._map_values(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\base.py", line 921, in _map_values
+    return algorithms.map_array(arr, mapper, na_action=na_action, convert=convert)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\algorithms.py", line 1743, in map_array
+    return lib.map_infer(values, mapper, convert=convert)
+  File "lib.pyx", line 2972, in pandas._libs.lib.map_infer
+  File "<string>", line 4, in <lambda>
+ValueError: could not convert string to float: '1,999.99'
+
+
+Fix the python code above and return the new python code:
+2024-04-22 11:56:28 [INFO] Executing Step 1: CodeGenerator
+2024-04-22 11:57:15 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-22 11:57:15 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 11:57:15 [INFO] Prompt ID: 0418f651-7f0e-4655-a97e-69c0e13cd6d1
+2024-04-22 11:57:15 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 11:57:15 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 11:57:15 [INFO] Executing Step 1: CacheLookup
+2024-04-22 11:57:15 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 11:57:17 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Deli,$329.99 ,After $3.60 OFF,,"Ferrero Rocher, Milk Chocolate Hazelnut Candy, 21.2 oz, 48 Count",,,"Mary Macleod’s Shortbread tastes like true love in pure, buttery cookie form. Inside each tin are handcrafted, all-butter, gourmet shortbread cookies in Mary Macleod's most popular flavors. The keepsake tin is gorgeous featuring gold foil embellishments for a touch of timeless elegance. The combination of luxurious packaging and melt-in-your-mouth cookies will create a lasting memory. Each tin is filled with 24 shortbread cookies in 4 of Mary Macleod’s premium flavors: The Classic, Chocolate Crunch, Dutch Chocolate and Maple Crunch. Handcrafted and baked to perfection, every cookie is made with care and attention to detail, ensuring the highest quality and taste. This is the perfect corporate gift to show your appreciation to coworkers, clients, partners, suppliers and more. They are also fantastic and versatile for personal occasions - birthdays, weddings, anniversaries, holidays or just to say hello. With a multipack of 3 luxurious tins, this is a smart choice for all your gifting needs.   Includes:   Elegant Keepsake Blue Tin of Shortbread Cookies with Gold Foil Embellishments.
+Variety of 4 Mary Macleod's Shortbread Handcrafted, Premium All-Butter Shortbread Cookies | Flavors: Classic, Chocolate Crunch, Dutch Chocolate and Maple Crunch.
+Multipack of 3 Tins of Shortbread Cookies.
+CONTAINS: Seventy-Two (72) TOTAL all-butter shortbread cookies in 4 flavors. Each tin has Twenty-Four (24) Variety Shortbread Cookies [3 tins total, 72 cookies total]
+Each premium tin comes with four different flavors of our delectable shortbread cookies, each one baked to perfection using only the finest ingredients."
+Paper & Plastic Products,,After $4.50 OFF,Rated 4.6 out of 5 stars based on 355 reviews.,Timeless Romance Floral Arrangement,$,3 Belgian Milk Chocolate Hearts (10 oz. total)   3 Belgian Dark Chocolate Hearts (10 oz. total)   Filled with Chocolate Candies and Chocolate Chips,
+Laundry Detergent & Supplies,$11.99 ,After $2.40 OFF,Rated 4.2 out of 5 stars based on 194 reviews.,"ECOS HE Liquid Laundry Detergent, Free & Clear, 210 Loads, 210 fl oz, 2-count",$,Fat Free Food   Gluten Free   Nut Free   Individually packaged   60-count,"Cheers to you. This perfect sip and snack gift is hand-packed in a handsome box. A whiskey aficionado will appreciate this cocktail-themed gift at the end of the workday. Is it 5 o'clock yet? A tasty old fashioned, coming right up.   Includes a Corkcicle® Whiskey Wedge Glass, W&P® Craft Old Fashioned Cocktail Syrup, Long Grove Savory Snack Mix, and more. Every CORKCICLE® purchase helps bring clean water to people in need through their partnership with charity: water.   The Corkcicle® Whiskey Wedge is the artful way to perfectly chill your favorite spirit and the ideal glass for anyone who enjoys smooth sipping. The Whiskey Wedge set includes 1 double old-fashioned whiskey glass and 1 silicone ice form. During freezing, the ice forms a wedge shape on one side of the glass. When you pour a drink, the wedge melts slowly to help retain your drink's full flavor.   The Small Batch Craft Cocktail Syrup includes premium spices and citrus, designed to simply add to spirits, stir, and serve to make multiple drinks. Well-balanced, smooth, and layered, this syrup is delicious to drink over ice or with seltzer as a mocktail. For the cocktail, just add a favorite whiskey, and garnish with an orange peel, a cherry, or both.   The keepsake vegan leather storage box with satin lining suits the den, bar, or office décor.   Includes:   1 (8.0 oz) W&P Old Fashioned Craft Cocktail Syrup
+1 (1.4 oz) McCrea’s Single Malt Scotch Caramels
+1 (3.0 oz) Long Grove Confectionary Berry Nut Mix   1 (2.0 oz) East Shore Specialty Foods Dipping Pretzels
+1 (3.0 oz). Long Grove Confectionary Dark Chocolate Covered Almonds   1 (1.5 oz) Milk Bar Brown Butter Chocolate Chip Cookies   2 (0.55 oz) Enstrom Milk Chocolate Almond Toffee
+1 (3.0 oz) Hammond’s Peanut Crunch
+1 (7.2 oz) Effie’s Homemade Oatcake Biscuits
+Food Net Weight 1.85LBS
+All Food is Made in USA
+Black grosgrains bow with white stitching included.
+1 Black Vegan Leather Keepsake Box with white stitching Dimensions: 12”L x 8”H x 5”W   1 Corkcicle® Glass Dimensions: 3”L x 3.75”H x 3”W /3.5”L x 5.5”H, x 3.75”H Box
+*Bowls & Plates are not included."
 </dataframe>
 
 
@@ -529,7 +688,7 @@ type (possible values "string", "number", "dataframe", "plot"). Examples: { "typ
 
 
 ### QUERY
- what's the average of the price column?
+ What is the average price of Bakery & Desserts
 
 Variable `dfs: list[pd.DataFrame]` is already declared.
 
@@ -539,118 +698,20 @@ If you are asked to plot a chart, use "matplotlib" for charts, save as png.
 
 
 Generate python code and return full updated code:
-2024-04-22 10:34:03 [INFO] Executing Step 3: CodeGenerator
-2024-04-22 10:34:07 [INFO] Prompt used:
+2024-04-22 11:57:17 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 11:57:21 [INFO] Prompt used:
             None
             
-2024-04-22 10:34:07 [INFO] Code generated:
+2024-04-22 11:57:21 [INFO] Code generated:
             ```
             # TODO: import the required dependencies
 import pandas as pd
 
-# Write code here
-data = {'Sub Category': ['Paper & Plastic Products', 'Poultry', 'Snacks'],
-        'Price': [None, '$4.79', '$23.99']}
-df = pd.DataFrame(data)
+# Filter out the rows with "Bakery & Desserts" in the "Sub Category" column
+bakery_desserts_df = dfs[0][dfs[0]['Sub Category'] == 'Bakery & Desserts']
 
-# Clean the Price column by removing the dollar sign and converting to float
-df['Price'] = df['Price'].str.replace('$', '').astype(float)
-
-# Calculate the average of the Price column
-average_price = df['Price'].mean()
-
-# Declare result var
-result = {"type": "string", "value": f"The average price of the Price column is ${average_price:.2f}."}
-            ```
-            
-2024-04-22 10:34:07 [INFO] Executing Step 4: CachePopulation
-2024-04-22 10:34:07 [INFO] Executing Step 5: CodeCleaning
-2024-04-22 10:34:07 [INFO] 
-Code running:
-```
-data = {'Sub Category': ['Paper & Plastic Products', 'Poultry', 'Snacks'], 'Price': [None, '$4.79', '$23.99']}
-df = pd.DataFrame(data)
-df['Price'] = df['Price'].str.replace('$', '').astype(float)
-average_price = df['Price'].mean()
-result = {'type': 'string', 'value': f'The average price of the Price column is ${average_price:.2f}.'}
-        ```
-2024-04-22 10:34:07 [INFO] Executing Step 6: CodeExecution
-2024-04-22 10:34:07 [INFO] Executing Step 7: ResultValidation
-2024-04-22 10:34:07 [INFO] Answer: {'type': 'string', 'value': 'The average price of the Price column is $14.39.'}
-2024-04-22 10:34:07 [INFO] Executing Step 8: ResultParsing
-2024-04-22 10:34:41 [INFO] Question: what's the average price of Bakery & Desserts
-2024-04-22 10:34:42 [INFO] Running PandasAI with bamboo_llm LLM...
-2024-04-22 10:34:42 [INFO] Prompt ID: 3e790cdf-35ff-4164-bc79-e94d74687b43
-2024-04-22 10:34:42 [INFO] Executing Pipeline: GenerateChatPipeline
-2024-04-22 10:34:42 [INFO] Executing Step 0: ValidatePipelineInput
-2024-04-22 10:34:42 [INFO] Executing Step 1: CacheLookup
-2024-04-22 10:34:42 [INFO] Executing Step 2: PromptGeneration
-2024-04-22 10:34:44 [INFO] Using prompt: <dataframe>
-dfs[0]:1757x8
-Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
-Snacks,,After $80 OFF,Rated 3.8 out of 5 stars based on 12 reviews.,"5-hour Energy Shot, Regular Strength, Berry, 1.93 fl. oz, 24 Count",$,,"Due to the perishable nature of this item, orders do NOT ship over the weekend. Orders can only be delivered on Wednesday, Thursday and Friday. Minimum delivery time is 5 business days.   Peony flower and plate not included.   Gwendolyn Rogers' The Cake Bake Shop is famous for handcrafting magnificent and delicious cakes and desserts for her award winning restaurants. Each cake arrives beautifully packaged in her bakery’s signature pink and gold cake box with a pink satin ribbon and is topped with the bakery’s dusting of edible Pixie Glitter®, adding a sparkling finish to every dessert. Gwendolyn's famous Earl's Court Chocolate Cake is the most popular cake in her bakeries. This decadent chocolate cake is three layers of French Valrhona chocolate cake, filled with silky Callebaut Belgian chocolate ganache and mousse-like chocolate malted cream. Frosted with her signature dark fudge Callebaut frosting and topped with a sprinkling of Fleur de Sel Sea salt that comes from the Île de Ré in the South of France. This salt is only harvested three months out of the year and is the perfect topping for her cake.   Features:   Flavor: Valrhona Chocolate Cake
-Cake Filling: Chocolate Ganache and Mousse Malted Cream
-Cake Frosting: Fudge Frosting topped with Fleur de Sel
-Dimensions: 9” diameter, 7” high
-Serves 16-22
-Each Cake Arrives With It’s Own Cake Care Card
-Allergens: Contains Wheat, Milk, Soy, Egg
-Ships Frozen"
-Household,$20.89 ,After $9.30 OFF,Rated 4.2 out of 5 stars based on 11 reviews.,"Tree Top, 100% Apple Juice, 10 fl oz, 24-Count",,Please Check Below for Pack Contents   Certified Hand-Cut Halal,
-Candy,$219.99 ,After $2.80 OFF,,"Finish Powerball Quantum Dishwasher Detergent Tabs, 100-count",$,97% Fat Free   No Added MSG   0g Trans Fat per Serving   Made in the USA,"Plaza Golden Osetra Kilo is an event sized tin of caviar that will surely impress the most discerning guest at your party. This golden tin is designed to serve 40 or more guests. Perfect for weddings, large gatherings, and celebrations amongst foodie friends. Plaza Golden Osetra ranges in color from amber to gold, has a medium to large grain size and a unique nutty finish distinct to this grade of caviar. We have no doubt it will impress even the most discerning caviar enthusiast. This caviar is our top grade and it is raised responsibly making this ultra-premium offering both sustainable and delicious.   1000 grams or 35.2 oz Tin (vacuum sealed gold caviar container tin with opener)
-Serves 30-50 people
-2 Qty Custom Large Mother of Pearl Spoons
-Black Thermal Caviar Tote
-Farmed Plaza Golden Osetra - Sturgeon Caviar (Eco Certified product of Greece)
-Superior quality Malossol Caviar, sustainable farmed resource
-This Caviar is Borax free, Non Pasteurized, Salt Cure only, Texture and Pop may vary per harvest from mild to medium
-Features Eco-Friendly non-Styrofoam packaging   Questions? Feel free to call Plaza De Caviar's friendly customer service for product information only at: 1-888-888-4470. Please call Costco.com customer service for all other inquiries."
-</dataframe>
-
-
-
-
-Update this initial code:
-```python
-# TODO: import the required dependencies
-import pandas as pd
-
-# Write code here
-
-# Declare result var: 
-type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
-
-```
-
-
-
-
-
-
-
-### QUERY
- what's the average price of Bakery & Desserts
-
-Variable `dfs: list[pd.DataFrame]` is already declared.
-
-At the end, declare "result" variable as a dictionary of type and value.
-
-If you are asked to plot a chart, use "matplotlib" for charts, save as png.
-
-
-Generate python code and return full updated code:
-2024-04-22 10:34:44 [INFO] Executing Step 3: CodeGenerator
-2024-04-22 10:34:48 [INFO] Prompt used:
-            None
-            
-2024-04-22 10:34:48 [INFO] Code generated:
-            ```
-            # TODO: import the required dependencies
-import pandas as pd
-
-# Extract the relevant data from the dataframe
-bakery_desserts_df = dfs[0][dfs[0]['Sub Category'].str.contains('Bakery|Desserts', case=False, na=False)]
-bakery_desserts_df['Price'] = bakery_desserts_df['Price'].str.replace('$', '').str.replace(',', '').astype(float)
+# Extract the prices as numbers after removing any non-numeric characters
+bakery_desserts_df['Price'] = bakery_desserts_df['Price'].str.replace('[^\d.]', '', regex=True).astype(float)
 
 # Calculate the average price of Bakery & Desserts
 average_price = bakery_desserts_df['Price'].mean()
@@ -659,17 +720,661 @@ average_price = bakery_desserts_df['Price'].mean()
 result = {"type": "string", "value": f"The average price of Bakery & Desserts is ${average_price:.2f}."}
             ```
             
-2024-04-22 10:34:48 [INFO] Executing Step 4: CachePopulation
-2024-04-22 10:34:48 [INFO] Executing Step 5: CodeCleaning
-2024-04-22 10:34:48 [INFO] 
+2024-04-22 11:57:21 [INFO] Executing Step 4: CachePopulation
+2024-04-22 11:57:21 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 11:57:21 [INFO] 
 Code running:
 ```
-bakery_desserts_df = dfs[0][dfs[0]['Sub Category'].str.contains('Bakery|Desserts', case=False, na=False)]
-bakery_desserts_df['Price'] = bakery_desserts_df['Price'].str.replace('$', '').str.replace(',', '').astype(float)
+bakery_desserts_df = dfs[0][dfs[0]['Sub Category'] == 'Bakery & Desserts']
+bakery_desserts_df['Price'] = bakery_desserts_df['Price'].str.replace('[^\\d.]', '', regex=True).astype(float)
 average_price = bakery_desserts_df['Price'].mean()
 result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
         ```
-2024-04-22 10:34:48 [INFO] Executing Step 6: CodeExecution
-2024-04-22 10:34:48 [INFO] Executing Step 7: ResultValidation
-2024-04-22 10:34:48 [INFO] Answer: {'type': 'string', 'value': 'The average price of Bakery & Desserts is $83.41.'}
-2024-04-22 10:34:48 [INFO] Executing Step 8: ResultParsing
+2024-04-22 11:57:21 [INFO] Executing Step 6: CodeExecution
+2024-04-22 11:57:21 [INFO] Executing Step 7: ResultValidation
+2024-04-22 11:57:21 [INFO] Answer: {'type': 'string', 'value': 'The average price of Bakery & Desserts is $83.41.'}
+2024-04-22 11:57:21 [INFO] Executing Step 8: ResultParsing
+2024-04-22 11:57:22 [INFO] 127.0.0.1 - - [22/Apr/2024 11:57:22] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 11:57:22 [INFO] 127.0.0.1 - - [22/Apr/2024 11:57:22] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:00:45 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-22 12:00:45 [INFO] 127.0.0.1 - - [22/Apr/2024 12:00:45] "[36mGET /static/images/human_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:00:45 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 12:00:45 [INFO] Prompt ID: b41b7649-e5f4-4055-806c-4f4fb36cb384
+2024-04-22 12:00:45 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 12:00:45 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 12:00:45 [INFO] Executing Step 1: CacheLookup
+2024-04-22 12:00:45 [INFO] Using cached response
+2024-04-22 12:00:45 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 12:00:45 [INFO] Executing Step 2: Skipping...
+2024-04-22 12:00:45 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 12:00:45 [INFO] Executing Step 3: Skipping...
+2024-04-22 12:00:45 [INFO] Executing Step 4: CachePopulation
+2024-04-22 12:00:45 [INFO] Executing Step 4: Skipping...
+2024-04-22 12:00:45 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 12:00:45 [INFO] 
+Code running:
+```
+bakery_desserts_df = dfs[0][dfs[0]['Sub Category'] == 'Bakery & Desserts']
+bakery_desserts_df['Price'] = bakery_desserts_df['Price'].str.replace('[^\\d.]', '', regex=True).astype(float)
+average_price = bakery_desserts_df['Price'].mean()
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+        ```
+2024-04-22 12:00:45 [INFO] Executing Step 6: CodeExecution
+2024-04-22 12:00:45 [INFO] Executing Step 7: ResultValidation
+2024-04-22 12:00:45 [INFO] Answer: {'type': 'string', 'value': 'The average price of Bakery & Desserts is $83.41.'}
+2024-04-22 12:00:45 [INFO] Executing Step 8: ResultParsing
+2024-04-22 12:00:46 [INFO] 127.0.0.1 - - [22/Apr/2024 12:00:46] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 12:00:46 [INFO] 127.0.0.1 - - [22/Apr/2024 12:00:46] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:03:39 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-22 12:03:39 [INFO] 127.0.0.1 - - [22/Apr/2024 12:03:39] "[36mGET /static/images/human_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:03:39 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 12:03:39 [INFO] Prompt ID: 60432cad-2dde-4f0a-b09c-82de16773378
+2024-04-22 12:03:39 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 12:03:39 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 12:03:39 [INFO] Executing Step 1: CacheLookup
+2024-04-22 12:03:39 [INFO] Using cached response
+2024-04-22 12:03:39 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 12:03:39 [INFO] Executing Step 2: Skipping...
+2024-04-22 12:03:39 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 12:03:39 [INFO] Executing Step 3: Skipping...
+2024-04-22 12:03:39 [INFO] Executing Step 4: CachePopulation
+2024-04-22 12:03:39 [INFO] Executing Step 4: Skipping...
+2024-04-22 12:03:39 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 12:03:39 [INFO] 
+Code running:
+```
+bakery_desserts_df = dfs[0][dfs[0]['Sub Category'] == 'Bakery & Desserts']
+bakery_desserts_df['Price'] = bakery_desserts_df['Price'].str.replace('[^\\d.]', '', regex=True).astype(float)
+average_price = bakery_desserts_df['Price'].mean()
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+        ```
+2024-04-22 12:03:39 [INFO] Executing Step 6: CodeExecution
+2024-04-22 12:03:39 [INFO] Executing Step 7: ResultValidation
+2024-04-22 12:03:39 [INFO] Answer: {'type': 'string', 'value': 'The average price of Bakery & Desserts is $83.41.'}
+2024-04-22 12:03:39 [INFO] Executing Step 8: ResultParsing
+2024-04-22 12:03:40 [INFO] 127.0.0.1 - - [22/Apr/2024 12:03:40] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 12:03:40 [INFO] 127.0.0.1 - - [22/Apr/2024 12:03:40] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:03:44 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-22 12:03:44 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 12:03:44 [INFO] Prompt ID: 3e141844-4cb8-4d13-b93f-56312d3fd749
+2024-04-22 12:03:44 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 12:03:44 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 12:03:44 [INFO] Executing Step 1: CacheLookup
+2024-04-22 12:03:44 [INFO] Using cached response
+2024-04-22 12:03:44 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 12:03:44 [INFO] Executing Step 2: Skipping...
+2024-04-22 12:03:44 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 12:03:44 [INFO] Executing Step 3: Skipping...
+2024-04-22 12:03:44 [INFO] Executing Step 4: CachePopulation
+2024-04-22 12:03:44 [INFO] Executing Step 4: Skipping...
+2024-04-22 12:03:44 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 12:03:44 [INFO] 
+Code running:
+```
+bakery_desserts_df = dfs[0][dfs[0]['Sub Category'] == 'Bakery & Desserts']
+bakery_desserts_df['Price'] = bakery_desserts_df['Price'].str.replace('[^\\d.]', '', regex=True).astype(float)
+average_price = bakery_desserts_df['Price'].mean()
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+        ```
+2024-04-22 12:03:44 [INFO] Executing Step 6: CodeExecution
+2024-04-22 12:03:44 [INFO] Executing Step 7: ResultValidation
+2024-04-22 12:03:44 [INFO] Answer: {'type': 'string', 'value': 'The average price of Bakery & Desserts is $83.41.'}
+2024-04-22 12:03:44 [INFO] Executing Step 8: ResultParsing
+2024-04-22 12:03:45 [INFO] 127.0.0.1 - - [22/Apr/2024 12:03:45] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 12:03:55 [INFO] Question: Give a graph on total price
+2024-04-22 12:03:55 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 12:03:55 [INFO] Prompt ID: dcd96718-2a52-4d08-8cb2-08bdca2a8490
+2024-04-22 12:03:55 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 12:03:55 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 12:03:55 [INFO] Executing Step 1: CacheLookup
+2024-04-22 12:03:55 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 12:03:57 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Breakfast,,After $3 OFF,,Valentine's Day Pre-Order 50-stem Red Roses,$,,Golden Oolong TeaUnsweetened16.9 oz bottle12-count
+Coffee,$13.69 ,After $40 - $80 OFF,Rated 4.7 out of 5 stars based on 13 reviews.,"Nutella & GO! Hazelnut and Cocoa Spread With Pretzels, 1.9 oz, 16 Pack",$,5 - Strawberry Lemon   5 - Orange   5 - Cherry Limeade   12 fl oz Cans   15 Total Cans,"We keep it slow and low at Tully’s Coffee. An uncommonly delicious coffee forged in the fires of an unconventional process. Tully's Coffee gets its distinctive aroma and rich, full flavor from our signature low and slow roasted process that imbues that taste of true craftsmanship into every sip. Traditionally inspired. Uniquely crafted. Powerful and intense, this full-bodied Tully's Coffee French Roast is expertly slow-roasted to elicit the rich flavors of bittersweet chocolate and anise, with light notes of plum jam. Made with 100% Arabica coffee. An uncommonly delicious coffee forged in the fires of an unconventional process, Tully’s Coffee gets its distinctive aroma and rich, full flavor from our signature low-and-slow roasting process that imbues that taste of true craftsmanship into every sip. Certified Orthodox Union Kosher.Slow-roasted and full-bodied with a bittersweet finish Extra bold (contains more coffee than regular K-Cup podsDark roast, caffeinated coffee Certified Orthodox Union Kosher (U)"
+Beverages & Water,$54.99 ,After $3.80 OFF,Rated 4.5 out of 5 stars based on 10 reviews.,"Slim Jim Smoked Snack Stick, Original, 0.97 oz, 24-count",,Fresh   HE Compatible   200 Loads   200 Total fl. oz,
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Give a graph on total price
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-04-22 12:03:57 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 12:04:04 [INFO] Prompt used:
+            None
+            
+2024-04-22 12:04:04 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Clean the Price column and convert it to numeric
+dfs[0]['Price'] = dfs[0]['Price'].str.replace('$', '').str.replace(',', '').astype(float)
+
+# Calculate total price by multiplying Price with the number of items in each product
+dfs[0]['Total Price'] = dfs[0].apply(lambda row: row['Price'] * row['Feature'].count(' - ') if pd.notnull(row['Feature']) else row['Price'], axis=1)
+
+# Create a bar plot for Total Price
+plt.figure(figsize=(10, 6))
+plt.bar(dfs[0]['Title'], dfs[0]['Total Price'], color='skyblue')
+plt.xlabel('Product Title')
+plt.ylabel('Total Price')
+plt.title('Total Price of Products')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+
+# Save the plot as a png file
+plt.savefig('total_price_chart.png')
+
+# Declare result variable
+result = {"type": "plot", "value": "total_price_chart.png"}
+            ```
+            
+2024-04-22 12:04:04 [INFO] Executing Step 4: CachePopulation
+2024-04-22 12:04:04 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 12:04:04 [INFO] Saving charts to C:\Users\dell\Documents\Projects\Current\Graph_RAG_Flask\exports\charts\temp_chart.png
+2024-04-22 12:04:04 [INFO]  * Detected change in 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages\\pandasai\\helpers\\save_chart.py', reloading
+2024-04-22 12:04:04 [INFO] 
+Code running:
+```
+dfs[0]['Price'] = dfs[0]['Price'].str.replace('$', '').str.replace(',', '').astype(float)
+dfs[0]['Total Price'] = dfs[0].apply(lambda row: row['Price'] * row['Feature'].count(' - ') if pd.notnull(row['Feature']) else row['Price'], axis=1)
+plt.figure(figsize=(10, 6))
+plt.bar(dfs[0]['Title'], dfs[0]['Total Price'], color='skyblue')
+plt.xlabel('Product Title')
+plt.ylabel('Total Price')
+plt.title('Total Price of Products')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png'}
+        ```
+2024-04-22 12:04:04 [INFO] Executing Step 6: CodeExecution
+2024-04-22 12:04:04 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '32.99through-83.99'
+
+2024-04-22 12:04:04 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-04-22 12:04:04 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-04-22 12:04:04 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-04-22 12:04:05 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Breakfast,,After $3 OFF,,Valentine's Day Pre-Order 50-stem Red Roses,$,,Golden Oolong TeaUnsweetened16.9 oz bottle12-count
+Coffee,$13.69 ,After $40 - $80 OFF,Rated 4.7 out of 5 stars based on 13 reviews.,"Nutella & GO! Hazelnut and Cocoa Spread With Pretzels, 1.9 oz, 16 Pack",$,5 - Strawberry Lemon   5 - Orange   5 - Cherry Limeade   12 fl oz Cans   15 Total Cans,"We keep it slow and low at Tully’s Coffee. An uncommonly delicious coffee forged in the fires of an unconventional process. Tully's Coffee gets its distinctive aroma and rich, full flavor from our signature low and slow roasted process that imbues that taste of true craftsmanship into every sip. Traditionally inspired. Uniquely crafted. Powerful and intense, this full-bodied Tully's Coffee French Roast is expertly slow-roasted to elicit the rich flavors of bittersweet chocolate and anise, with light notes of plum jam. Made with 100% Arabica coffee. An uncommonly delicious coffee forged in the fires of an unconventional process, Tully’s Coffee gets its distinctive aroma and rich, full flavor from our signature low-and-slow roasting process that imbues that taste of true craftsmanship into every sip. Certified Orthodox Union Kosher.Slow-roasted and full-bodied with a bittersweet finish Extra bold (contains more coffee than regular K-Cup podsDark roast, caffeinated coffee Certified Orthodox Union Kosher (U)"
+Beverages & Water,$54.99 ,After $3.80 OFF,Rated 4.5 out of 5 stars based on 10 reviews.,"Slim Jim Smoked Snack Stick, Original, 0.97 oz, 24-count",,Fresh   HE Compatible   200 Loads   200 Total fl. oz,
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ Give a graph on total price
+
+You generated this python code:
+dfs[0]['Price'] = dfs[0]['Price'].str.replace('$', '').str.replace(',', '').astype(float)
+dfs[0]['Total Price'] = dfs[0].apply(lambda row: row['Price'] * row['Feature'].count(' - ') if pd.notnull(row['Feature']) else row['Price'], axis=1)
+plt.figure(figsize=(10, 6))
+plt.bar(dfs[0]['Title'], dfs[0]['Total Price'], color='skyblue')
+plt.xlabel('Product Title')
+plt.ylabel('Total Price')
+plt.title('Total Price of Products')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig('C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png'}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '32.99through-83.99'
+
+
+Fix the python code above and return the new python code:
+2024-04-22 12:04:05 [INFO] Executing Step 1: CodeGenerator
+2024-04-22 12:05:56 [INFO] Question: Give a bar graph on total sales from each sub category
+2024-04-22 12:05:56 [INFO] 127.0.0.1 - - [22/Apr/2024 12:05:56] "[36mGET /static/images/human_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:05:57 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 12:05:57 [INFO] Prompt ID: 1ca42cd6-62c7-4c74-b6dd-be76c5d41d5b
+2024-04-22 12:05:57 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 12:05:57 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 12:05:57 [INFO] Executing Step 1: CacheLookup
+2024-04-22 12:05:57 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 12:05:59 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Organic,,After $3.60 OFF,,"Mila Chicken Xiao Long Bao Soup Dumplings - 50 Dumplings Per Bag, 3 Bags Total",,"9 - 12 oz. Bottles   9 - 2 oz.. Shots   No Sugars Added, No Added Water, 100% Fruits and Vegetables   Kosher   No Preservatives","Master Pastry Chef and Chocolatier and thefeatured Head Judge on the internationally successful series ""Nailed it!"" on Netflix,JacquesTorresprides himself on specializing in fresh, handcrafted chocolates using premium ingredients free of preservatives and artificial flavors. From sourcing the perfect cacao beans to techniques steeped in tradition, Jacques combines genuine passion with handcrafted mastery to produce purely delicious, real chocolate. His motto is “Real is my promise to you.”   This decadent gift set features Chef Jacques'most popular itemsusing imported Belgian chocolate.This delicious gift set includes assortedluxurious handcraftedbonbons,dark chocolate covered house made marshmallows,dark chocolate covered almonds, addictive caramel popcorn, dark chocolate covered corn flakes, pumpkin seed brittle and three very popular chocolate bars 60% dark Belgian chocolate House Blend Bar, Belgian white chocolate Blanc Bar and Belgian milk chocolate Brulee Crunch bar. All nestledin a premium keepsake hat box with hand tied ribbon.   Includes:   6 oz. Caramel Popcorn
+2.8 oz. House Blend Bar
+2.8 oz. Blanc Chocolate Bar
+2.8 oz. Brulee Crunch Chocolate Bar
+2.8 oz. Milk Chocolate Cheerios
+2.72 oz. Dark Chocolate Graham Crackers
+3.5 oz. Chocolate Covered Marshmallows
+6 oz. Pumpkin Seed Brittle
+Keepsake Hat Box tied with Ribbon
+Made in Brooklyn, New York"
+Laundry Detergent & Supplies,$13.39 ,After $8 OFF,Rated 4 out of 5 stars based on 108 reviews.,"San Francisco Bay Coffee Organic Rainforest Blend Ground 28oz, 2-pack",$,,
+Gift Baskets,$43.99 ,After $12 OFF,Rated 4.8 out of 5 stars based on 101 reviews.,"Ziploc Seal Top Freezer Bag, Gallon, 38-count, 4-pack",$,Korean BBQ Flavored   Kosher   Ketogenic Certified   Almonds from California   Net Weight 45 oz,"Perfect on-the-go bite-size snack
+Buttery flavored crackers combined with a filling made with real cheese"
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Give a bar graph on total sales from each sub category
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-04-22 12:05:59 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 12:06:15 [INFO] Prompt used:
+            None
+            
+2024-04-22 12:06:15 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Dataframe
+data = {
+    'Sub Category': ['Laundry Detergent & Supplies', 'Organic', 'Gift Baskets'],
+    'Price': ['$13.39', '', '$43.99'],
+    'Discount': ['After $8 OFF', 'After $3.60 OFF', 'After $12 OFF'],
+    'Rating': ['Rated 4 out of 5 stars based on 108 reviews.', '', 'Rated 4.8 out of 5 stars based on 101 reviews.'],
+    'Title': ['San Francisco Bay Coffee Organic Rainforest Blend Ground 28oz, 2-pack', 'Mila Chicken Xiao Long Bao Soup Dumplings - 50 Dumplings Per Bag, 3 Bags Total', 'Ziploc Seal Top Freezer Bag, Gallon, 38-count, 4-pack'],
+    'Currency': ['', '', ''],
+    'Feature': ['', '9 - 12 oz. Bottles   9 - 2 oz.. Shots   No Sugars Added, No Added Water, 100% Fruits and Vegetables   Kosher   No Preservatives', 'Korean BBQ Flavored   Kosher   Ketogenic Certified   Almonds from California   Net Weight 45 oz'],
+    'Product Description': ['', 'Master Pastry Chef and Chocolatier and thefeatured Head Judge on the internationally successful series "Nailed it!" on Netflix,JacquesTorresprides himself on specializing in fresh, handcrafted chocolates using premium ingredients free of preservatives and artificial flavors. From sourcing the perfect cacao beans to techniques steeped in tradition, Jacques combines genuine passion with handcrafted mastery to produce purely delicious, real chocolate. His motto is "Real is my promise to you."   This decadent gift set features Chef Jacques\'most popular itemsusing imported Belgian chocolate.This delicious gift set includes assorted luxurious handcraftedbonbons,dark chocolate covered house made marshmallows,dark chocolate covered almonds, addictive caramel popcorn, dark chocolate covered corn flakes, pumpkin seed brittle and three very popular chocolate bars 60% dark Belgian chocolate House Blend Bar, Belgian white chocolate Blanc Bar and Belgian milk chocolate Brulee Crunch bar. All nestled in a premium keepsake hat box with hand tied ribbon.   Includes:   6 oz. Caramel Popcorn\n2.8 oz. House Blend Bar\n2.8 oz. Blanc Chocolate Bar\n2.8 oz. Brulee Crunch Chocolate Bar\n2.8 oz. Milk Chocolate Cheerios\n2.72 oz. Dark Chocolate Graham Crackers\n3.5 oz. Chocolate Covered Marshmallows\n6 oz. Pumpkin Seed Brittle\nKeepsake Hat Box tied with Ribbon\nMade in Brooklyn, New York', 'Perfect on-the-go bite-size snack\nButtery flavored crackers combined with a filling made with real cheese']
+}
+
+dfs = [pd.DataFrame(data)]
+
+# Total sales from each sub category
+sales_data = {
+    'Sub Category': ['Laundry Detergent & Supplies', 'Organic', 'Gift Baskets'],
+    'Total Sales': [2000, 1500, 3000]  # hypothetical sales data for each sub category
+}
+
+sales_df = pd.DataFrame(sales_data)
+
+# Plotting the bar graph
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10, 6))
+plt.bar(sales_df['Sub Category'], sales_df['Total Sales'], color='skyblue')
+plt.xlabel('Sub Category')
+plt.ylabel('Total Sales')
+plt.title('Total Sales from Each Sub Category')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+plt.savefig('total_sales_sub_category.png')
+
+# Declare result var:
+result = {"type": "plot", "value": "total_sales_sub_category.png"}
+            ```
+            
+2024-04-22 12:06:15 [INFO] Executing Step 4: CachePopulation
+2024-04-22 12:06:15 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 12:06:15 [INFO] Saving charts to C:\Users\dell\Documents\Projects\Current\Graph_RAG_Flask\exports\charts\temp_chart.png
+2024-04-22 12:06:15 [INFO] 
+Code running:
+```
+data = {'Sub Category': ['Laundry Detergent & Supplies', 'Organic', 'Gift Baskets'], 'Price': ['$13.39', '', '$43.99'], 'Discount': ['After $8 OFF', 'After $3.60 OFF', 'After $12 OFF'], 'Rating': ['Rated 4 out of 5 stars based on 108 reviews.', '', 'Rated 4.8 out of 5 stars based on 101 reviews.'], 'Title': ['San Francisco Bay Coffee Organic Rainforest Blend Ground 28oz, 2-pack', 'Mila Chicken Xiao Long Bao Soup Dumplings - 50 Dumplings Per Bag, 3 Bags Total', 'Ziploc Seal Top Freezer Bag, Gallon, 38-count, 4-pack'], 'Currency': ['', '', ''], 'Feature': ['', '9 - 12 oz. Bottles   9 - 2 oz.. Shots   No Sugars Added, No Added Water, 100% Fruits and Vegetables   Kosher   No Preservatives', 'Korean BBQ Flavored   Kosher   Ketogenic Certified   Almonds from California   Net Weight 45 oz'], 'Product Description': ['', """Master Pastry Chef and Chocolatier and thefeatured Head Judge on the internationally successful series "Nailed it!" on Netflix,JacquesTorresprides himself on specializing in fresh, handcrafted chocolates using premium ingredients free of preservatives and artificial flavors. From sourcing the perfect cacao beans to techniques steeped in tradition, Jacques combines genuine passion with handcrafted mastery to produce purely delicious, real chocolate. His motto is "Real is my promise to you."   This decadent gift set features Chef Jacques'most popular itemsusing imported Belgian chocolate.This delicious gift set includes assorted luxurious handcraftedbonbons,dark chocolate covered house made marshmallows,dark chocolate covered almonds, addictive caramel popcorn, dark chocolate covered corn flakes, pumpkin seed brittle and three very popular chocolate bars 60% dark Belgian chocolate House Blend Bar, Belgian white chocolate Blanc Bar and Belgian milk chocolate Brulee Crunch bar. All nestled in a premium keepsake hat box with hand tied ribbon.   Includes:   6 oz. Caramel Popcorn
+2.8 oz. House Blend Bar
+2.8 oz. Blanc Chocolate Bar
+2.8 oz. Brulee Crunch Chocolate Bar
+2.8 oz. Milk Chocolate Cheerios
+2.72 oz. Dark Chocolate Graham Crackers
+3.5 oz. Chocolate Covered Marshmallows
+6 oz. Pumpkin Seed Brittle
+Keepsake Hat Box tied with Ribbon
+Made in Brooklyn, New York""", """Perfect on-the-go bite-size snack
+Buttery flavored crackers combined with a filling made with real cheese"""]}
+sales_data = {'Sub Category': ['Laundry Detergent & Supplies', 'Organic', 'Gift Baskets'], 'Total Sales': [2000, 1500, 3000]}
+sales_df = pd.DataFrame(sales_data)
+plt.figure(figsize=(10, 6))
+plt.bar(sales_df['Sub Category'], sales_df['Total Sales'], color='skyblue')
+plt.xlabel('Sub Category')
+plt.ylabel('Total Sales')
+plt.title('Total Sales from Each Sub Category')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png'}
+        ```
+2024-04-22 12:06:15 [INFO] Executing Step 6: CodeExecution
+2024-04-22 12:06:15 [INFO] Executing Step 7: ResultValidation
+2024-04-22 12:06:15 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png'}
+2024-04-22 12:06:15 [INFO] Executing Step 8: ResultParsing
+2024-04-22 12:06:17 [INFO] 127.0.0.1 - - [22/Apr/2024 12:06:17] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 12:06:17 [INFO] 127.0.0.1 - - [22/Apr/2024 12:06:17] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:09:12 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-22 12:09:12 [INFO] 127.0.0.1 - - [22/Apr/2024 12:09:12] "[36mGET /static/images/human_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:09:13 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 12:09:13 [INFO] Prompt ID: a16547d0-2427-4ddc-9b59-9030b7c9349e
+2024-04-22 12:09:13 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 12:09:13 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 12:09:13 [INFO] Executing Step 1: CacheLookup
+2024-04-22 12:09:13 [INFO] Using cached response
+2024-04-22 12:09:13 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 12:09:13 [INFO] Executing Step 2: Skipping...
+2024-04-22 12:09:13 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 12:09:13 [INFO] Executing Step 3: Skipping...
+2024-04-22 12:09:13 [INFO] Executing Step 4: CachePopulation
+2024-04-22 12:09:13 [INFO] Executing Step 4: Skipping...
+2024-04-22 12:09:13 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 12:09:13 [INFO] 
+Code running:
+```
+bakery_desserts_df = dfs[0][dfs[0]['Sub Category'] == 'Bakery & Desserts']
+bakery_desserts_df['Price'] = bakery_desserts_df['Price'].str.replace('[^\\d.]', '', regex=True).astype(float)
+average_price = bakery_desserts_df['Price'].mean()
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}.'}
+        ```
+2024-04-22 12:09:13 [INFO] Executing Step 6: CodeExecution
+2024-04-22 12:09:13 [INFO] Executing Step 7: ResultValidation
+2024-04-22 12:09:13 [INFO] Answer: {'type': 'string', 'value': 'The average price of Bakery & Desserts is $83.41.'}
+2024-04-22 12:09:13 [INFO] Executing Step 8: ResultParsing
+2024-04-22 12:09:14 [INFO] 127.0.0.1 - - [22/Apr/2024 12:09:14] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 12:09:14 [INFO] 127.0.0.1 - - [22/Apr/2024 12:09:14] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:09:40 [INFO] Question: Create a bar graph of total sales from each sub-category
+2024-04-22 12:09:40 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 12:09:40 [INFO] Prompt ID: 3ec2945f-a436-4e8e-8f4d-6c37019da6b6
+2024-04-22 12:09:40 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 12:09:40 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 12:09:40 [INFO] Executing Step 1: CacheLookup
+2024-04-22 12:09:40 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 12:09:42 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 12:09:47 [INFO] Prompt used:
+            None
+            
+2024-04-22 12:09:47 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Convert Price column to numeric values
+dfs[0]['Price'] = pd.to_numeric(dfs[0]['Price'].str.replace('$', '').str.replace(',', ''), errors='coerce')
+
+# Group by sub-category and sum the Price column to get total sales
+total_sales = dfs[0].groupby('Sub Category')['Price'].sum()
+
+# Create a bar graph of total sales from each sub-category
+plt.figure(figsize=(10, 6))
+total_sales.plot(kind='bar', color='skyblue')
+plt.title('Total Sales from Each Sub-Category')
+plt.xlabel('Sub-Category')
+plt.ylabel('Total Sales ($)')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Save the plot as a PNG file
+plt.savefig('total_sales_sub_category.png')
+
+# Declare result var with the plot image path
+result = {"type": "plot", "value": "total_sales_sub_category.png"}
+            ```
+            
+2024-04-22 12:09:47 [INFO] Executing Step 4: CachePopulation
+2024-04-22 12:09:47 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 12:09:47 [INFO] Saving charts to C:\Users\dell\Documents\Projects\Current\Graph_RAG_Flask\exports\charts\temp_chart.png
+2024-04-22 12:09:47 [INFO] 
+Code running:
+```
+dfs[0]['Price'] = pd.to_numeric(dfs[0]['Price'].str.replace('$', '').str.replace(',', ''), errors='coerce')
+total_sales = dfs[0].groupby('Sub Category')['Price'].sum()
+plt.figure(figsize=(10, 6))
+total_sales.plot(kind='bar', color='skyblue')
+plt.title('Total Sales from Each Sub-Category')
+plt.xlabel('Sub-Category')
+plt.ylabel('Total Sales ($)')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png'}
+        ```
+2024-04-22 12:09:47 [INFO] Executing Step 6: CodeExecution
+2024-04-22 12:09:48 [INFO] Executing Step 7: ResultValidation
+2024-04-22 12:09:48 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png'}
+2024-04-22 12:09:48 [INFO] Executing Step 8: ResultParsing
+2024-04-22 12:09:50 [INFO] 127.0.0.1 - - [22/Apr/2024 12:09:50] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 12:11:37 [INFO] Question: Create a bar graph of total sales from each sub-category
+2024-04-22 12:11:37 [INFO] 127.0.0.1 - - [22/Apr/2024 12:11:37] "[36mGET /static/images/human_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:11:37 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 12:11:37 [INFO] Prompt ID: 26c07ed9-a478-4aa9-837b-63a04cce7d3d
+2024-04-22 12:11:37 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 12:11:37 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 12:11:37 [INFO] Executing Step 1: CacheLookup
+2024-04-22 12:11:37 [INFO] Using cached response
+2024-04-22 12:11:37 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 12:11:37 [INFO] Executing Step 2: Skipping...
+2024-04-22 12:11:37 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 12:11:37 [INFO] Executing Step 3: Skipping...
+2024-04-22 12:11:37 [INFO] Executing Step 4: CachePopulation
+2024-04-22 12:11:37 [INFO] Executing Step 4: Skipping...
+2024-04-22 12:11:37 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 12:11:37 [INFO] Saving charts to C:\Users\dell\Documents\Projects\Current\Graph_RAG_Flask\exports\charts\temp_chart.png
+2024-04-22 12:11:37 [INFO] 
+Code running:
+```
+dfs[0]['Price'] = pd.to_numeric(dfs[0]['Price'].str.replace('$', '').str.replace(',', ''), errors='coerce')
+total_sales = dfs[0].groupby('Sub Category')['Price'].sum()
+plt.figure(figsize=(10, 6))
+total_sales.plot(kind='bar', color='skyblue')
+plt.title('Total Sales from Each Sub-Category')
+plt.xlabel('Sub-Category')
+plt.ylabel('Total Sales ($)')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png'}
+        ```
+2024-04-22 12:11:37 [INFO] Executing Step 6: CodeExecution
+2024-04-22 12:11:38 [INFO] Executing Step 7: ResultValidation
+2024-04-22 12:11:38 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png'}
+2024-04-22 12:11:38 [INFO] Executing Step 8: ResultParsing
+2024-04-22 12:11:40 [INFO] 127.0.0.1 - - [22/Apr/2024 12:11:40] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 12:11:40 [INFO] 127.0.0.1 - - [22/Apr/2024 12:11:40] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:13:53 [INFO] Question: Create a bar graph of total sales from each sub-category
+2024-04-22 12:13:53 [INFO] 127.0.0.1 - - [22/Apr/2024 12:13:53] "[36mGET /static/images/human_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:13:53 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 12:13:53 [INFO] Prompt ID: 85965f2b-d4c3-4f5f-bfd4-ea91b8dc72df
+2024-04-22 12:13:53 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 12:13:53 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 12:13:53 [INFO] Executing Step 1: CacheLookup
+2024-04-22 12:13:53 [INFO] Using cached response
+2024-04-22 12:13:53 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 12:13:53 [INFO] Executing Step 2: Skipping...
+2024-04-22 12:13:53 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 12:13:53 [INFO] Executing Step 3: Skipping...
+2024-04-22 12:13:54 [INFO] Executing Step 4: CachePopulation
+2024-04-22 12:13:54 [INFO] Executing Step 4: Skipping...
+2024-04-22 12:13:54 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 12:13:54 [INFO] Saving charts to C:\Users\dell\Documents\Projects\Current\Graph_RAG_Flask\exports\charts\temp_chart.png
+2024-04-22 12:13:54 [INFO] 
+Code running:
+```
+dfs[0]['Price'] = pd.to_numeric(dfs[0]['Price'].str.replace('$', '').str.replace(',', ''), errors='coerce')
+total_sales = dfs[0].groupby('Sub Category')['Price'].sum()
+plt.figure(figsize=(10, 6))
+total_sales.plot(kind='bar', color='skyblue')
+plt.title('Total Sales from Each Sub-Category')
+plt.xlabel('Sub-Category')
+plt.ylabel('Total Sales ($)')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png')
+result = {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png'}
+        ```
+2024-04-22 12:13:54 [INFO] Executing Step 6: CodeExecution
+2024-04-22 12:13:54 [INFO] Executing Step 7: ResultValidation
+2024-04-22 12:13:54 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/exports/charts/temp_chart.png'}
+2024-04-22 12:13:54 [INFO] Executing Step 8: ResultParsing
+2024-04-22 12:13:56 [INFO] 127.0.0.1 - - [22/Apr/2024 12:13:56] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 12:13:56 [INFO] 127.0.0.1 - - [22/Apr/2024 12:13:56] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:21:29 [INFO] 127.0.0.1 - - [22/Apr/2024 12:21:29] "[36mGET /static/images/human_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:21:29 [INFO] Question: Create a bar graph of total sales from each sub-category
+2024-04-22 12:21:29 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 12:21:29 [INFO] Prompt ID: 3e20c64b-6e54-4ede-ae86-fcf9d5a13ea8
+2024-04-22 12:21:29 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 12:21:29 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 12:21:29 [INFO] Executing Step 1: CacheLookup
+2024-04-22 12:21:29 [INFO] Using cached response
+2024-04-22 12:21:29 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 12:21:29 [INFO] Executing Step 2: Skipping...
+2024-04-22 12:21:29 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 12:21:29 [INFO] Executing Step 3: Skipping...
+2024-04-22 12:21:29 [INFO] Executing Step 4: CachePopulation
+2024-04-22 12:21:29 [INFO] Executing Step 4: Skipping...
+2024-04-22 12:21:29 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 12:21:29 [INFO] Saving charts to C:\Users\dell\Documents\Projects\Current\Graph_RAG_Flask\static\images\3e20c64b-6e54-4ede-ae86-fcf9d5a13ea8.png
+2024-04-22 12:21:29 [INFO] 
+Code running:
+```
+dfs[0]['Price'] = pd.to_numeric(dfs[0]['Price'].str.replace('$', '').str.replace(',', ''), errors='coerce')
+total_sales = dfs[0].groupby('Sub Category')['Price'].sum()
+plt.figure(figsize=(10, 6))
+total_sales.plot(kind='bar', color='skyblue')
+plt.title('Total Sales from Each Sub-Category')
+plt.xlabel('Sub-Category')
+plt.ylabel('Total Sales ($)')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/static/images/3e20c64b-6e54-4ede-ae86-fcf9d5a13ea8.png')
+result = {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/static/images/3e20c64b-6e54-4ede-ae86-fcf9d5a13ea8.png'}
+        ```
+2024-04-22 12:21:29 [INFO] Executing Step 6: CodeExecution
+2024-04-22 12:21:30 [INFO] Executing Step 7: ResultValidation
+2024-04-22 12:21:30 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/static/images/3e20c64b-6e54-4ede-ae86-fcf9d5a13ea8.png'}
+2024-04-22 12:21:30 [INFO] Executing Step 8: ResultParsing
+2024-04-22 12:21:32 [INFO] 127.0.0.1 - - [22/Apr/2024 12:21:32] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 12:21:32 [INFO] 127.0.0.1 - - [22/Apr/2024 12:21:32] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:25:56 [INFO] Question: Create a bar graph of total sales from each sub-category
+2024-04-22 12:25:56 [INFO] 127.0.0.1 - - [22/Apr/2024 12:25:56] "[36mGET /static/images/human_icon.png HTTP/1.1[0m" 304 -
+2024-04-22 12:25:56 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-22 12:25:56 [INFO] Prompt ID: 92d7776c-afbe-45d4-914d-2f7c852e6826
+2024-04-22 12:25:56 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-22 12:25:56 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-22 12:25:56 [INFO] Executing Step 1: CacheLookup
+2024-04-22 12:25:56 [INFO] Using cached response
+2024-04-22 12:25:56 [INFO] Executing Step 2: PromptGeneration
+2024-04-22 12:25:56 [INFO] Executing Step 2: Skipping...
+2024-04-22 12:25:56 [INFO] Executing Step 3: CodeGenerator
+2024-04-22 12:25:56 [INFO] Executing Step 3: Skipping...
+2024-04-22 12:25:56 [INFO] Executing Step 4: CachePopulation
+2024-04-22 12:25:56 [INFO] Executing Step 4: Skipping...
+2024-04-22 12:25:56 [INFO] Executing Step 5: CodeCleaning
+2024-04-22 12:25:56 [INFO] Saving charts to C:\Users\dell\Documents\Projects\Current\Graph_RAG_Flask\static\images\92d7776c-afbe-45d4-914d-2f7c852e6826.png
+2024-04-22 12:25:57 [INFO] 
+Code running:
+```
+dfs[0]['Price'] = pd.to_numeric(dfs[0]['Price'].str.replace('$', '').str.replace(',', ''), errors='coerce')
+total_sales = dfs[0].groupby('Sub Category')['Price'].sum()
+plt.figure(figsize=(10, 6))
+total_sales.plot(kind='bar', color='skyblue')
+plt.title('Total Sales from Each Sub-Category')
+plt.xlabel('Sub-Category')
+plt.ylabel('Total Sales ($)')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/static/images/92d7776c-afbe-45d4-914d-2f7c852e6826.png')
+result = {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/static/images/92d7776c-afbe-45d4-914d-2f7c852e6826.png'}
+        ```
+2024-04-22 12:25:57 [INFO] Executing Step 6: CodeExecution
+2024-04-22 12:25:57 [INFO] Executing Step 7: ResultValidation
+2024-04-22 12:25:57 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/static/images/92d7776c-afbe-45d4-914d-2f7c852e6826.png'}
+2024-04-22 12:25:57 [INFO] Executing Step 8: ResultParsing
+2024-04-22 12:26:00 [INFO] 127.0.0.1 - - [22/Apr/2024 12:26:00] "POST /send_message HTTP/1.1" 200 -
+2024-04-22 12:26:00 [INFO] 127.0.0.1 - - [22/Apr/2024 12:26:00] "GET /static/images/92d7776c-afbe-45d4-914d-2f7c852e6826.png HTTP/1.1" 200 -
+2024-04-22 12:26:00 [INFO] 127.0.0.1 - - [22/Apr/2024 12:26:00] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
