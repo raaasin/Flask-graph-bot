@@ -1550,3 +1550,681 @@ Generate python code and return full updated code:
 2024-04-23 14:30:23 [ERROR] Pipeline failed on step 3: Unable to generate LLM response.
 2024-04-23 14:30:24 [INFO] 127.0.0.1 - - [23/Apr/2024 14:30:24] "POST /send_message HTTP/1.1" 200 -
 2024-04-23 14:30:24 [INFO] 127.0.0.1 - - [23/Apr/2024 14:30:24] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-23 14:50:52 [INFO] Question: What is the average price of bakery & desserts
+2024-04-23 14:50:52 [INFO] Running PandasAI with google-palm LLM...
+2024-04-23 14:50:52 [INFO] Prompt ID: e6040e75-298a-4a08-bbec-6f17d23ff619
+2024-04-23 14:50:52 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-23 14:50:52 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-23 14:50:52 [INFO] Executing Step 1: CacheLookup
+2024-04-23 14:50:52 [INFO] Executing Step 2: PromptGeneration
+2024-04-23 14:50:55 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Pantry & Dry Goods,$6.99 ,After $40 OFF,,"MyEcoWorld 3-gallon Compostable Food Waste Bag, 150-count",$,"12-pack (6 flavors)   3 servings per bar   Dairy, Soy and Gluten Free   No preservatives or additives   Requires refrigeration upon receipt","Aloha! The magic of Hawaii abounds in this hand-selected products 100% made in Hawaii. This gift set is perfect for gift-giving, special occasions or indulging yourself. We truly hope you will share this with all the specail people in your life-Aloha!Sweet, buttery and crunchy taste treatIncludes:24 oz 2-pack Macadamia Popcorn Crunch100% Made in Hawaii"
+Snacks,,After $50 OFF,Rated 4.4 out of 5 stars based on 3401 reviews.,"Chocolate Moonshine Fudge, 6 count Variety Party Pack, 3 lbs Total",$,,
+Coffee,$169.99through-$429.99,After $3 OFF,Rated 4.8 out of 5 stars based on 4595 reviews.,"Sabritas Chile & Limon Mix, Variety Pack, 30-count",,Kosher (Circle U)   Whole Grain   Fiber   2 Bags   Net Weight 43 oz.,"Assortment Includes:
+(2) 6 oz Premium Angus Beef Complete Trim Filet Mignons
+(2) 10 oz Premium Angus Beef Boneless Strips
+(2) 8 oz Premium Angus Beef Top Sirloins
+(2) 8 oz Premium Angus Beef Ribeyes
+(8) 8 oz Gourmet Steak Burgers 80% Lean 20% Fat
+(1) 2 oz Packet of Steak Seasoning   Whether you prefer tender, lean, or well marbled steaks Chicago Steak Company ensures that all tastes are satisfied with this assortment. Aged four to six weeks, each cut in the Chicago's Butcher Assortment promises excellent quality. Cut through the Filet with a fork and take a bite to see just how tender it is. Prefer a lean steak with plenty of flavor? You'll love the Top Sirloins and Boneless Strips. Seeking a rich marbled steak? The ribeye is well known for this delicious quality.   To complete this tasty package are eight juicy, half-pound burgers. The gourmet steak burgers are made from 100% Midwestern corn-fed beef. Created from our meticulously aged steak trimmings, it's not surprising that these flavorful steak burgers are a customer favorite. These hearty steak burgers will be the hit of your next cook out.   Whether treating yourself or giving as a gift to a lucky recipient, these steaks and burgers will be sure to amaze. Each steak and burger is individually packaged and vacuum-sealed. Once they are ready to go they are placed in an attractive black and gold box with a unique registration number- presentation fit for the best of the best!"
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ What is the average price of bakery & desserts
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-04-23 14:50:55 [INFO] Executing Step 3: CodeGenerator
+2024-04-23 14:50:58 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Pantry & Dry Goods,$6.99 ,After $40 OFF,,"MyEcoWorld 3-gallon Compostable Food Waste Bag, 150-count",$,"12-pack (6 flavors)   3 servings per bar   Dairy, Soy and Gluten Free   No preservatives or additives   Requires refrigeration upon receipt","Aloha! The magic of Hawaii abounds in this hand-selected products 100% made in Hawaii. This gift set is perfect for gift-giving, special occasions or indulging yourself. We truly hope you will share this with all the specail people in your life-Aloha!Sweet, buttery and crunchy taste treatIncludes:24 oz 2-pack Macadamia Popcorn Crunch100% Made in Hawaii"
+Snacks,,After $50 OFF,Rated 4.4 out of 5 stars based on 3401 reviews.,"Chocolate Moonshine Fudge, 6 count Variety Party Pack, 3 lbs Total",$,,
+Coffee,$169.99through-$429.99,After $3 OFF,Rated 4.8 out of 5 stars based on 4595 reviews.,"Sabritas Chile & Limon Mix, Variety Pack, 30-count",,Kosher (Circle U)   Whole Grain   Fiber   2 Bags   Net Weight 43 oz.,"Assortment Includes:
+(2) 6 oz Premium Angus Beef Complete Trim Filet Mignons
+(2) 10 oz Premium Angus Beef Boneless Strips
+(2) 8 oz Premium Angus Beef Top Sirloins
+(2) 8 oz Premium Angus Beef Ribeyes
+(8) 8 oz Gourmet Steak Burgers 80% Lean 20% Fat
+(1) 2 oz Packet of Steak Seasoning   Whether you prefer tender, lean, or well marbled steaks Chicago Steak Company ensures that all tastes are satisfied with this assortment. Aged four to six weeks, each cut in the Chicago's Butcher Assortment promises excellent quality. Cut through the Filet with a fork and take a bite to see just how tender it is. Prefer a lean steak with plenty of flavor? You'll love the Top Sirloins and Boneless Strips. Seeking a rich marbled steak? The ribeye is well known for this delicious quality.   To complete this tasty package are eight juicy, half-pound burgers. The gourmet steak burgers are made from 100% Midwestern corn-fed beef. Created from our meticulously aged steak trimmings, it's not surprising that these flavorful steak burgers are a customer favorite. These hearty steak burgers will be the hit of your next cook out.   Whether treating yourself or giving as a gift to a lucky recipient, these steaks and burgers will be sure to amaze. Each steak and burger is individually packaged and vacuum-sealed. Once they are ready to go they are placed in an attractive black and gold box with a unique registration number- presentation fit for the best of the best!"
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ What is the average price of bakery & desserts
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2024-04-23 14:50:58 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+result = { "type": "number", "value": dfs[0]["Price"].loc[dfs[0]["Sub Category"] == "Bakery & Desserts"].mean() }
+            ```
+            
+2024-04-23 14:50:58 [INFO] Executing Step 4: CachePopulation
+2024-04-23 14:50:58 [INFO] Executing Step 5: CodeCleaning
+2024-04-23 14:50:58 [INFO] 
+Code running:
+```
+result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].mean()}
+        ```
+2024-04-23 14:50:58 [INFO] Executing Step 6: CodeExecution
+2024-04-23 14:50:58 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\series.py", line 6549, in mean
+    return NDFrame.mean(self, axis, skipna, numeric_only, **kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 12420, in mean
+    return self._stat_function(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 12377, in _stat_function
+    return self._reduce(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\series.py", line 6457, in _reduce
+    return op(delegate, skipna=skipna, **kwds)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\nanops.py", line 404, in new_func
+    result = func(values, axis=axis, skipna=skipna, mask=mask, **kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\nanops.py", line 720, in nanmean
+    the_sum = _ensure_numeric(the_sum)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\nanops.py", line 1701, in _ensure_numeric
+    raise TypeError(f"Could not convert string '{x}' to numeric")
+TypeError: Could not convert string '$56.99 $159.99 $44.99 $39.99 $59.99 $59.99 $74.99 $59.99 $29.99 $159.99 $62.99 $299.99 $54.99 $54.99 $89.99 $59.99 $89.99 $49.99 $159.99 $89.99 $99.99 $89.99 $24.99 $39.99 $72.99 $119.99 $109.99 $99.99 $34.99 $59.99 $89.99 $89.99 $59.99 ' to numeric
+
+2024-04-23 14:50:58 [WARNING] Failed to execute code retrying with a correction framework [retry number: 1]
+2024-04-23 14:50:58 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-04-23 14:50:58 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-04-23 14:50:58 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Pantry & Dry Goods,$6.99 ,After $40 OFF,,"MyEcoWorld 3-gallon Compostable Food Waste Bag, 150-count",$,"12-pack (6 flavors)   3 servings per bar   Dairy, Soy and Gluten Free   No preservatives or additives   Requires refrigeration upon receipt","Aloha! The magic of Hawaii abounds in this hand-selected products 100% made in Hawaii. This gift set is perfect for gift-giving, special occasions or indulging yourself. We truly hope you will share this with all the specail people in your life-Aloha!Sweet, buttery and crunchy taste treatIncludes:24 oz 2-pack Macadamia Popcorn Crunch100% Made in Hawaii"
+Snacks,,After $50 OFF,Rated 4.4 out of 5 stars based on 3401 reviews.,"Chocolate Moonshine Fudge, 6 count Variety Party Pack, 3 lbs Total",$,,
+Coffee,$169.99through-$429.99,After $3 OFF,Rated 4.8 out of 5 stars based on 4595 reviews.,"Sabritas Chile & Limon Mix, Variety Pack, 30-count",,Kosher (Circle U)   Whole Grain   Fiber   2 Bags   Net Weight 43 oz.,"Assortment Includes:
+(2) 6 oz Premium Angus Beef Complete Trim Filet Mignons
+(2) 10 oz Premium Angus Beef Boneless Strips
+(2) 8 oz Premium Angus Beef Top Sirloins
+(2) 8 oz Premium Angus Beef Ribeyes
+(8) 8 oz Gourmet Steak Burgers 80% Lean 20% Fat
+(1) 2 oz Packet of Steak Seasoning   Whether you prefer tender, lean, or well marbled steaks Chicago Steak Company ensures that all tastes are satisfied with this assortment. Aged four to six weeks, each cut in the Chicago's Butcher Assortment promises excellent quality. Cut through the Filet with a fork and take a bite to see just how tender it is. Prefer a lean steak with plenty of flavor? You'll love the Top Sirloins and Boneless Strips. Seeking a rich marbled steak? The ribeye is well known for this delicious quality.   To complete this tasty package are eight juicy, half-pound burgers. The gourmet steak burgers are made from 100% Midwestern corn-fed beef. Created from our meticulously aged steak trimmings, it's not surprising that these flavorful steak burgers are a customer favorite. These hearty steak burgers will be the hit of your next cook out.   Whether treating yourself or giving as a gift to a lucky recipient, these steaks and burgers will be sure to amaze. Each steak and burger is individually packaged and vacuum-sealed. Once they are ready to go they are placed in an attractive black and gold box with a unique registration number- presentation fit for the best of the best!"
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ What is the average price of bakery & desserts
+
+You generated this python code:
+result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].mean()}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\series.py", line 6549, in mean
+    return NDFrame.mean(self, axis, skipna, numeric_only, **kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 12420, in mean
+    return self._stat_function(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 12377, in _stat_function
+    return self._reduce(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\series.py", line 6457, in _reduce
+    return op(delegate, skipna=skipna, **kwds)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\nanops.py", line 404, in new_func
+    result = func(values, axis=axis, skipna=skipna, mask=mask, **kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\nanops.py", line 720, in nanmean
+    the_sum = _ensure_numeric(the_sum)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\nanops.py", line 1701, in _ensure_numeric
+    raise TypeError(f"Could not convert string '{x}' to numeric")
+TypeError: Could not convert string '$56.99 $159.99 $44.99 $39.99 $59.99 $59.99 $74.99 $59.99 $29.99 $159.99 $62.99 $299.99 $54.99 $54.99 $89.99 $59.99 $89.99 $49.99 $159.99 $89.99 $99.99 $89.99 $24.99 $39.99 $72.99 $119.99 $109.99 $99.99 $34.99 $59.99 $89.99 $89.99 $59.99 ' to numeric
+
+
+Fix the python code above and return the new python code:
+2024-04-23 14:50:58 [INFO] Executing Step 1: CodeGenerator
+2024-04-23 14:51:00 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Pantry & Dry Goods,$6.99 ,After $40 OFF,,"MyEcoWorld 3-gallon Compostable Food Waste Bag, 150-count",$,"12-pack (6 flavors)   3 servings per bar   Dairy, Soy and Gluten Free   No preservatives or additives   Requires refrigeration upon receipt","Aloha! The magic of Hawaii abounds in this hand-selected products 100% made in Hawaii. This gift set is perfect for gift-giving, special occasions or indulging yourself. We truly hope you will share this with all the specail people in your life-Aloha!Sweet, buttery and crunchy taste treatIncludes:24 oz 2-pack Macadamia Popcorn Crunch100% Made in Hawaii"
+Snacks,,After $50 OFF,Rated 4.4 out of 5 stars based on 3401 reviews.,"Chocolate Moonshine Fudge, 6 count Variety Party Pack, 3 lbs Total",$,,
+Coffee,$169.99through-$429.99,After $3 OFF,Rated 4.8 out of 5 stars based on 4595 reviews.,"Sabritas Chile & Limon Mix, Variety Pack, 30-count",,Kosher (Circle U)   Whole Grain   Fiber   2 Bags   Net Weight 43 oz.,"Assortment Includes:
+(2) 6 oz Premium Angus Beef Complete Trim Filet Mignons
+(2) 10 oz Premium Angus Beef Boneless Strips
+(2) 8 oz Premium Angus Beef Top Sirloins
+(2) 8 oz Premium Angus Beef Ribeyes
+(8) 8 oz Gourmet Steak Burgers 80% Lean 20% Fat
+(1) 2 oz Packet of Steak Seasoning   Whether you prefer tender, lean, or well marbled steaks Chicago Steak Company ensures that all tastes are satisfied with this assortment. Aged four to six weeks, each cut in the Chicago's Butcher Assortment promises excellent quality. Cut through the Filet with a fork and take a bite to see just how tender it is. Prefer a lean steak with plenty of flavor? You'll love the Top Sirloins and Boneless Strips. Seeking a rich marbled steak? The ribeye is well known for this delicious quality.   To complete this tasty package are eight juicy, half-pound burgers. The gourmet steak burgers are made from 100% Midwestern corn-fed beef. Created from our meticulously aged steak trimmings, it's not surprising that these flavorful steak burgers are a customer favorite. These hearty steak burgers will be the hit of your next cook out.   Whether treating yourself or giving as a gift to a lucky recipient, these steaks and burgers will be sure to amaze. Each steak and burger is individually packaged and vacuum-sealed. Once they are ready to go they are placed in an attractive black and gold box with a unique registration number- presentation fit for the best of the best!"
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ What is the average price of bakery & desserts
+
+You generated this python code:
+result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].mean()}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\series.py", line 6549, in mean
+    return NDFrame.mean(self, axis, skipna, numeric_only, **kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 12420, in mean
+    return self._stat_function(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 12377, in _stat_function
+    return self._reduce(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\series.py", line 6457, in _reduce
+    return op(delegate, skipna=skipna, **kwds)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\nanops.py", line 147, in f
+    result = alt(values, axis=axis, skipna=skipna, **kwds)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\nanops.py", line 404, in new_func
+    result = func(values, axis=axis, skipna=skipna, mask=mask, **kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\nanops.py", line 720, in nanmean
+    the_sum = _ensure_numeric(the_sum)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\nanops.py", line 1701, in _ensure_numeric
+    raise TypeError(f"Could not convert string '{x}' to numeric")
+TypeError: Could not convert string '$56.99 $159.99 $44.99 $39.99 $59.99 $59.99 $74.99 $59.99 $29.99 $159.99 $62.99 $299.99 $54.99 $54.99 $89.99 $59.99 $89.99 $49.99 $159.99 $89.99 $99.99 $89.99 $24.99 $39.99 $72.99 $119.99 $109.99 $99.99 $34.99 $59.99 $89.99 $89.99 $59.99 ' to numeric
+
+
+Fix the python code above and return the new python code:
+            
+2024-04-23 14:51:00 [INFO] Code generated:
+            ```
+            result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].replace('$', '').astype(float).mean()}
+            ```
+            
+2024-04-23 14:51:00 [INFO] Executing Step 2: CodeCleaning
+2024-04-23 14:51:00 [INFO] 
+Code running:
+```
+result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].replace('$', '').astype(float).mean()}
+        ```
+2024-04-23 14:51:00 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '$56.99 '
+
+2024-04-23 14:51:00 [WARNING] Failed to execute code retrying with a correction framework [retry number: 2]
+2024-04-23 14:51:00 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-04-23 14:51:00 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-04-23 14:51:00 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Pantry & Dry Goods,$6.99 ,After $40 OFF,,"MyEcoWorld 3-gallon Compostable Food Waste Bag, 150-count",$,"12-pack (6 flavors)   3 servings per bar   Dairy, Soy and Gluten Free   No preservatives or additives   Requires refrigeration upon receipt","Aloha! The magic of Hawaii abounds in this hand-selected products 100% made in Hawaii. This gift set is perfect for gift-giving, special occasions or indulging yourself. We truly hope you will share this with all the specail people in your life-Aloha!Sweet, buttery and crunchy taste treatIncludes:24 oz 2-pack Macadamia Popcorn Crunch100% Made in Hawaii"
+Snacks,,After $50 OFF,Rated 4.4 out of 5 stars based on 3401 reviews.,"Chocolate Moonshine Fudge, 6 count Variety Party Pack, 3 lbs Total",$,,
+Coffee,$169.99through-$429.99,After $3 OFF,Rated 4.8 out of 5 stars based on 4595 reviews.,"Sabritas Chile & Limon Mix, Variety Pack, 30-count",,Kosher (Circle U)   Whole Grain   Fiber   2 Bags   Net Weight 43 oz.,"Assortment Includes:
+(2) 6 oz Premium Angus Beef Complete Trim Filet Mignons
+(2) 10 oz Premium Angus Beef Boneless Strips
+(2) 8 oz Premium Angus Beef Top Sirloins
+(2) 8 oz Premium Angus Beef Ribeyes
+(8) 8 oz Gourmet Steak Burgers 80% Lean 20% Fat
+(1) 2 oz Packet of Steak Seasoning   Whether you prefer tender, lean, or well marbled steaks Chicago Steak Company ensures that all tastes are satisfied with this assortment. Aged four to six weeks, each cut in the Chicago's Butcher Assortment promises excellent quality. Cut through the Filet with a fork and take a bite to see just how tender it is. Prefer a lean steak with plenty of flavor? You'll love the Top Sirloins and Boneless Strips. Seeking a rich marbled steak? The ribeye is well known for this delicious quality.   To complete this tasty package are eight juicy, half-pound burgers. The gourmet steak burgers are made from 100% Midwestern corn-fed beef. Created from our meticulously aged steak trimmings, it's not surprising that these flavorful steak burgers are a customer favorite. These hearty steak burgers will be the hit of your next cook out.   Whether treating yourself or giving as a gift to a lucky recipient, these steaks and burgers will be sure to amaze. Each steak and burger is individually packaged and vacuum-sealed. Once they are ready to go they are placed in an attractive black and gold box with a unique registration number- presentation fit for the best of the best!"
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ What is the average price of bakery & desserts
+
+You generated this python code:
+result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].replace('$', '').astype(float).mean()}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '$56.99 '
+
+
+Fix the python code above and return the new python code:
+2024-04-23 14:51:00 [INFO] Executing Step 1: CodeGenerator
+2024-04-23 14:51:03 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Pantry & Dry Goods,$6.99 ,After $40 OFF,,"MyEcoWorld 3-gallon Compostable Food Waste Bag, 150-count",$,"12-pack (6 flavors)   3 servings per bar   Dairy, Soy and Gluten Free   No preservatives or additives   Requires refrigeration upon receipt","Aloha! The magic of Hawaii abounds in this hand-selected products 100% made in Hawaii. This gift set is perfect for gift-giving, special occasions or indulging yourself. We truly hope you will share this with all the specail people in your life-Aloha!Sweet, buttery and crunchy taste treatIncludes:24 oz 2-pack Macadamia Popcorn Crunch100% Made in Hawaii"
+Snacks,,After $50 OFF,Rated 4.4 out of 5 stars based on 3401 reviews.,"Chocolate Moonshine Fudge, 6 count Variety Party Pack, 3 lbs Total",$,,
+Coffee,$169.99through-$429.99,After $3 OFF,Rated 4.8 out of 5 stars based on 4595 reviews.,"Sabritas Chile & Limon Mix, Variety Pack, 30-count",,Kosher (Circle U)   Whole Grain   Fiber   2 Bags   Net Weight 43 oz.,"Assortment Includes:
+(2) 6 oz Premium Angus Beef Complete Trim Filet Mignons
+(2) 10 oz Premium Angus Beef Boneless Strips
+(2) 8 oz Premium Angus Beef Top Sirloins
+(2) 8 oz Premium Angus Beef Ribeyes
+(8) 8 oz Gourmet Steak Burgers 80% Lean 20% Fat
+(1) 2 oz Packet of Steak Seasoning   Whether you prefer tender, lean, or well marbled steaks Chicago Steak Company ensures that all tastes are satisfied with this assortment. Aged four to six weeks, each cut in the Chicago's Butcher Assortment promises excellent quality. Cut through the Filet with a fork and take a bite to see just how tender it is. Prefer a lean steak with plenty of flavor? You'll love the Top Sirloins and Boneless Strips. Seeking a rich marbled steak? The ribeye is well known for this delicious quality.   To complete this tasty package are eight juicy, half-pound burgers. The gourmet steak burgers are made from 100% Midwestern corn-fed beef. Created from our meticulously aged steak trimmings, it's not surprising that these flavorful steak burgers are a customer favorite. These hearty steak burgers will be the hit of your next cook out.   Whether treating yourself or giving as a gift to a lucky recipient, these steaks and burgers will be sure to amaze. Each steak and burger is individually packaged and vacuum-sealed. Once they are ready to go they are placed in an attractive black and gold box with a unique registration number- presentation fit for the best of the best!"
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ What is the average price of bakery & desserts
+
+You generated this python code:
+result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].replace('$', '').astype(float).mean()}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '$56.99 '
+
+
+Fix the python code above and return the new python code:
+            
+2024-04-23 14:51:03 [INFO] Code generated:
+            ```
+            result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].replace('$', '').astype(float).mean()}
+            ```
+            
+2024-04-23 14:51:03 [INFO] Executing Step 2: CodeCleaning
+2024-04-23 14:51:03 [INFO] 
+Code running:
+```
+result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].replace('$', '').astype(float).mean()}
+        ```
+2024-04-23 14:51:03 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '$56.99 '
+
+2024-04-23 14:51:03 [WARNING] Failed to execute code retrying with a correction framework [retry number: 3]
+2024-04-23 14:51:03 [INFO] Executing Pipeline: ErrorCorrectionPipeline
+2024-04-23 14:51:03 [INFO] Executing Step 0: ErrorPromptGeneration
+2024-04-23 14:51:03 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Pantry & Dry Goods,$6.99 ,After $40 OFF,,"MyEcoWorld 3-gallon Compostable Food Waste Bag, 150-count",$,"12-pack (6 flavors)   3 servings per bar   Dairy, Soy and Gluten Free   No preservatives or additives   Requires refrigeration upon receipt","Aloha! The magic of Hawaii abounds in this hand-selected products 100% made in Hawaii. This gift set is perfect for gift-giving, special occasions or indulging yourself. We truly hope you will share this with all the specail people in your life-Aloha!Sweet, buttery and crunchy taste treatIncludes:24 oz 2-pack Macadamia Popcorn Crunch100% Made in Hawaii"
+Snacks,,After $50 OFF,Rated 4.4 out of 5 stars based on 3401 reviews.,"Chocolate Moonshine Fudge, 6 count Variety Party Pack, 3 lbs Total",$,,
+Coffee,$169.99through-$429.99,After $3 OFF,Rated 4.8 out of 5 stars based on 4595 reviews.,"Sabritas Chile & Limon Mix, Variety Pack, 30-count",,Kosher (Circle U)   Whole Grain   Fiber   2 Bags   Net Weight 43 oz.,"Assortment Includes:
+(2) 6 oz Premium Angus Beef Complete Trim Filet Mignons
+(2) 10 oz Premium Angus Beef Boneless Strips
+(2) 8 oz Premium Angus Beef Top Sirloins
+(2) 8 oz Premium Angus Beef Ribeyes
+(8) 8 oz Gourmet Steak Burgers 80% Lean 20% Fat
+(1) 2 oz Packet of Steak Seasoning   Whether you prefer tender, lean, or well marbled steaks Chicago Steak Company ensures that all tastes are satisfied with this assortment. Aged four to six weeks, each cut in the Chicago's Butcher Assortment promises excellent quality. Cut through the Filet with a fork and take a bite to see just how tender it is. Prefer a lean steak with plenty of flavor? You'll love the Top Sirloins and Boneless Strips. Seeking a rich marbled steak? The ribeye is well known for this delicious quality.   To complete this tasty package are eight juicy, half-pound burgers. The gourmet steak burgers are made from 100% Midwestern corn-fed beef. Created from our meticulously aged steak trimmings, it's not surprising that these flavorful steak burgers are a customer favorite. These hearty steak burgers will be the hit of your next cook out.   Whether treating yourself or giving as a gift to a lucky recipient, these steaks and burgers will be sure to amaze. Each steak and burger is individually packaged and vacuum-sealed. Once they are ready to go they are placed in an attractive black and gold box with a unique registration number- presentation fit for the best of the best!"
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ What is the average price of bakery & desserts
+
+You generated this python code:
+result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].replace('$', '').astype(float).mean()}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '$56.99 '
+
+
+Fix the python code above and return the new python code:
+2024-04-23 14:51:03 [INFO] Executing Step 1: CodeGenerator
+2024-04-23 14:51:05 [INFO] Prompt used:
+            
+<dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Pantry & Dry Goods,$6.99 ,After $40 OFF,,"MyEcoWorld 3-gallon Compostable Food Waste Bag, 150-count",$,"12-pack (6 flavors)   3 servings per bar   Dairy, Soy and Gluten Free   No preservatives or additives   Requires refrigeration upon receipt","Aloha! The magic of Hawaii abounds in this hand-selected products 100% made in Hawaii. This gift set is perfect for gift-giving, special occasions or indulging yourself. We truly hope you will share this with all the specail people in your life-Aloha!Sweet, buttery and crunchy taste treatIncludes:24 oz 2-pack Macadamia Popcorn Crunch100% Made in Hawaii"
+Snacks,,After $50 OFF,Rated 4.4 out of 5 stars based on 3401 reviews.,"Chocolate Moonshine Fudge, 6 count Variety Party Pack, 3 lbs Total",$,,
+Coffee,$169.99through-$429.99,After $3 OFF,Rated 4.8 out of 5 stars based on 4595 reviews.,"Sabritas Chile & Limon Mix, Variety Pack, 30-count",,Kosher (Circle U)   Whole Grain   Fiber   2 Bags   Net Weight 43 oz.,"Assortment Includes:
+(2) 6 oz Premium Angus Beef Complete Trim Filet Mignons
+(2) 10 oz Premium Angus Beef Boneless Strips
+(2) 8 oz Premium Angus Beef Top Sirloins
+(2) 8 oz Premium Angus Beef Ribeyes
+(8) 8 oz Gourmet Steak Burgers 80% Lean 20% Fat
+(1) 2 oz Packet of Steak Seasoning   Whether you prefer tender, lean, or well marbled steaks Chicago Steak Company ensures that all tastes are satisfied with this assortment. Aged four to six weeks, each cut in the Chicago's Butcher Assortment promises excellent quality. Cut through the Filet with a fork and take a bite to see just how tender it is. Prefer a lean steak with plenty of flavor? You'll love the Top Sirloins and Boneless Strips. Seeking a rich marbled steak? The ribeye is well known for this delicious quality.   To complete this tasty package are eight juicy, half-pound burgers. The gourmet steak burgers are made from 100% Midwestern corn-fed beef. Created from our meticulously aged steak trimmings, it's not surprising that these flavorful steak burgers are a customer favorite. These hearty steak burgers will be the hit of your next cook out.   Whether treating yourself or giving as a gift to a lucky recipient, these steaks and burgers will be sure to amaze. Each steak and burger is individually packaged and vacuum-sealed. Once they are ready to go they are placed in an attractive black and gold box with a unique registration number- presentation fit for the best of the best!"
+</dataframe>
+
+
+The user asked the following question:
+### QUERY
+ What is the average price of bakery & desserts
+
+You generated this python code:
+result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].replace('$', '').astype(float).mean()}
+
+It fails with the following error:
+Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '$56.99 '
+
+
+Fix the python code above and return the new python code:
+            
+2024-04-23 14:51:05 [INFO] Code generated:
+            ```
+            result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].replace('$', '').astype(float).mean()}
+            ```
+            
+2024-04-23 14:51:05 [INFO] Executing Step 2: CodeCleaning
+2024-04-23 14:51:05 [INFO] 
+Code running:
+```
+result = {'type': 'number', 'value': dfs[0]['Price'].loc[dfs[0]['Sub Category'] == 'Bakery & Desserts'].replace('$', '').astype(float).mean()}
+        ```
+2024-04-23 14:51:05 [ERROR] Failed with error: Traceback (most recent call last):
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 85, in execute
+    result = self.execute_code(code_to_run, code_context)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandasai\pipelines\chat\code_execution.py", line 171, in execute_code
+    exec(code, environment)
+  File "<string>", line 1, in <module>
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py", line 6643, in astype
+    new_data = self._mgr.astype(dtype=dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 430, in astype
+    return self.apply(
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\managers.py", line 363, in apply
+    applied = getattr(b, f)(**kwargs)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\internals\blocks.py", line 758, in astype
+    new_values = astype_array_safe(values, dtype, copy=copy, errors=errors)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 237, in astype_array_safe
+    new_values = astype_array(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 182, in astype_array
+    values = _astype_nansafe(values, dtype, copy=copy)
+  File "C:\Users\dell\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\dtypes\astype.py", line 133, in _astype_nansafe
+    return arr.astype(dtype, copy=True)
+ValueError: could not convert string to float: '$56.99 '
+
+2024-04-23 14:51:05 [ERROR] Pipeline failed on step 6: could not convert string to float: '$56.99 '
+2024-04-23 14:51:06 [INFO] 127.0.0.1 - - [23/Apr/2024 14:51:06] "POST /send_message HTTP/1.1" 200 -
+2024-04-23 14:51:06 [INFO] 127.0.0.1 - - [23/Apr/2024 14:51:06] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-23 15:03:36 [INFO] Question: What is the average price of bakery and desserts?
+2024-04-23 15:03:36 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-23 15:03:36 [INFO] Prompt ID: 9006f5f0-f789-4d15-b405-07d60f6c09b5
+2024-04-23 15:03:36 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-23 15:03:37 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-23 15:03:37 [INFO] Executing Step 1: CacheLookup
+2024-04-23 15:03:37 [INFO] Executing Step 2: PromptGeneration
+2024-04-23 15:03:39 [INFO] Executing Step 3: CodeGenerator
+2024-04-23 15:03:40 [ERROR] Pipeline failed on step 3: Unable to generate LLM response.
+2024-04-23 15:03:41 [INFO] 127.0.0.1 - - [23/Apr/2024 15:03:41] "POST /send_message HTTP/1.1" 200 -
+2024-04-23 15:03:41 [INFO] 127.0.0.1 - - [23/Apr/2024 15:03:41] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-23 15:05:47 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-23 15:05:47 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-23 15:05:47 [INFO] Prompt ID: 71b9628e-c866-46f8-999a-6c6794acb7e6
+2024-04-23 15:05:47 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-23 15:05:47 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-23 15:05:47 [INFO] Executing Step 1: CacheLookup
+2024-04-23 15:05:47 [INFO] Executing Step 2: PromptGeneration
+2024-04-23 15:05:50 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Meat & Seafood,$649.99 ,Limit 5 Per Member,Rated 4.6 out of 5 stars based on 313 reviews.,"Kirkland Signature, Minced California Garlic, 48 oz",$,,"Enjoy the original minty taste of Tic Tac Freshmints. Each 1-oz pack is filled with small white mints ready to boost your confidence and refresh your day. Plus, buying 12 packs at once means more vanilla-flavored breath mints to share and enjoy. With 100 layers of refreshing and delicious flavor, each pill in this pack of Tic Tac Freshmints is ready to refresh any moment. The portable pack fits perfectly in your pocket or purse for on-the-go sharing and refreshment. These gluten-free breath mints are refreshing and GMO-free! Tic Tac is an iconic brand of beloved mints. Whether you enjoy one or the whole pack, you've got a variety of flavors and sizes to choose from. Take a ride on a Tic Tac.   REFRESHING MINTS – Each mint in this pack of Tic Tac Freshmints has 100 layers of flavor and is refreshing and delicious. You’ll receive 12 1-oz packs full of white breath mints you can easily share with others
+TIC TAC FRESHMINTS – Tic Tac is the most-loved taste with a vanilla outside and refreshing mint inside. These gluten-free breath mints are refreshing and GMO-free
+BOOST YOUR CONFIDENCE – Each pill is ready to refresh any moment. Enjoy them as after-dinner mints or give them as breath mint gifts
+MINTS ON-THE-GO – The portable pack fits perfectly in your pocket or purse—great for on-the-go sharing and refreshment, like mints for after coffee"
+Coffee,$33.99 ,After $2.80 OFF,Rated 4.6 out of 5 stars based on 256 reviews.,Best of Hawaii Gift Set,$,Juice Drink   USDA Organic   From Concentrate   6 oz Boxes   40-Count,"Model: 7604 10"" Cook's Knife Professional quality Stainless steel 2 ct More information:Razor sharp Hand-honed edge Stain free high carbon German steel blade Textured polypropylene handle NSF certified"
+Cleaning Supplies,,After $40 - $70 OFF,,100-stem White and Green Fillers,,Receive (12) Black Angus Beef Filet Mignon Steaks 5 oz   Receive (12) Jumbo Lump Crab Cakes   Crab cakes Handmade in the USA   Ships Uncooked & Frozen via UPS 2nd Day Air,
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ What is the average price of Bakery & Desserts
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-04-23 15:05:50 [INFO] Executing Step 3: CodeGenerator
+2024-04-23 15:05:51 [ERROR] Pipeline failed on step 3: Unable to generate LLM response.
+2024-04-23 15:05:51 [INFO] 127.0.0.1 - - [23/Apr/2024 15:05:51] "POST /send_message HTTP/1.1" 200 -
+2024-04-23 15:05:51 [INFO] 127.0.0.1 - - [23/Apr/2024 15:05:51] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-23 15:10:14 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-23 15:10:15 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-23 15:10:15 [INFO] Prompt ID: a096189c-55b3-466b-b043-5434ef97ddff
+2024-04-23 15:10:15 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-23 15:10:15 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-23 15:10:15 [INFO] Executing Step 1: CacheLookup
+2024-04-23 15:10:15 [INFO] Executing Step 2: PromptGeneration
+2024-04-23 15:10:18 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Gift Baskets,,Limit 5 Per Member,,"Wonderful Pistachios, Salt & Pepper, 3 lbs",$,,
+Breakfast,$114.99 ,After $2.30 OFF,Rated 4.7 out of 5 stars based on 1143 reviews.,"ECOS HE Liquid Laundry Detergent, Free & Clear, 210 Loads, 210 fl oz, 2-count",,"50 Pads   Heavy Duty   10.3"" x 7.8""","Absorbent and sturdy enough to get to work on heavy spills, kitchen messes and cleanup needs. These tree-free bamboo paper towels are strong enough for any spill. 2-ply bamboo paper towels with 75 sheets per roll. 8 rolls per box. Made from 100% bamboo, not trees! Free of chlorine bleaching and chemicals, too.   USDA Biobased Product
+Elemental Chlorine Free (ECF) Bleaching Process
+Unscented, no inks, dyes or fragrances
+Bamboo harvested within 2 years, no replanting"
+Coffee,$4.99 ,After $2.80 OFF,Rated 4.7 out of 5 stars based on 15 reviews.,24-stem Hydrangeas,$,Kosher   Made with Sustainable Cocoa,"Plastic Jar
+Product dimension 3” x 3’’ 6 5/8’
+Hand Harvested To Ensure Selection Of The Largest Berries
+The robust, piquant, fruity flavor and superior size are perfect for use in peppermills and encrusting meats with cracked peppercorns.
+To use: Remove cap, and protective seal.
+To clean: wipe off with slightly dampened cloth or paper towel."
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ What is the average price of Bakery & Desserts
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-04-23 15:10:18 [INFO] Executing Step 3: CodeGenerator
+2024-04-23 15:10:19 [ERROR] Pipeline failed on step 3: Unable to generate LLM response.
+2024-04-23 15:10:20 [INFO] 127.0.0.1 - - [23/Apr/2024 15:10:20] "POST /send_message HTTP/1.1" 200 -
+2024-04-23 15:10:20 [INFO] 127.0.0.1 - - [23/Apr/2024 15:10:20] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
