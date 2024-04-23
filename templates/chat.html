@@ -115,6 +115,16 @@
         .modify-button:hover {
             background-color: #121e2a;
         }
+        #recordButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #211f1f;
+            color:  oldlace;
+            border-color: oldlace;
+            border-radius: 10px;
+            border-width: 1px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -125,6 +135,7 @@
         <div class="input-container">
             <input type="text" id="userMessage" class="input-box" placeholder="Message Graph Bot..." oninput="validateInput()" onkeypress="handleKeyPress(event)">
             <button onclick="sendMessage()" class="send-button disabled" id="sendButton" style="margin-right: 10px;" disabled>⬆️</button>
+            <button id="recordButton">🎙️</button>
             <a href="/" class="modify-button">✒️</a>
         </div>
     </div>
@@ -241,5 +252,6 @@ function appendMessage(message, messageType) {
             }
         }
     </script>
+    <script src="../static/script.js"></script>
 </body>
 </html>

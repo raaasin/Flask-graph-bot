@@ -5,7 +5,11 @@ import warnings
 from pandasai import Agent
 warnings.filterwarnings("ignore")
 from pandasai.helpers import path
+import base64
+import assemblyai as aai
+
 app = Flask(__name__)
+aai.settings.api_key = "4822f34dd0bb40e9a1be096507478a73"
 
 # Define the folder to store uploaded files
 UPLOAD_FOLDER = 'uploads'
@@ -64,6 +68,26 @@ def send_message():
     response=agent.chat(str(user_message))
     print(response)
     return response
+
+@app.route('/transcribe', methods=['POST'])
+def transcribe_audio():
+    audio_data = request.form['audio_data']
+    audio_url = save_audio(audio_data)
+    transcript = transcribe(audio_url)
+    if transcript.status == aai.TranscriptStatus.error:
+        return f"Error: {transcript.error}"
+    else:
+        return transcript.text
+
+def save_audio(audio_data):
+    audio_bytes = base64.b64decode(audio_data.split(",")[1])
+    with open("audio.mp3", "wb") as f:
+        f.write(audio_bytes)
+    return "audio.mp3"
+
+def transcribe(audio_url):
+    transcriber = aai.Transcriber()
+    return transcriber.transcribe(audio_url)
 
 if __name__ == '__main__':
     # Run the Flask app with production settings
