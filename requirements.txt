@@ -4,4 +4,3 @@ pandas
 pandasai 
 pyyaml
 assemblyai
-base64

@@ -1497,3 +1497,56 @@ Generate python code and return full updated code:
 2024-04-23 14:18:38 [INFO] Executing Step 2: PromptGeneration
 2024-04-23 14:18:40 [INFO] Executing Step 3: CodeGenerator
 2024-04-23 14:18:41 [ERROR] Pipeline failed on step 3: Unable to generate LLM response.
+2024-04-23 14:30:20 [INFO] Question: Hello? 123456.
+2024-04-23 14:30:20 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-23 14:30:20 [INFO] Prompt ID: 684097a1-e788-4448-8272-9701c43f5923
+2024-04-23 14:30:20 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-23 14:30:20 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-23 14:30:20 [INFO] Executing Step 1: CacheLookup
+2024-04-23 14:30:20 [INFO] Executing Step 2: PromptGeneration
+2024-04-23 14:30:22 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Coffee,$10.39 ,After $2.30 OFF,Rated 4.4 out of 5 stars based on 87 reviews.,"Origin 846 Unfiltered Organic Extra Virgin Olive Oil 28.6 oz, 3-pack",$,"Single-serve Packets
+100% Pure cane sugar
+Only available for delivery in the Western part of the U.S.   0.10oz packets",Sparkling orange and pomegranate beverage11.15 fl oz cans4 boxes of 6 cans24 total cans
+Meat & Seafood,,After $3.50 OFF,,Valentine's Day Pre-Order Garden of Love Bouquet  ,,,"Taking care of sensitive skin doesn’t have to be hard. Each individual pac of Tide PODS Free & Gentle HE Turbo laundry detergent cleans, fights stains, brightens fabrics and is specially designed free of dyes and perfumes. Simply put in one pac for most loads, but use two pacs for large loads and three pacs for extra-large loads. For a simple, worry-free laundry experience that’s gentle on skin, Tide PODS Free & Gentle laundry detergent will keep your family looking and feeling great."
+Cleaning Supplies,$129.99through-$279.99,After $10 OFF,Rated 4.8 out of 5 stars based on 115 reviews.,"Post, Honey Bunches of Oats with Almonds Cereal, 50 oz",$,"2x - 17-20 Oz. Cold Water Caught Lobster Tails   2x - 13 Oz. Japanese A5 Wagyu Petite Striploin Steaks   Cold Water Caught Lobster Tails, From The North Atlantic   Imported A5 Wagyu From The Kagoshima Prefecture In Japan   Ships Uncooked & Frozen",
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Hello? 123456.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-04-23 14:30:22 [INFO] Executing Step 3: CodeGenerator
+2024-04-23 14:30:23 [ERROR] Pipeline failed on step 3: Unable to generate LLM response.
+2024-04-23 14:30:24 [INFO] 127.0.0.1 - - [23/Apr/2024 14:30:24] "POST /send_message HTTP/1.1" 200 -
+2024-04-23 14:30:24 [INFO] 127.0.0.1 - - [23/Apr/2024 14:30:24] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -

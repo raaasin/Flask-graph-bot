@@ -7,9 +7,10 @@ warnings.filterwarnings("ignore")
 from pandasai.helpers import path
 import base64
 import assemblyai as aai
-
+from dotenv import load_dotenv
+load_dotenv()
 app = Flask(__name__)
-aai.settings.api_key = "4822f34dd0bb40e9a1be096507478a73"
+aai.settings.api_key = os.getenv("ASSEMBLYAI_API_KEY")
 
 # Define the folder to store uploaded files
 UPLOAD_FOLDER = 'uploads'
