@@ -2228,3 +2228,249 @@ Generate python code and return full updated code:
 2024-04-23 15:10:19 [ERROR] Pipeline failed on step 3: Unable to generate LLM response.
 2024-04-23 15:10:20 [INFO] 127.0.0.1 - - [23/Apr/2024 15:10:20] "POST /send_message HTTP/1.1" 200 -
 2024-04-23 15:10:20 [INFO] 127.0.0.1 - - [23/Apr/2024 15:10:20] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-24 17:48:39 [INFO] Question: what's the average price of Bakery & Desserts
+2024-04-24 17:48:39 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-24 17:48:39 [INFO] Prompt ID: f8291b7e-6d6e-4944-bce1-db5c3a07ea86
+2024-04-24 17:48:39 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-24 17:48:39 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-24 17:48:39 [INFO] Executing Step 1: CacheLookup
+2024-04-24 17:48:39 [INFO] Executing Step 2: PromptGeneration
+2024-04-24 17:48:41 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Pantry & Dry Goods,$9.99 ,This item is not returnable.,Rated 4.2 out of 5 stars based on 5 reviews.,"Red Vines Twists, Original Red Licorice Candy, 4 oz, 15-count",$,Pringles Potato Crisps   Kosher   36 Grab & Go cans   Bursting with Flavor   Net Weight 49.2 oz,"ZOA Energy Drinks are designed to support healthy immunity while providing a boost of energy, focus, and hydration. ZOA contains a unique blend of DV Vitamin C from natural sources including Camu Camu and Acerola plus B-vitamins and electrolytes. Touting 160mg of natural caffeine from green tea extract & green coffee to provide you with sustained energy throughout every activity of the day.   Zero Sugar
+Zero Artificial Flavors
+Keto Friendly
+Gluten-Free
+160mg Natural Caffeine
+BCAAs
+Electrolytes
+Antioxidants
+Electrolytes for Hydration
+Only 10 Calories"
+Gift Baskets,,After $3.60 OFF,Rated 4.6 out of 5 stars based on 812 reviews.,"Kirkland Signature, Bacon Crumbles, 20 oz",,,"Sprouted Pumpkin seeds with Sea Salt
+Plant-based
+Soy-Free
+Nut-Free
+Light, crunchy texture
+8g plant-based protein per serving
+Excellent source of zinc, magnesium, phosphorus, manganese and copper
+Resealable bag
+Net Weight 22 oz"
+Paper & Plastic Products,$99.99 ,After $2.40 OFF,,"Kind Bar, Variety Pack, 1.4 oz, 20-count",$,Peanut Butter Dark Chocolate   Caramel Almond & Sea Salt   100 Calories Per Bar   Kosher   Gluten-Free,
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ what's the average price of Bakery & Desserts
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-04-24 17:48:41 [INFO] Executing Step 3: CodeGenerator
+2024-04-24 17:48:46 [INFO] Prompt used:
+            None
+            
+2024-04-24 17:48:46 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Filter out rows with Bakery & Desserts in Sub Category
+bakery_desserts_df = dfs[0][dfs[0]['Sub Category'].str.contains('Bakery & Desserts', case=False, na=False)]
+
+# Calculate average price of Bakery & Desserts
+average_price = bakery_desserts_df['Price'].replace('[\$,]', '', regex=True).astype(float).mean()
+
+# Declare result variable
+result = { "type": "string", "value": f"The average price of Bakery & Desserts is ${average_price:.2f}" }
+            ```
+            
+2024-04-24 17:48:46 [INFO] Executing Step 4: CachePopulation
+2024-04-24 17:48:46 [INFO] Executing Step 5: CodeCleaning
+2024-04-24 17:48:46 [INFO] 
+Code running:
+```
+bakery_desserts_df = dfs[0][dfs[0]['Sub Category'].str.contains('Bakery & Desserts', case=False, na=False)]
+average_price = bakery_desserts_df['Price'].replace('[\\$,]', '', regex=True).astype(float).mean()
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}'}
+        ```
+2024-04-24 17:48:46 [INFO] Executing Step 6: CodeExecution
+2024-04-24 17:48:46 [INFO] Executing Step 7: ResultValidation
+2024-04-24 17:48:46 [INFO] Answer: {'type': 'string', 'value': 'The average price of Bakery & Desserts is $83.41'}
+2024-04-24 17:48:46 [INFO] Executing Step 8: ResultParsing
+2024-04-24 17:49:23 [INFO] Question: What is the average price of bakery and desserts?
+2024-04-24 17:49:24 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-24 17:49:24 [INFO] Prompt ID: bc8d3228-d3cf-4ab3-8668-50cc6c3eafec
+2024-04-24 17:49:24 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-24 17:49:24 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-24 17:49:24 [INFO] Executing Step 1: CacheLookup
+2024-04-24 17:49:24 [INFO] Executing Step 2: PromptGeneration
+2024-04-24 17:49:31 [INFO] Executing Step 3: CodeGenerator
+2024-04-24 17:49:36 [INFO] Prompt used:
+            None
+            
+2024-04-24 17:49:36 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+# Filter out rows with 'Bakery' or 'Desserts' in the 'Sub Category' column
+filtered_df = [df for df in dfs[0] if ('Bakery' in df['Sub Category'].values) or ('Desserts' in df['Sub Category'].values]
+
+# Get the average price of bakery and desserts
+average_price = sum(filtered_df['Price']) / len(filtered_df)
+
+# Declare result variable
+result = { "type": "string", "value": f"The average price of bakery and desserts is ${average_price}" }
+            ```
+            
+2024-04-24 17:49:36 [INFO] Executing Step 4: CachePopulation
+2024-04-24 17:49:36 [INFO] Executing Step 5: CodeCleaning
+2024-04-24 17:49:36 [ERROR] Pipeline failed on step 5: local variable 'code_to_run' referenced before assignment
+2024-04-24 17:49:37 [INFO] 127.0.0.1 - - [24/Apr/2024 17:49:37] "POST /send_message HTTP/1.1" 200 -
+2024-04-24 17:49:37 [INFO] 127.0.0.1 - - [24/Apr/2024 17:49:37] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-24 17:51:25 [INFO] Question: Create a bar graph of total sales from each subcategory.
+2024-04-24 17:51:26 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-24 17:51:26 [INFO] Prompt ID: e71fc988-2c7a-43ae-a3dd-a560a075894f
+2024-04-24 17:51:26 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-24 17:51:26 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-24 17:51:26 [INFO] Executing Step 1: CacheLookup
+2024-04-24 17:51:26 [INFO] Executing Step 2: PromptGeneration
+2024-04-24 17:51:28 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Organic,,After $40 - $70 OFF,Rated 4.2 out of 5 stars based on 1579 reviews.,"Popcornopolis Pumpkin Spice Cone, 4.5 oz, 12 pack",$,Kosher (Circle U) D   No high fructose corn syrup   No artificial flavors or artificial sweeteners   Total Net Weight 3 LB,
+Laundry Detergent & Supplies,$22.49 ,After $3.50 OFF,Rated 4.1 out of 5 stars based on 109 reviews.,"Hershey's Nuggets, Milk Chocolate, 52 oz, 145 pieces",$,,"Hi-Chew Fruit ChewsOriginal mix: Mango, Grape, Green Apple, Strawberry30 oz bag"
+Snacks,$15.99 ,This item is not returnable.,,"McCormick Mayonnaise with Lime, 28 fl oz, 2-Count",,Kosher   Whole Grain Rolled Oats   Resealable Bag   Product of Canada   Packed in the USA,"250 Sheets per Box
+2 Boxes
+500 Total Sheets
+6.4"" x 9"" Sheets
+Fresh Scent
+Reduces static cling
+Softens & freshens
+Helps repel pet hair!"
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Create a bar graph of total sales from each subcategory.
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-04-24 17:51:28 [INFO] Executing Step 3: CodeGenerator
+2024-04-24 17:51:32 [INFO] Prompt used:
+            None
+            
+2024-04-24 17:51:32 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Extract sub category and price data
+subcategories = []
+prices = []
+
+for df in dfs:
+    subcategories.append(df['Sub Category'][0])
+    price = df['Price'][0].split()[0]
+    prices.append(float(price[1:]))
+
+# Create a bar graph
+plt.figure(figsize=(10, 6))
+plt.bar(subcategories, prices, color='skyblue')
+plt.xlabel('Sub Category')
+plt.ylabel('Total Sales ($)')
+plt.title('Total Sales from Each Subcategory')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Save the plot as a PNG file
+plt.savefig('total_sales_subcategory.png')
+
+# Declare result variable as a dictionary with the plot filename
+result = {"type": "plot", "value": "total_sales_subcategory.png"}
+            ```
+            
+2024-04-24 17:51:32 [INFO] Executing Step 4: CachePopulation
+2024-04-24 17:51:32 [INFO] Executing Step 5: CodeCleaning
+2024-04-24 17:51:32 [INFO] Saving charts to C:\Users\dell\Documents\Projects\Current\Graph_RAG_Flask\static\images\e71fc988-2c7a-43ae-a3dd-a560a075894f.png
+2024-04-24 17:51:32 [INFO] 
+Code running:
+```
+subcategories = []
+prices = []
+for df in dfs:
+    subcategories.append(df['Sub Category'][0])
+    price = df['Price'][0].split()[0]
+    prices.append(float(price[1:]))
+plt.figure(figsize=(10, 6))
+plt.bar(subcategories, prices, color='skyblue')
+plt.xlabel('Sub Category')
+plt.ylabel('Total Sales ($)')
+plt.title('Total Sales from Each Subcategory')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/static/images/e71fc988-2c7a-43ae-a3dd-a560a075894f.png')
+result = {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/static/images/e71fc988-2c7a-43ae-a3dd-a560a075894f.png'}
+        ```
+2024-04-24 17:51:32 [INFO] Executing Step 6: CodeExecution
+2024-04-24 17:51:33 [INFO] Executing Step 7: ResultValidation
+2024-04-24 17:51:33 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/static/images/e71fc988-2c7a-43ae-a3dd-a560a075894f.png'}
+2024-04-24 17:51:33 [INFO] Executing Step 8: ResultParsing
+2024-04-24 17:51:35 [INFO] 127.0.0.1 - - [24/Apr/2024 17:51:35] "POST /send_message HTTP/1.1" 200 -
+2024-04-24 17:51:35 [INFO] 127.0.0.1 - - [24/Apr/2024 17:51:35] "GET /static/images/e71fc988-2c7a-43ae-a3dd-a560a075894f.png HTTP/1.1" 200 -
+2024-04-24 17:51:35 [INFO] 127.0.0.1 - - [24/Apr/2024 17:51:35] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
