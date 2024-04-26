@@ -2474,3 +2474,189 @@ result = {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Gra
 2024-04-24 17:51:35 [INFO] 127.0.0.1 - - [24/Apr/2024 17:51:35] "POST /send_message HTTP/1.1" 200 -
 2024-04-24 17:51:35 [INFO] 127.0.0.1 - - [24/Apr/2024 17:51:35] "GET /static/images/e71fc988-2c7a-43ae-a3dd-a560a075894f.png HTTP/1.1" 200 -
 2024-04-24 17:51:35 [INFO] 127.0.0.1 - - [24/Apr/2024 17:51:35] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-24 20:11:39 [INFO] Question: What is the average price of Bakery & Desserts
+2024-04-24 20:11:40 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-24 20:11:40 [INFO] Prompt ID: 8afdaad7-3317-4bd5-ba45-fac81cb3535d
+2024-04-24 20:11:40 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-24 20:11:40 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-24 20:11:40 [INFO] Executing Step 1: CacheLookup
+2024-04-24 20:11:40 [INFO] Executing Step 2: PromptGeneration
+2024-04-24 20:11:43 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Kirkland Signature Grocery,$32.99through-$83.99,After $2.20 OFF,,"Oberto Thin Style Beef Jerky, Original, 1.2 oz, 8-count",$,Pick Your Arrival Date at Checkout   Gift Messaging Available at Checkout   Clear Glass Vase Included   Last Day to Order 02/09/2024   Warning: Not for Human or Animal Consumption,
+Bakery & Desserts,$12.49 ,After $30 OFF,Rated 4.5 out of 5 stars based on 1087 reviews.,"V8 Splash, Variety Pack, 16 fl oz, 12-Count",,,"Outrageous Original bubble-gum flavor with that beloved bubble-gum taste. The perfect gum for challenging friends to bubble-blowing contests. The bubble gum for blowing wildly big bubbles. Individually wrapped, soft, chewy bubble gum.18-count5 pieces per pack90 pieces totalBubble Gum"
+Gift Baskets,,After $40 - $70 OFF,Rated 3.5 out of 5 stars based on 109 reviews.,"Airheads Xtremes Sweetly Sour Belts, Rainbow Berry, 2 oz, 18-count",$,10 Pyramid Tea Infusers   15 Single Tea Steeps   One Lotus Kati Cup   USDA Organic,"46 oz. Total net weight15-Flavor Blasted Extra Cheddar, 0.9 oz15-Baked Cheddar Colors, 0.9 oz10-Pretzel, 1.3 oz5-Vanilla cupcake, 1.2 oz"
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ What is the average price of Bakery & Desserts
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-04-24 20:11:43 [INFO] Executing Step 3: CodeGenerator
+2024-04-24 20:11:49 [INFO] Prompt used:
+            None
+            
+2024-04-24 20:11:49 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Extracting the Bakery & Desserts data
+bakery_df = dfs[0][dfs[0]['Sub Category'] == 'Bakery & Desserts']
+
+# Cleaning the Price column to convert to numeric values
+bakery_df['Price'] = bakery_df['Price'].str.replace('$', '').str.replace(',', '').astype(float)
+
+# Calculating the average price of Bakery & Desserts
+average_price = bakery_df['Price'].mean()
+
+# Storing the result
+result = {"type": "string", "value": f"The average price of Bakery & Desserts is ${average_price:.2f}"}
+            ```
+            
+2024-04-24 20:11:49 [INFO] Executing Step 4: CachePopulation
+2024-04-24 20:11:49 [INFO] Executing Step 5: CodeCleaning
+2024-04-24 20:11:49 [INFO] 
+Code running:
+```
+bakery_df = dfs[0][dfs[0]['Sub Category'] == 'Bakery & Desserts']
+bakery_df['Price'] = bakery_df['Price'].str.replace('$', '').str.replace(',', '').astype(float)
+average_price = bakery_df['Price'].mean()
+result = {'type': 'string', 'value': f'The average price of Bakery & Desserts is ${average_price:.2f}'}
+        ```
+2024-04-24 20:11:49 [INFO] Executing Step 6: CodeExecution
+2024-04-24 20:11:49 [INFO] Executing Step 7: ResultValidation
+2024-04-24 20:11:49 [INFO] Answer: {'type': 'string', 'value': 'The average price of Bakery & Desserts is $83.41'}
+2024-04-24 20:11:49 [INFO] Executing Step 8: ResultParsing
+2024-04-24 20:11:50 [INFO] 127.0.0.1 - - [24/Apr/2024 20:11:50] "POST /send_message HTTP/1.1" 200 -
+2024-04-24 20:11:50 [INFO] 127.0.0.1 - - [24/Apr/2024 20:11:50] "[36mGET /static/images/bot_icon.png HTTP/1.1[0m" 304 -
+2024-04-24 20:12:02 [INFO] Question: Create a bar graph of total sales from each sub-category
+2024-04-24 20:12:02 [INFO] Running PandasAI with bamboo_llm LLM...
+2024-04-24 20:12:02 [INFO] Prompt ID: ac1cc62f-40cc-4953-b758-7ab4aa78abd6
+2024-04-24 20:12:02 [INFO] Executing Pipeline: GenerateChatPipeline
+2024-04-24 20:12:02 [INFO] Executing Step 0: ValidatePipelineInput
+2024-04-24 20:12:02 [INFO] Executing Step 1: CacheLookup
+2024-04-24 20:12:02 [INFO] Executing Step 2: PromptGeneration
+2024-04-24 20:12:05 [INFO] Using prompt: <dataframe>
+dfs[0]:1757x8
+Sub Category,Price,Discount,Rating,Title,Currency,Feature,Product Description
+Laundry Detergent & Supplies,$48.99 ,Costco Members Receive an Additional $5 OFF Caramel Peanut Protein Bars with FitCrunch through Costco Next,Rated 4.3 out of 5 stars based on 271 reviews.,"Origin 846 Unfiltered Organic Extra Virgin Olive Oil 28.6 oz, 3-pack",,"9 Oz. Pack, 6 Packs Total, 3.44 Lbs. Total   Lobster with Shell Removed with Flavored Butter Coins in Each Pack   Cook in Pack, Ready in Under 20 Minutes   Ships Uncooked & Frozen",
+Breakfast,$139.99 ,After $40 OFF,Rated 4.6 out of 5 stars based on 1715 reviews.,"Califia Farms, Cafe Almond Milk, 32 oz, 6-Count",$,,"Kirkland Signature Super Premium Puppy Chicken, Rice & Vegetable Formula is designed for the special nutritional needs of puppies. This formula is enhanced with probiotics for optimal digestive health and contains the right amount of protein, fat and other essential nutrients – plus the added health benefits of DHA, omega fatty acids and fresh chicken – all designed to help your puppy reach its full potential.Ideal Protein Sources: This formula is made with fresh chicken as the number one ingredient. Chicken and egg proteins are highly digestible and ideal for your puppy.Docosahexaenoic Acid (DHA): Added salmon oil supplies DHA, an omega-3 fatty acid that supports proper brain and eye development.Antioxidants: Guaranteed levels of vitamin E and selenium work together to support your puppy's healthy lifestyle.Small Kibble: Growing puppies benefit from small kibble that is easier to pick up and chew.Probiotics and natural prebiotic fiber from dried chicory root help maintain the proper balance of beneficial bacteria in your dog’s intestines. Active9™ Probiotics are developed from probiotic strains naturally found in the canine GI tract and processed under Strict quality and safety standards to ensure purity. Each cup of food provides live, active cultures that help support healthy digestion and help your puppy maintain an active lifestyle.Ingredients: Chicken, chicken meal, whole grain brown rice, cracked pearled barley, egg product, chicken fat (preserved with mixed tocopherols), dried beet pulp, potatoes, fish meal, flaxseed, natural flavor, brewers dried yeast, salmon oil (a source of DHA), millet, potassium chloride, salt, choline chloride, carrots, peas, dried kelp, apples, cranberries, rosemary extract, parsley flake, dried chicory root, dried Lactobacillus acidophilus fermentation product, dried Bifidobacterium animalis fermentation product, dried Lactobacillus reuteri fermentation product, vitamin E supplement, iron proteinate, zinc proteinate, copper proteinate, ferrous sulfate, zinc sulfate, copper sulfate, potassium iodide, thiamine mononitrate, manganese proteinate, manganous oxide, ascorbic acid, vitamin A supplement, biotin, niacin, calcium pantothenate, manganese sulfate, sodium selenite, pyridoxine hydrochloride (vitamin B6), vitamin B12 supplement, riboflavin, vitamin D supplement, folic acid.*This food is made in a facility that uses ingredients that may not be included in this recipe, so trace amounts of other ingredients, including potential allergens, may be presentGuaranteed AnalysisCrude Protein 28% MinimumCrude Fat 17% MinimumCrude Fiber 3% MaximumMoisture 10% MaximumDocosahexaenoic Acid (DHA) 0.05% MinimumCalcium 1.2% MinimumPhosphorus 1.0% MinimumZinc 225 mg/kg MinimumSelenium 0.35 mg/kg MinimumVitamin E 250 IU/kg MinimumOmega-6 Fatty Acids* 3.0% MinimumOmega-3 Fatty Acids* 0.5% MinimumTotal Microorganisms* Not Less Than 1,000,000 CFU/lb(Lactobacillus acidophilus, Bifidobacterium animalis, Lactobacillus reuteri)*Not recognized as an essential nutrient by the AAFCO Dog Food Nutrient Profiles.Calorie Content3,761 kcals/kg (390 kcals/cup) Calculated Metabolizable EnergyRemember to keep fresh water available to your pet at all times. Type of Pet Food: Puppies and Pregnant or Nursing Mothers"
+Candy,,After $2.50 OFF,,"Kirkland Signature Funhouse Treats, Variety Pack, 92 oz",$,"Harvest All-Purpose Flour   Enriched, Bleached   Kosher   For Hotel and Restaurant   Net Weight 25 lb Bag","Step into the world of regal indulgence with our Royal Comice Pears, a true testament to the artistry of nature and the expertise of growers. Originating in the heart of France in the mid-1800’s the ""Doyenne du Comice"" or simply Comice, have found their perfect home in the volcanic soils of the Hood River Valley, enriching their flavor and texture to unparalleled heights.   Comice pears, also known as the ""Royalty of Pears,"" are celebrated for their buttery texture and luscious sweetness. Sourced from our orchards, our Comice pears are handpicked at the peak of ripeness, ensuring every bite is a blissful experience.   Order your Royal Comice Pears today and treat yourself, your loved ones, friends, or colleagues to the grandeur of gourmet indulgence. With each bite, experience the legacy of centuries and the majesty of nature, all wrapped in the perfection of a Comice pear.   Includes:   15 Comice Pears"
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+
+
+
+
+### QUERY
+ Create a bar graph of total sales from each sub-category
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2024-04-24 20:12:05 [INFO] Executing Step 3: CodeGenerator
+2024-04-24 20:12:12 [INFO] Prompt used:
+            None
+            
+2024-04-24 20:12:12 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Extracting the necessary data from the dataframe
+sub_categories = [df['Sub Category'].iloc[0] for df in dfs]
+total_sales = [float(df['Price'].iloc[0].replace('$', '').replace(',', '').strip()) for df in dfs]
+
+# Creating a bar graph
+plt.figure(figsize=(10, 6))
+plt.bar(sub_categories, total_sales, color='skyblue')
+plt.xlabel('Sub Category')
+plt.ylabel('Total Sales ($)')
+plt.title('Total Sales from Each Sub-Category')
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+# Save the plot as a PNG file
+plt.savefig('total_sales_subcategory.png')
+
+# Declare result variable as the plot image file
+result = {"type": "plot", "value": "total_sales_subcategory.png"}
+            ```
+            
+2024-04-24 20:12:12 [INFO] Executing Step 4: CachePopulation
+2024-04-24 20:12:12 [INFO] Executing Step 5: CodeCleaning
+2024-04-24 20:12:12 [INFO] Saving charts to C:\Users\dell\Documents\Projects\Current\Graph_RAG_Flask\static\images\ac1cc62f-40cc-4953-b758-7ab4aa78abd6.png
+2024-04-24 20:12:12 [INFO] 
+Code running:
+```
+sub_categories = [df['Sub Category'].iloc[0] for df in dfs]
+total_sales = [float(df['Price'].iloc[0].replace('$', '').replace(',', '').strip()) for df in dfs]
+plt.figure(figsize=(10, 6))
+plt.bar(sub_categories, total_sales, color='skyblue')
+plt.xlabel('Sub Category')
+plt.ylabel('Total Sales ($)')
+plt.title('Total Sales from Each Sub-Category')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig('C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/static/images/ac1cc62f-40cc-4953-b758-7ab4aa78abd6.png')
+result = {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/static/images/ac1cc62f-40cc-4953-b758-7ab4aa78abd6.png'}
+        ```
+2024-04-24 20:12:12 [INFO] Executing Step 6: CodeExecution
+2024-04-24 20:12:13 [INFO] Executing Step 7: ResultValidation
+2024-04-24 20:12:13 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/dell/Documents/Projects/Current/Graph_RAG_Flask/static/images/ac1cc62f-40cc-4953-b758-7ab4aa78abd6.png'}
+2024-04-24 20:12:13 [INFO] Executing Step 8: ResultParsing
+2024-04-24 20:12:15 [INFO] 127.0.0.1 - - [24/Apr/2024 20:12:15] "POST /send_message HTTP/1.1" 200 -
+2024-04-24 20:12:15 [INFO] 127.0.0.1 - - [24/Apr/2024 20:12:15] "GET /static/images/ac1cc62f-40cc-4953-b758-7ab4aa78abd6.png HTTP/1.1" 200 -
