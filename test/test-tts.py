@@ -1,9 +1,10 @@
 import requests
+import re
 
 url = "https://api.play.ht/api/v2/tts"
 
 payload = {
-    "text": "The data required to plot isn't enough, could you please specify with more key points that i could use to plot such a graph?",
+    "text": "The data required to plot isn't enough, could you please specify with more key points that I could use to plot such a graph?",
     "voice": "s3://voice-cloning-zero-shot/d9ff78ba-d016-47f6-b0ef-dd630f59414e/female-cs/manifest.json",
     "output_format": "mp3",
     "voice_engine": "PlayHT2.0",
@@ -25,4 +26,19 @@ headers = {
 
 response = requests.post(url, json=payload, headers=headers)
 
-print(response.text)
+if response.status_code == 200:
+    # Extracting audio URL from the response content
+    audio_url_match = re.search(r"url\":\"(.*?)\"", response.text)
+    if audio_url_match:
+        audio_url = audio_url_match.group(1).replace("\\", "")
+        audio_response = requests.get(audio_url)
+        if audio_response.status_code == 200:
+            with open("audio.mp3", "wb") as f:
+                f.write(audio_response.content)
+            print("Audio file downloaded successfully as audio.mp3")
+        else:
+            print("Failed to download audio file")
+    else:
+        print("No audio URL found in the response")
+else:
+    print("Failed to get audio URL")
