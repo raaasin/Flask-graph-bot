@@ -33,7 +33,7 @@ if response.status_code == 200:
         audio_url = audio_url_match.group(1).replace("\\", "")
         audio_response = requests.get(audio_url)
         if audio_response.status_code == 200:
-            with open("audio.mp3", "wb") as f:
+            with open("static/audio.mp3", "wb") as f:
                 f.write(audio_response.content)
             print("Audio file downloaded successfully as audio.mp3")
         else:

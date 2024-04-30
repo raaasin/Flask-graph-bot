@@ -141,117 +141,224 @@
     </div>
 
     <script>
-function sendMessage() {
-    var userMessageInput = document.getElementById('userMessage');
-    var sendButton = document.getElementById('sendButton');
+    const recordButton = document.getElementById('recordButton');
+    const transcriptionInput = document.getElementById('userMessage');
+    const sendButton = document.getElementById('sendButton');
 
-    var userMessage = userMessageInput.value.trim();
-    if (userMessage === '') return; // Do not send if message is empty
+    let mediaRecorder;
+    let chunks = [];
+    let isRecording = false;
+    let usedaudio=0;
 
-    userMessageInput.value = '';
-    userMessageInput.placeholder = 'Please wait...'; // Change placeholder text
-    userMessageInput.disabled = true; // Disable input field
-    sendButton.disabled = true; // Disable send button
-
-    appendMessage(userMessage, 'user-message');
-    
-    // Send message to server
-    fetch('/send_message', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: 'user_message=' + encodeURIComponent(userMessage)
-    })
-    .then(response => response.text())
-    .then(data => {
-        // Check if the response data contains a PNG file path
-            if (data.includes('static/images/')) {
-        var imagePath = data.substring(data.indexOf('static/images/')); // Extract relative path
-        var imgElement = document.createElement('img');
-        imgElement.src = imagePath;
-        imgElement.classList.add('chart-image');
-        appendMessage(imgElement, 'bot-message');
-    } else {
-        appendMessage(data, 'bot-message');
-    }
-
-        // Restore placeholder text and enable input field after a short delay
-        setTimeout(function() {
-            userMessageInput.placeholder = 'Message Graphbot...';
-            userMessageInput.disabled = false; // Enable input field
-            sendButton.disabled = false; // Enable send button
-        }, 1000); // 1000 milliseconds delay
+    recordButton.addEventListener('click', () => {
+        if (!isRecording) {
+            startRecording();
+        } else {
+            stopRecording();
+        }
     });
-}
 
-
-function appendMessage(message, messageType) {
-    var chatContainer = document.getElementById('chat-container');
-    var messageDiv = document.createElement('div');
-    messageDiv.classList.add('message');
-    messageDiv.classList.add(messageType);
-
-    var messageContent;
-
-    if (typeof message === 'string') {
-        messageContent = document.createElement('div');
-        messageContent.classList.add('message-text');
-        messageContent.innerText = message;
-    } else {
-        messageContent = message; // If message is not a string (e.g., image element), use it directly
-    }
-
-    var icon = document.createElement('img');
-    icon.classList.add('icon');
-
-    if (messageType === 'user-message') {
-        icon.src = '/static/images/human_icon.png';
-        icon.alt = 'Human Icon';
-        messageDiv.appendChild(icon);
-
-        var name = document.createElement('div');
-        name.innerText = 'You:';
-        messageDiv.appendChild(name);
-    } else {
-        icon.src = '/static/images/bot_icon.png';
-        icon.alt = 'Bot Icon';
-        messageDiv.appendChild(icon);
-
-        var name = document.createElement('div');
-        name.innerText = 'Bot:';
-        messageDiv.appendChild(name);
-    }
-
-    messageDiv.appendChild(messageContent);
-
-    chatContainer.appendChild(messageDiv);
-
-    // Scroll to the bottom of the chat container
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-}
-
-
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault(); // Prevent form submission
-                sendMessage();
-            }
+    function startRecording() {
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    mediaRecorder = new MediaRecorder(stream);
+                    mediaRecorder.ondataavailable = e => {
+                        chunks.push(e.data);
+                    };
+                    mediaRecorder.onstop = () => {
+                        const audioBlob = new Blob(chunks, { type: 'audio/mp3' });
+                        const reader = new FileReader();
+                        reader.onload = () => {
+                            sendAudio(reader.result);
+                        };
+                        reader.readAsDataURL(audioBlob);
+                        chunks = [];
+                    };
+                    mediaRecorder.start();
+                    isRecording = true;
+                    updateButtonUI('🔴 Recording...');
+                    logMessage('Recording started');
+                })
+                .catch(err => {
+                    console.error('Error accessing microphone:', err);
+                    isRecording = false;
+                });
+        } else {
+            console.error('getUserMedia is not supported in this browser');
+            isRecording = false;
         }
+    }
 
-        function validateInput() {
-            var userMessage = document.getElementById('userMessage').value.trim();
-            var sendButton = document.getElementById('sendButton');
+    function stopRecording() {
+        mediaRecorder.stop();
+        updateButtonUI('⚪ Processing...');
+        recordButton.disabled = true;
+        logMessage('Recording stopped');
+    }
 
-            if (userMessage.length > 0) {
-                sendButton.classList.remove('disabled');
-                sendButton.removeAttribute('disabled');
+    function sendAudio(audioData) {
+        fetch('/transcribe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `audio_data=${encodeURIComponent(audioData)}`
+        })
+        .then(response => response.text())
+        .then(transcription => {
+            transcriptionInput.value = transcription;
+            isRecording = false;
+            recordButton.disabled = false;
+            updateButtonUI('🎙️ Start Recording');
+            logMessage('Audio sent and transcription received');
+        })
+        .catch(error => {
+            console.error('Error transcribing audio:', error);
+            isRecording = false;
+            recordButton.disabled = false;
+            updateButtonUI('🎙️ Start Recording');
+        });
+    }
+
+    function playTTS() {
+        const audio = new Audio("/static/audio.mp3");
+        audio.play();
+        logMessage('TTS audio played');
+    }
+
+    function updateButtonUI(text) {
+        recordButton.innerText = text;
+        sendButton.disabled = false;
+        recordButton.disabled = false;
+        usedaudio=1;
+    }
+
+    function sendMessage() {
+        var userMessageInput = document.getElementById('userMessage');
+        var sendButton = document.getElementById('sendButton');
+
+        var userMessage = userMessageInput.value.trim();
+        if (userMessage === '') return; // Do not send if message is empty
+
+        userMessageInput.value = '';
+        userMessageInput.placeholder = 'Please wait...'; // Change placeholder text
+        userMessageInput.disabled = true; // Disable input field
+        sendButton.disabled = true; // Disable send button
+
+        appendMessage(userMessage, 'user-message');
+        logMessage('User message sent: ' + userMessage);
+
+        fetch('/send_message', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'user_message=' + encodeURIComponent(userMessage)
+        })
+        .then(response => response.text())
+        .then(data => {
+            if (data.includes('static/images/')) {
+                var imagePath = data.substring(data.indexOf('static/images/')); // Extract relative path
+                var imgElement = document.createElement('img');
+                imgElement.src = imagePath;
+                imgElement.classList.add('chart-image');
+                appendMessage(imgElement, 'bot-message');
             } else {
-                sendButton.classList.add('disabled');
-                sendButton.setAttribute('disabled', 'disabled');
+                if (usedaudio === 1) {
+                    fetch('/tts', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: 'user_message=' + encodeURIComponent(data)
+                    })
+                    .then(() => {
+                        const audio = new Audio("/static/audio.mp3");
+                        audio.play();
+                        logMessage('TTS audio played');
+                        usedaudio = 0;
+                    });
+                }
+                appendMessage(data, 'bot-message');
+                logMessage('Bot response received: ' + data);
             }
+
+            setTimeout(function() {
+                userMessageInput.placeholder = 'Message Graphbot...';
+                userMessageInput.disabled = false; // Enable input field
+                sendButton.disabled = false; // Enable send button
+            }, 1000); // 1000 milliseconds delay
+        });
+    }
+
+    function appendMessage(message, messageType) {
+        var chatContainer = document.getElementById('chat-container');
+        var messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(messageType);
+
+        var messageContent;
+
+        if (typeof message === 'string') {
+            messageContent = document.createElement('div');
+            messageContent.classList.add('message-text');
+            messageContent.innerText = message;
+        } else {
+            messageContent = message; // If message is not a string (e.g., image element), use it directly
         }
+
+        var icon = document.createElement('img');
+        icon.classList.add('icon');
+
+        if (messageType === 'user-message') {
+            icon.src = '/static/images/human_icon.png';
+            icon.alt = 'Human Icon';
+            messageDiv.appendChild(icon);
+
+            var name = document.createElement('div');
+            name.innerText = 'You:';
+            messageDiv.appendChild(name);
+        } else {
+            icon.src = '/static/images/bot_icon.png';
+            icon.alt = 'Bot Icon';
+            messageDiv.appendChild(icon);
+
+            var name = document.createElement('div');
+            name.innerText = 'Bot:';
+            messageDiv.appendChild(name);
+        }
+
+        messageDiv.appendChild(messageContent);
+
+        chatContainer.appendChild(messageDiv);
+
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent form submission
+            sendMessage();
+        }
+    }
+
+    function validateInput() {
+        var userMessage = document.getElementById('userMessage').value.trim();
+        var sendButton = document.getElementById('sendButton');
+
+        if (userMessage.length > 0) {
+            sendButton.classList.remove('disabled');
+            sendButton.removeAttribute('disabled');
+        } else {
+            sendButton.classList.add('disabled');
+            sendButton.setAttribute('disabled', 'disabled');
+        }
+    }
+
+    function logMessage(message) {
+        console.log(message);
+    }
     </script>
-    <script src="../static/script.js"></script>
 </body>
 </html>
