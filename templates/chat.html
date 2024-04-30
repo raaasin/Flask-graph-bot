@@ -264,6 +264,38 @@
                 imgElement.src = imagePath;
                 imgElement.classList.add('chart-image');
                 appendMessage(imgElement, 'bot-message');
+
+                fetch('/describe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'user_message=' + encodeURIComponent(userMessage)
+            })
+            .then(response => response.text())
+            .then(data => {
+                if (usedaudio === 1) {
+                    fetch('/tts', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: 'user_message=' + encodeURIComponent(data)
+                    })
+                    .then(() => {
+                        const audio = new Audio("/static/audio.mp3");
+                        audio.play();
+                        logMessage('TTS audio played');
+                        usedaudio = 0;
+                    });
+                }
+                appendMessage(data, 'bot-message');
+                logMessage('Bot response received: ' + data);
+            });
+
+
+
+                
             } else {
                 if (usedaudio === 1) {
                     fetch('/tts', {
