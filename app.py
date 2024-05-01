@@ -80,7 +80,7 @@ def describe():
     except ValueError:
         user_defined_path = os.getcwd()
     user_message = request.form['user_message']
-    user_message = "Do not give chart, just explain what is happening in that chart or some insightful information from that chart" + user_message
+    user_message = "Do not give chart, just give text, descrive about" + user_message
     agent = Agent(pd.read_csv("uploads/data.csv"),config={
         "save_charts_path": user_defined_path,
         "verbose": True,
