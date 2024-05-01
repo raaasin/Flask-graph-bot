@@ -78,7 +78,7 @@ def send_message():
         "save_charts": True,
         "save_charts_path": user_defined_path,
         "verbose": True,
-        "max_retries":5,  
+        "max_retries":2,  
         "enable_cache": False  
     })
     response=agent.chat(str(user_message))
@@ -87,22 +87,23 @@ def send_message():
         return "Hmm.. I'm facing some errors, can you refresh and try again later?"
     return response
 
+    
 @app.route('/describe',methods=['POST'])
 def describe():
-    try:
-        user_defined_path = path.find_project_root()
-    except ValueError:
-        user_defined_path = os.getcwd()
     user_message = request.form['user_message']
-    user_message =  user_message + ", Do not generate a chart just analyze the data and return the a long story in value of result variable"
+    print(user_message)
+    user_message =  user_message + ", Do not actually plot,Explain the graph in detail without plotting but use the actual data"
+    print("-----------------------------------------modified-----------------------------------------")
+    print(user_message)
     agent = Agent(pd.read_csv("uploads/data.csv"),config={
         "open_charts": False,
         "verbose": True,
         "enable_cache": False,
-        "max_retries":5  
+        "max_retries":2
         
     })
     response=agent.chat(str(user_message))
+
     print(response)
     if "error" in response:
         return "I'm not able to describe the chart, it's out of my comprehension"
