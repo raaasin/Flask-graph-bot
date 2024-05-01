@@ -10,6 +10,7 @@ import assemblyai as aai
 from dotenv import load_dotenv
 import requests
 import re
+import os
 
 load_dotenv()
 app = Flask(__name__)
@@ -62,15 +63,28 @@ def send_message():
     except ValueError:
         user_defined_path = os.getcwd()
     user_defined_path = os.path.join(user_defined_path, "static", "images")
-    user_message = request.form['user_message']
+    # Get the path to the static/images folder
+    image_folder = user_defined_path
+    files = os.listdir(image_folder)
+    for file in files:
+        if file != 'bot_icon.png' and file != 'human_icon.png':
+            file_path = os.path.join(image_folder, file)
+            os.remove(file_path)
+
+    user_message = request.form['user_message'] + ", incase a chart is asked Save the chart directly, no need to plt.show() just save"
     print(user_message)
     agent = Agent(pd.read_csv("uploads/data.csv"),config={
-        "save_charts_path": user_defined_path,
+        "open_charts": False,
         "save_charts": True,
+        "save_charts_path": user_defined_path,
         "verbose": True,
+        "max_retries":5,  
+        "enable_cache": False  
     })
     response=agent.chat(str(user_message))
     print(response)
+    if "error" in response:
+        return "Hmm.. I'm facing some errors, can you refresh and try again later?"
     return response
 
 @app.route('/describe',methods=['POST'])
@@ -80,13 +94,18 @@ def describe():
     except ValueError:
         user_defined_path = os.getcwd()
     user_message = request.form['user_message']
-    user_message = "Do not give chart, just give text, descrive about" + user_message
+    user_message =  user_message + ", Do not generate a chart just analyze the data and return the a long story in value of result variable"
     agent = Agent(pd.read_csv("uploads/data.csv"),config={
-        "save_charts_path": user_defined_path,
+        "open_charts": False,
         "verbose": True,
+        "enable_cache": False,
+        "max_retries":5  
+        
     })
     response=agent.chat(str(user_message))
     print(response)
+    if "error" in response:
+        return "I'm not able to describe the chart, it's out of my comprehension"
     return response
 @app.route('/transcribe', methods=['POST'])
 def transcribe_audio():
